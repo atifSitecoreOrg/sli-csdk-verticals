@@ -27,10 +27,6 @@ Forma Lux is a demo website created to showcase a modern shopping experience. It
    - NEXT_PUBLIC_DEFAULT_SITE_NAME
    - NEXT_PUBLIC_SITECORE_EDGE_CONTEXT_ID
    - SITECORE_EDITING_SECRET
-   - NEXT_PUBLIC_SEARCH_ENV
-   - NEXT_PUBLIC_SEARCH_CUSTOMER_KEY
-   - NEXT_PUBLIC_SEARCH_API_KEY
-   - NEXT_PUBLIC_SEARCH_SOURCE
    - NEXT_PUBLIC_BASE_URL
 6. Install dependencies:
    from `industry-verticals\retail` run `npm install`
@@ -49,8 +45,7 @@ If you have not enabled the split deployment feature your editing hosts are auto
 4. Switch to tab "Editing Hosts"
 5. Click "Add editing host"
 6. Provide Editing host name `nextjsstarter` as per xmcloud.build.json
-7. Include search related environment variables
-8. Check if the link to authoring environment is set correctly (should be by default)
+7. Check if the link to authoring environment is set correctly (should be by default)
 9. Check if the source code provider is set correctly (should be by default)
 10. Check if the GitHub Account is set correctly (should be by default)
 11. Check if repository is set correctly (should be by default)
@@ -63,24 +58,11 @@ Additional Info: You do not have to create rendering host items in XM Cloud as t
 
 [Documentation](https://doc.sitecore.com/xmc/en/developers/content-sdk/sitecore-content-sdk-for-xm-cloud.html)
 
-## Sitecore Search Configuration
+## SitecoreAI Search Experience
 
-There are two options for you can try for search configuration:
-1. Use the existing forma-lux search source
-2. Create a new source in the CEC portal and link it to your application
+These sites use the native SitecoreAI Search Experience component from the starter kit (`src/components/search-experience`). Configure a search source in SitecoreAI, then assign it on a Search Experience datasource through the Search Configuration Manager.
 
-### Use existing forma-lux search source
-Set the envs as follows
-```bash
-   - NEXT_PUBLIC_SEARCH_ENV=prod
-   - NEXT_PUBLIC_SEARCH_CUSTOMER_KEY=<Can be taken from cec portal>
-   - NEXT_PUBLIC_SEARCH_API_KEY=<Can be taken from cec portal>
-   - NEXT_PUBLIC_SEARCH_SOURCE=1193018
-   - NEXT_PUBLIC_BASE_URL=<Hosted Domain URL>
-```
-
-### Create new source in CEC portal and link to your application
-https://sitecore.atlassian.net/wiki/x/ZwAengE
+See [Copy the search component from the starter kit](https://doc.sitecore.com/sai/en/developers/sitecoreai/bring-your-own-components/copy-the-search-component-from-the-starter-kit.html).
 
 ### Localization Support
 

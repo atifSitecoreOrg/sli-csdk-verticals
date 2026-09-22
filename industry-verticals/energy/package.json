@@ -34,8 +34,6 @@
     "@sitecore-content-sdk/nextjs": "2.3.0",
     "@sitecore-content-sdk/personalize": "^2.1.0",
     "@sitecore-feaas/clientside": "^0.6.0",
-    "@sitecore-search/react": "^3.0.0",
-    "@sitecore-search/ui": "^3.0.0",
     "@sitecore/components": "~2.1.0",
     "@tailwindcss/postcss": "^4.1.11",
     "class-variance-authority": "^0.7.1",
