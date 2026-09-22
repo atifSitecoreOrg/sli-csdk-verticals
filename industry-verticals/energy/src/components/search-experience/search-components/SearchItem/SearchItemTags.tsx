@@ -11,10 +11,10 @@ type SearchItemTagsProps = {
 export const SearchItemTags = ({ className, tags, ...props }: SearchItemTagsProps) => {
   return (
     tags && (
-      <div className={cn('flex flex-wrap gap-2 mb-4', className)} {...props}>
+      <div className={cn('mb-4 flex flex-wrap gap-2', className)} {...props}>
         {Array.isArray(tags.value) ? (
           tags.value.map((tag, index) => (
-            <span key={index} className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">
+            <span key={index} className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700">
               {tag}
             </span>
           ))
@@ -22,7 +22,7 @@ export const SearchItemTags = ({ className, tags, ...props }: SearchItemTagsProp
           <Text
             field={tags as TextField}
             tag="span"
-            className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded"
+            className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700"
           />
         )}
       </div>

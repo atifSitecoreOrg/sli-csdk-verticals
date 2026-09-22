@@ -11,7 +11,7 @@ type SearchItemSummaryProps = {
 export const SearchItemSummary = ({ className, summary, ...props }: SearchItemSummaryProps) => {
   return (
     summary && (
-      <p className={cn('text-gray-600 mb-4', className)} {...props}>
+      <p className={cn('mb-4 text-gray-600', className)} {...props}>
         <Text field={summary} />
       </p>
     )

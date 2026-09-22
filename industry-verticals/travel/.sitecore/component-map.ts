@@ -13,27 +13,35 @@ import * as SocialFollow from 'src/components/social-follow/SocialFollow';
 import * as SelectedDestinations from 'src/components/selected-destinations/SelectedDestinations';
 import * as SelectedArticles from 'src/components/selected-articles/SelectedArticles';
 import * as SectionWrapper from 'src/components/section-wrapper/SectionWrapper';
-import * as SearchResults from 'src/components/search-results/SearchResults';
+import * as SearchExperienceLoadMore from 'src/components/search-experience/SearchExperience.LoadMore';
+import * as SearchExperience from 'src/components/search-experience/SearchExperience';
+import * as UseTranslations from 'src/components/search-experience/search-components/useTranslations';
+import * as UseSearchField from 'src/components/search-experience/search-components/useSearchField';
+import * as UseRouter from 'src/components/search-experience/search-components/useRouter';
+import * as UseParams from 'src/components/search-experience/search-components/useParams';
+import * as UseEvent from 'src/components/search-experience/search-components/useEvent';
+import * as UseDebounce from 'src/components/search-experience/search-components/useDebounce';
+import * as Models from 'src/components/search-experience/search-components/models';
+import * as Constants from 'src/components/search-experience/search-components/constants';
+import * as SearchSkeletonItem from 'src/components/search-experience/search-components/SearchSkeletonItem';
+import * as SearchPagination from 'src/components/search-experience/search-components/SearchPagination';
+import * as SearchItemCommon from 'src/components/search-experience/search-components/SearchItemCommon';
+import * as SearchInput from 'src/components/search-experience/search-components/SearchInput';
+import * as SearchError from 'src/components/search-experience/search-components/SearchError';
+import * as SearchEmptyResults from 'src/components/search-experience/search-components/SearchEmptyResults';
+import * as Index from 'src/components/search-experience/search-components/SearchItem/index';
+import * as SearchItemTitle from 'src/components/search-experience/search-components/SearchItem/SearchItemTitle';
+import * as SearchItemTags from 'src/components/search-experience/search-components/SearchItem/SearchItemTags';
+import * as SearchItemSummary from 'src/components/search-experience/search-components/SearchItem/SearchItemSummary';
+import * as SearchItemSubTitle from 'src/components/search-experience/search-components/SearchItem/SearchItemSubTitle';
+import * as SearchItemLink from 'src/components/search-experience/search-components/SearchItem/SearchItemLink';
+import * as SearchItemImage from 'src/components/search-experience/search-components/SearchItem/SearchItemImage';
+import * as SearchItemCategory from 'src/components/search-experience/search-components/SearchItem/SearchItemCategory';
 import * as RowSplitter from 'src/components/row-splitter/RowSplitter';
 import * as RichText from 'src/components/rich-text/RichText';
 import * as Promo from 'src/components/promo/Promo';
 import * as PartialDesignDynamicPlaceholder from 'src/components/partial-design-dynamic-placeholder/PartialDesignDynamicPlaceholder';
 import * as PageContent from 'src/components/page-content/PageContent';
-import * as SuggestionBlock from 'src/components/non-sitecore/search/SuggestionBlock';
-import * as Spinner from 'src/components/non-sitecore/search/Spinner';
-import * as SortOrder from 'src/components/non-sitecore/search/SortOrder';
-import * as SearchResultsComponent from 'src/components/non-sitecore/search/SearchResultsComponent';
-import * as SearchPagination from 'src/components/non-sitecore/search/SearchPagination';
-import * as SearchFacets from 'src/components/non-sitecore/search/SearchFacets';
-import * as ResultsPerPage from 'src/components/non-sitecore/search/ResultsPerPage';
-import * as QuestionsAnswers from 'src/components/non-sitecore/search/QuestionsAnswers';
-import * as QueryResultsSummary from 'src/components/non-sitecore/search/QueryResultsSummary';
-import * as PreviewSearch from 'src/components/non-sitecore/search/PreviewSearch';
-import * as HomeHighlighted from 'src/components/non-sitecore/search/HomeHighlighted';
-import * as FilterDropdown from 'src/components/non-sitecore/search/FilterDropdown';
-import * as CardViewSwitcher from 'src/components/non-sitecore/search/CardViewSwitcher';
-import * as ArticleHorizontalCard from 'src/components/non-sitecore/search/ArticleHorizontalCard';
-import * as ArticleCard from 'src/components/non-sitecore/search/ArticleCard';
 import * as Navigation from 'src/components/navigation/Navigation';
 import * as LinkList from 'src/components/link-list/LinkList';
 import * as ItemFinder from 'src/components/item-finder/ItemFinder';
@@ -63,27 +71,34 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['SelectedDestinations', { ...SelectedDestinations, componentType: 'client' }],
   ['SelectedArticles', { ...SelectedArticles }],
   ['SectionWrapper', { ...SectionWrapper }],
-  ['SearchResults', { ...SearchResults }],
+  ['SearchExperience', { ...SearchExperienceLoadMore, ...SearchExperience, componentType: 'client' }],
+  ['useTranslations', { ...UseTranslations }],
+  ['useSearchField', { ...UseSearchField, componentType: 'client' }],
+  ['useRouter', { ...UseRouter, componentType: 'client' }],
+  ['useParams', { ...UseParams, componentType: 'client' }],
+  ['useEvent', { ...UseEvent, componentType: 'client' }],
+  ['useDebounce', { ...UseDebounce, componentType: 'client' }],
+  ['models', { ...Models }],
+  ['constants', { ...Constants }],
+  ['SearchSkeletonItem', { ...SearchSkeletonItem, componentType: 'client' }],
+  ['SearchPagination', { ...SearchPagination, componentType: 'client' }],
+  ['SearchItemCommon', { ...SearchItemCommon, componentType: 'client' }],
+  ['SearchInput', { ...SearchInput, componentType: 'client' }],
+  ['SearchError', { ...SearchError, componentType: 'client' }],
+  ['SearchEmptyResults', { ...SearchEmptyResults, componentType: 'client' }],
+  ['index', { ...Index, componentType: 'client' }],
+  ['SearchItemTitle', { ...SearchItemTitle, componentType: 'client' }],
+  ['SearchItemTags', { ...SearchItemTags, componentType: 'client' }],
+  ['SearchItemSummary', { ...SearchItemSummary, componentType: 'client' }],
+  ['SearchItemSubTitle', { ...SearchItemSubTitle, componentType: 'client' }],
+  ['SearchItemLink', { ...SearchItemLink, componentType: 'client' }],
+  ['SearchItemImage', { ...SearchItemImage, componentType: 'client' }],
+  ['SearchItemCategory', { ...SearchItemCategory, componentType: 'client' }],
   ['RowSplitter', { ...RowSplitter }],
   ['RichText', { ...RichText }],
   ['Promo', { ...Promo }],
   ['PartialDesignDynamicPlaceholder', { ...PartialDesignDynamicPlaceholder }],
   ['PageContent', { ...PageContent }],
-  ['SuggestionBlock', { ...SuggestionBlock }],
-  ['Spinner', { ...Spinner }],
-  ['SortOrder', { ...SortOrder }],
-  ['SearchResultsComponent', { ...SearchResultsComponent }],
-  ['SearchPagination', { ...SearchPagination }],
-  ['SearchFacets', { ...SearchFacets }],
-  ['ResultsPerPage', { ...ResultsPerPage }],
-  ['QuestionsAnswers', { ...QuestionsAnswers }],
-  ['QueryResultsSummary', { ...QueryResultsSummary }],
-  ['PreviewSearch', { ...PreviewSearch }],
-  ['HomeHighlighted', { ...HomeHighlighted }],
-  ['FilterDropdown', { ...FilterDropdown }],
-  ['CardViewSwitcher', { ...CardViewSwitcher }],
-  ['ArticleHorizontalCard', { ...ArticleHorizontalCard }],
-  ['ArticleCard', { ...ArticleCard }],
   ['Navigation', { ...Navigation, componentType: 'client' }],
   ['LinkList', { ...LinkList }],
   ['ItemFinder', { ...ItemFinder, componentType: 'client' }],

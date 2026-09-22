@@ -11,17 +11,17 @@ export const SearchInput = ({ value, onChange }: SearchInputProps) => {
   const t = useTranslations();
 
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6 mb-6">
+    <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
       <div className="relative flex-1">
         <input
           type="text"
           placeholder={t(DICTIONARY_KEYS.SEARCH_INPUT_PLACEHOLDER) || 'Search items...'}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
         <svg
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+          className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 transform text-gray-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -37,10 +37,10 @@ export const SearchInput = ({ value, onChange }: SearchInputProps) => {
           <button
             type="button"
             onClick={() => onChange('')}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 hover:text-gray-600 focus:outline-none focus:text-gray-600 transition-colors"
+            className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 transform text-gray-400 transition-colors hover:text-gray-600 focus:text-gray-600 focus:outline-none"
             aria-label="Clear search"
           >
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="h-full w-full">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

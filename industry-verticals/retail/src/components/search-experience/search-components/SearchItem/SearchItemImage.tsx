@@ -30,7 +30,7 @@ export const SearchItemImage = ({
   return (
     image && (
       <div
-        className={cn('bg-gray-900 relative', isCard ? 'w-full' : 'h-full', className)}
+        className={cn('relative bg-gray-900', isCard ? 'w-full' : 'h-full', className)}
         style={isCard ? { height } : { width }}
         {...props}
       >
@@ -44,7 +44,7 @@ export const SearchItemImage = ({
             className="object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gray-100">
+          <div className="flex h-full w-full items-center justify-center bg-gray-100">
             <FontAwesomeIcon icon={faImage} size="2xl" className="text-gray-300" />
           </div>
         )}

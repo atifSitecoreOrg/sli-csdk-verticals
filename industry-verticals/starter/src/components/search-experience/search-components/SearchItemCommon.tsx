@@ -10,12 +10,12 @@ export const ItemListFrame = ({ className, children, image, ...props }: ItemList
   return (
     <div
       className={cn(
-        'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer md:h-57',
+        'cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg md:h-57',
         className
       )}
       {...props}
     >
-      <div className="flex flex-col md:flex-row w-full h-full">
+      <div className="flex h-full w-full flex-col md:flex-row">
         {image}
         <div className="p-6 md:flex-1">{children}</div>
       </div>
@@ -29,7 +29,7 @@ export const ItemCardFrame = ({ className, children, image, ...props }: ItemCard
   return (
     <div
       className={cn(
-        'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer',
+        'cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg',
         className
       )}
       {...props}

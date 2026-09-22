@@ -13,7 +13,7 @@ export const SearchEmptyResults = ({
 
   return (
     <div className="mb-8">
-      <div className="bg-white border border-gray-200 rounded-lg p-12 text-center">
+      <div className="rounded-lg border border-gray-200 bg-white p-12 text-center">
         <svg
           className="mx-auto h-10 w-10 text-gray-400"
           fill="none"
@@ -37,7 +37,7 @@ export const SearchEmptyResults = ({
           <button
             onClick={onClearSearch}
             disabled={!query}
-            className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
+            className="bg-primary text-primary-foreground hover:bg-primary-hover rounded-md px-4 py-2 disabled:opacity-50"
           >
             {t(DICTIONARY_KEYS.CLEAR_SEARCH) || 'Clear search'}
           </button>

@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslations } from './search-components/useTranslations';
 import { useSearchParams } from 'next/navigation';
 import { useSitecore } from '@sitecore-content-sdk/nextjs';
@@ -27,9 +27,15 @@ export const LoadMore = (props: SearchExperienceProps) => {
   const searchParams = useSearchParams();
 
   const { isEditing, isPreview } = page.mode;
-  const [inputValue, setInputValue] = useState<string>((searchParams?.get('q') as string) || '');
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [searchEnabled, setSearchEnabled] = useState<boolean>(false);
+  const searchQuery = (searchParams?.get('q') as string) || '';
+  const searchEnabled = !isEditing && !isPreview;
+  const [inputValue, setInputValue] = useState<string>(searchQuery);
+  const previousSearchQuery = useRef(searchQuery);
+
+  if (previousSearchQuery.current !== searchQuery) {
+    previousSearchQuery.current = searchQuery;
+    setInputValue(searchQuery);
+  }
 
   const {
     total,
@@ -58,18 +64,6 @@ export const LoadMore = (props: SearchExperienceProps) => {
     }
   }, [isSuccess, sendEvent]);
 
-  useEffect(() => {
-    const routerQuery = (searchParams?.get('q') as string) || '';
-
-    setSearchQuery(routerQuery);
-  }, [searchParams]);
-
-  useEffect(() => {
-    if (isEditing || isPreview) return;
-
-    setSearchEnabled(true);
-  }, [isEditing, isPreview]);
-
   const onSearchChange = useCallback(
     (value: string, debounced: boolean = true) => {
       setInputValue(value);
@@ -85,14 +79,14 @@ export const LoadMore = (props: SearchExperienceProps) => {
     <div className={`component search-experience ${styles}`} id={id ? id : undefined}>
       <div className="component-content">
         <div
-          className={cn('max-w-7xl mx-auto p-6', {
+          className={cn('mx-auto max-w-7xl p-6', {
             'pt-24 lg:pt-32': !isEditing,
           })}
         >
           <div className="mb-8">
             <SearchInput value={inputValue} onChange={(value) => onSearchChange(value, true)} />
 
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               {total} {t(DICTIONARY_KEYS.RESULTS_FOUND) || 'results found'}
             </p>
           </div>
@@ -108,7 +102,7 @@ export const LoadMore = (props: SearchExperienceProps) => {
             />
           )}
 
-          <div className={cn('grid gap-6 mb-8', gridColsClass(Number(columns)))}>
+          <div className={cn('mb-8 grid gap-6', gridColsClass(Number(columns)))}>
             {!isLoading &&
               results.map((result) => (
                 <SearchItem
@@ -131,13 +125,13 @@ export const LoadMore = (props: SearchExperienceProps) => {
           </div>
 
           {hasNextPage && (
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
               <button
                 onClick={() => {
                   loadMore();
                 }}
                 disabled={isLoadingMore}
-                className="px-4 py-2 rounded-lg cursor-pointer bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
+                className="bg-primary text-primary-foreground hover:bg-primary-hover cursor-pointer rounded-lg px-4 py-2 disabled:opacity-50"
               >
                 {t(DICTIONARY_KEYS.LOAD_MORE) || 'Load more'}
               </button>

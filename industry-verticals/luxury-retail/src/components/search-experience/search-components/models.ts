@@ -10,7 +10,7 @@ export type SearchParams = ComponentParams & {
 
 export type SearchDocument = {
   sc_item_id: string;
-  [key: string]: string | string[] | number | undefined;
+  [key: string]: string | string[] | number | boolean;
 };
 
 /**
@@ -41,4 +41,4 @@ export interface SearchExperienceProps {
     };
   };
   rendering: ComponentRendering;
-};
+}

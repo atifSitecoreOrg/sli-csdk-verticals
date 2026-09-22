@@ -10,11 +10,11 @@ type SearchItemCategoryProps = {
 export const SearchItemCategory = ({ category, className, ...props }: SearchItemCategoryProps) => {
   return (
     category && (
-      <div className={cn('flex flex-wrap gap-2 mb-4', className)} {...props}>
+      <div className={cn('mb-4 flex flex-wrap gap-2', className)} {...props}>
         <Text
           field={category}
           tag="span"
-          className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded"
+          className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700"
         />
       </div>
     )

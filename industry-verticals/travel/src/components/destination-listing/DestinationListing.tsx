@@ -60,7 +60,10 @@ const toggleValue = (values: string[], value: string): string[] =>
 /**
  * Builds labeled filter options with occurrence counts.
  */
-const countBy = (items: DestinationSearchResult[], getValue: (item: DestinationSearchResult) => string | string[]) => {
+const countBy = (
+  items: DestinationSearchResult[],
+  getValue: (item: DestinationSearchResult) => string | string[]
+) => {
   const counts = new Map<string, number>();
 
   items.forEach((item) => {
@@ -97,9 +100,15 @@ export const Default = (props: DestinationListingProps) => {
   const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
-  const continentOptions = useMemo(() => countBy(destinations, (item) => item.continent), [destinations]);
+  const continentOptions = useMemo(
+    () => countBy(destinations, (item) => item.continent),
+    [destinations]
+  );
   const typeOptions = useMemo(() => countBy(destinations, (item) => item.label), [destinations]);
-  const activityOptions = useMemo(() => countBy(destinations, (item) => item.activities), [destinations]);
+  const activityOptions = useMemo(
+    () => countBy(destinations, (item) => item.activities),
+    [destinations]
+  );
 
   const filteredDestinations = useMemo(() => {
     const query = keyphrase.trim().toLowerCase();

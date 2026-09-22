@@ -12,7 +12,7 @@ export const SearchItemTitle = ({ className, text, ...props }: SearchItemTitlePr
   return (
     text && (
       <h3
-        className={cn('text-xl font-semibold text-gray-900 mb-3 line-clamp-2', className)}
+        className={cn('mb-3 line-clamp-2 text-xl font-semibold text-gray-900', className)}
         {...props}
       >
         <Text field={text} />

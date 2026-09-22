@@ -7,7 +7,7 @@ export const SearchError = ({ onTryAgain, error }: { onTryAgain: () => void; err
 
   return (
     <div className="mb-8">
-      <div className="bg-white border border-red-200 rounded-lg p-12 text-center">
+      <div className="rounded-lg border border-red-200 bg-white p-12 text-center">
         <svg
           className="mx-auto h-10 w-10 text-red-500"
           fill="none"
@@ -28,7 +28,7 @@ export const SearchError = ({ onTryAgain, error }: { onTryAgain: () => void; err
         <div className="mt-6">
           <button
             onClick={onTryAgain}
-            className="px-4 py-2 rounded-md bg-red-600 text-white cursor-pointer"
+            className="cursor-pointer rounded-md bg-red-600 px-4 py-2 text-white"
           >
             {t(DICTIONARY_KEYS.TRY_AGAIN) || 'Try again'}
           </button>

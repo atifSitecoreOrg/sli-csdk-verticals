@@ -9,7 +9,7 @@ import {
 
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
 import { Link, Text, useSitecore, RichText, withDatasourceCheck, Placeholder, NextImage, CdpHelper } from '@sitecore-content-sdk/nextjs';
-import { useMemo, useState, useId, useEffect } from 'react';
+import { useMemo, useCallback, useEffect, useState, useRef, useId } from 'react';
 import React from 'react';
 import { useTheme } from 'next-themes';
 import Head from 'next/head';
@@ -18,21 +18,44 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BlobAccent from 'src/assets/shapes/BlobAccent';
 import CurvedClip from 'src/assets/shapes/CurvedClip';
 import { CommonStyles, FeatureStyles } from '@/types/styleFlags';
+import { useTranslations } from 'src/components/search-experience/search-components/useTranslations';
+import { useSearchParams, useRouter as useRouter_38d453563358e259e30871f8ef5a0334c186c57e, usePathname } from 'next/navigation';
+import { useSearch, useInfiniteSearch } from '@sitecore-content-sdk/nextjs/search';
+import { cn } from 'lib/utils';
+import { SearchEmptyResults } from 'src/components/search-experience/search-components/SearchEmptyResults';
+import { SearchError } from 'src/components/search-experience/search-components/SearchError';
+import { SearchItem } from 'src/components/search-experience/search-components/SearchItem/index';
+import { SearchSkeletonItem } from 'src/components/search-experience/search-components/SearchSkeletonItem';
+import { SearchPagination } from 'src/components/search-experience/search-components/SearchPagination';
+import { SearchInput } from 'src/components/search-experience/search-components/SearchInput';
+import { useEvent } from 'src/components/search-experience/search-components/useEvent';
+import { useSearchField } from 'src/components/search-experience/search-components/useSearchField';
+import { useParams } from 'src/components/search-experience/search-components/useParams';
+import { DICTIONARY_KEYS, gridColsClass, DEFAULT_PAGE_SIZE, DEBOUNCE_TIME } from 'src/components/search-experience/search-components/constants';
+import { useRouter } from 'src/components/search-experience/search-components/useRouter';
+import { useI18n } from 'next-localization';
+import { useDebouncedCallback } from 'src/components/search-experience/search-components/useDebounce';
+import { event, pageView } from '@sitecore-content-sdk/events';
+import { ItemCardFrame, ItemListFrame } from 'src/components/search-experience/search-components/SearchItemCommon';
+import { SearchItemTitle } from 'src/components/search-experience/search-components/SearchItem/SearchItemTitle';
+import { SearchItemSummary } from 'src/components/search-experience/search-components/SearchItem/SearchItemSummary';
+import { SearchItemLink } from 'src/components/search-experience/search-components/SearchItem/SearchItemLink';
+import { SearchItemCategory } from 'src/components/search-experience/search-components/SearchItem/SearchItemCategory';
+import { SearchItemTags } from 'src/components/search-experience/search-components/SearchItem/SearchItemTags';
+import { SearchItemImage } from 'src/components/search-experience/search-components/SearchItem/SearchItemImage';
+import Image from 'next/image';
+import { faImage, faArrowRight, faBars, faChevronDown, faChevronUp, faTimes, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import BlobAccent_ff719d36323bb13e49440edf42521225aa8ecaa1 from '@/assets/shapes/BlobAccent';
-import { faArrowRight, faBars, faChevronDown, faChevronUp, faTimes, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import BlobAccent_c450f25c63b00a2e370305e155038c473dbb9c49 from 'src/components/non-sitecore/BlobAccent';
 import CurvedClip_6089ba18dc7000eae1dc64c54178a20f58206b41 from 'src/components/non-sitecore/CurvedClip';
 import { getLinkField, getNavigationText } from '@/helpers/navHelpers';
-import { useI18n } from 'next-localization';
 import HeroClip from '@/assets/shapes/HeroClip';
 import Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Keyboard, Navigation, Pagination } from 'swiper/modules';
 import client from 'lib/sitecore-client';
-import Image from 'next/image';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';
-import { pageView } from '@sitecore-content-sdk/events';
 import config from 'sitecore.config';
 import { extractMediaUrl } from '@/helpers/extractMediaUrl';
 
@@ -62,9 +85,11 @@ const importMap = [
     module: 'react',
     exports: [
       { name: 'useMemo', value: useMemo },
-      { name: 'useState', value: useState },
-      { name: 'useId', value: useId },
+      { name: 'useCallback', value: useCallback },
       { name: 'useEffect', value: useEffect },
+      { name: 'useState', value: useState },
+      { name: 'useRef', value: useRef },
+      { name: 'useId', value: useId },
       { name: 'default', value: React },
     ]
   },
@@ -114,14 +139,173 @@ const importMap = [
     ]
   },
   {
-    module: '@/assets/shapes/BlobAccent',
+    module: 'src/components/search-experience/search-components/useTranslations',
     exports: [
-      { name: 'default', value: BlobAccent_ff719d36323bb13e49440edf42521225aa8ecaa1 },
+      { name: 'useTranslations', value: useTranslations },
+    ]
+  },
+  {
+    module: 'next/navigation',
+    exports: [
+      { name: 'useSearchParams', value: useSearchParams },
+      { name: 'useRouter', value: useRouter_38d453563358e259e30871f8ef5a0334c186c57e },
+      { name: 'usePathname', value: usePathname },
+    ]
+  },
+  {
+    module: '@sitecore-content-sdk/nextjs/search',
+    exports: [
+      { name: 'useSearch', value: useSearch },
+      { name: 'useInfiniteSearch', value: useInfiniteSearch },
+    ]
+  },
+  {
+    module: 'lib/utils',
+    exports: [
+      { name: 'cn', value: cn },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchEmptyResults',
+    exports: [
+      { name: 'SearchEmptyResults', value: SearchEmptyResults },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchError',
+    exports: [
+      { name: 'SearchError', value: SearchError },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItem/index',
+    exports: [
+      { name: 'SearchItem', value: SearchItem },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchSkeletonItem',
+    exports: [
+      { name: 'SearchSkeletonItem', value: SearchSkeletonItem },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchPagination',
+    exports: [
+      { name: 'SearchPagination', value: SearchPagination },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchInput',
+    exports: [
+      { name: 'SearchInput', value: SearchInput },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/useEvent',
+    exports: [
+      { name: 'useEvent', value: useEvent },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/useSearchField',
+    exports: [
+      { name: 'useSearchField', value: useSearchField },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/useParams',
+    exports: [
+      { name: 'useParams', value: useParams },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/constants',
+    exports: [
+      { name: 'DICTIONARY_KEYS', value: DICTIONARY_KEYS },
+      { name: 'gridColsClass', value: gridColsClass },
+      { name: 'DEFAULT_PAGE_SIZE', value: DEFAULT_PAGE_SIZE },
+      { name: 'DEBOUNCE_TIME', value: DEBOUNCE_TIME },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/useRouter',
+    exports: [
+      { name: 'useRouter', value: useRouter },
+    ]
+  },
+  {
+    module: 'next-localization',
+    exports: [
+      { name: 'useI18n', value: useI18n },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/useDebounce',
+    exports: [
+      { name: 'useDebouncedCallback', value: useDebouncedCallback },
+    ]
+  },
+  {
+    module: '@sitecore-content-sdk/events',
+    exports: [
+      { name: 'event', value: event },
+      { name: 'pageView', value: pageView },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItemCommon',
+    exports: [
+      { name: 'ItemCardFrame', value: ItemCardFrame },
+      { name: 'ItemListFrame', value: ItemListFrame },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItem/SearchItemTitle',
+    exports: [
+      { name: 'SearchItemTitle', value: SearchItemTitle },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItem/SearchItemSummary',
+    exports: [
+      { name: 'SearchItemSummary', value: SearchItemSummary },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItem/SearchItemLink',
+    exports: [
+      { name: 'SearchItemLink', value: SearchItemLink },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItem/SearchItemCategory',
+    exports: [
+      { name: 'SearchItemCategory', value: SearchItemCategory },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItem/SearchItemTags',
+    exports: [
+      { name: 'SearchItemTags', value: SearchItemTags },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchItem/SearchItemImage',
+    exports: [
+      { name: 'SearchItemImage', value: SearchItemImage },
+    ]
+  },
+  {
+    module: 'next/image',
+    exports: [
+      { name: 'default', value: Image },
     ]
   },
   {
     module: '@fortawesome/free-solid-svg-icons',
     exports: [
+      { name: 'faImage', value: faImage },
       { name: 'faArrowRight', value: faArrowRight },
       { name: 'faBars', value: faBars },
       { name: 'faChevronDown', value: faChevronDown },
@@ -130,6 +314,12 @@ const importMap = [
       { name: 'faEnvelope', value: faEnvelope },
       { name: 'faPhone', value: faPhone },
       { name: 'faArrowLeft', value: faArrowLeft },
+    ]
+  },
+  {
+    module: '@/assets/shapes/BlobAccent',
+    exports: [
+      { name: 'default', value: BlobAccent_ff719d36323bb13e49440edf42521225aa8ecaa1 },
     ]
   },
   {
@@ -149,12 +339,6 @@ const importMap = [
     exports: [
       { name: 'getLinkField', value: getLinkField },
       { name: 'getNavigationText', value: getNavigationText },
-    ]
-  },
-  {
-    module: 'next-localization',
-    exports: [
-      { name: 'useI18n', value: useI18n },
     ]
   },
   {
@@ -191,12 +375,6 @@ const importMap = [
     ]
   },
   {
-    module: 'next/image',
-    exports: [
-      { name: 'default', value: Image },
-    ]
-  },
-  {
     module: '@sitecore-feaas/clientside/react',
     exports: [
       { name: '*', value: FEAAS },
@@ -206,12 +384,6 @@ const importMap = [
     module: 'next.config',
     exports: [
       { name: 'default', value: nextConfig },
-    ]
-  },
-  {
-    module: '@sitecore-content-sdk/events',
-    exports: [
-      { name: 'pageView', value: pageView },
     ]
   },
   {
