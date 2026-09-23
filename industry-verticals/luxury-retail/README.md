@@ -44,7 +44,7 @@ If you have not enabled the split deployment feature your editing hosts are auto
 4. Switch to tab "Editing Hosts"
 5. Click "Add editing host"
 6. Provide Editing host name `luxury-retail` as per xmcloud.build.json
-7. Include search related environment variables
+7. No custom environment variables are required
 8. Check if the link to authoring environment is set correctly (should be by default)
 9. Check if the source code provider is set correctly (should be by default)
 10. Check if the GitHub Account is set correctly (should be by default)

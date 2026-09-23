@@ -1,23 +1,13 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 import { Destination, DestinationSearchResult } from '@/types/destination';
 import DestinationCard from '../non-sitecore/DestinationCard';
 import { ComponentProps } from '@/lib/component-props';
 import { useI18n } from 'next-localization';
-import {
-  useSearchResults,
-  widget,
-  WidgetDataType,
-  type SearchResultsInitialState,
-  useSearchResultsSelectedFacets,
-  SearchResponseFacet,
-  SearchResponseFacetItem,
-} from '@sitecore-search/react';
 import { HeroBannerStyles, TitleSectionFlags } from '@/types/styleFlags';
-import { LoaderCircle, Search } from 'lucide-react';
-import FilterDropdown from '../non-sitecore/search/FilterDropdown';
-import { DESTINATIONS_WIDGET_ID } from '@/constants/search';
+import { Search } from 'lucide-react';
+import FilterDropdown from '../non-sitecore/FilterDropdown';
 
 export interface DestinationListingProps extends ComponentProps {
   params: { [key: string]: string };
@@ -26,106 +16,129 @@ export interface DestinationListingProps extends ComponentProps {
   };
 }
 
-type InitialState = SearchResultsInitialState<'itemsPerPage' | 'keyphrase' | 'page' | 'sortType'>;
-
 const ITEMS_PER_PAGE = 6;
-const SEARCH_CONFIG = {
-  source: process.env.NEXT_PUBLIC_SKYWINGS_SEARCH_SOURCE as string,
+
+/**
+ * Maps a Sitecore destination item to the card model used by DestinationCard.
+ */
+const mapDestination = (item: Destination): DestinationSearchResult => {
+  const fields = item.fields || {};
+
+  return {
+    id: item.id,
+    activities:
+      fields.Activities?.map((activity) => activity.fields?.Title?.value).filter(
+        (value): value is string => Boolean(value)
+      ) || [],
+    continent: fields.Continent?.value || '',
+    country: fields.Country?.value || '',
+    description: fields.ShortDescription?.value || '',
+    highlights:
+      fields.Highlights?.map((highlight) => highlight.fields?.Title?.value).filter(
+        (value): value is string => Boolean(value)
+      ) || [],
+    image_url: fields.Image?.value?.src || '',
+    label: fields.Label?.value || '',
+    name: fields.Title?.value || item.displayName,
+    price: fields.Price?.value || '',
+    review_rating: Number(fields.Rating?.value || 0),
+    srouce_id: item.id,
+    temperatures: fields.Temperatures?.value || '',
+    type: fields.Label?.value || '',
+    url: item.url,
+    trip_duration: fields.TripDuration?.value || '',
+    trip_periods: fields.TripPeriods?.value || '',
+  };
 };
 
-const DestinationListingInner = (props: DestinationListingProps) => {
+/**
+ * Adds or removes a filter value from the current selection.
+ */
+const toggleValue = (values: string[], value: string): string[] =>
+  values.includes(value) ? values.filter((current) => current !== value) : [...values, value];
+
+/**
+ * Builds labeled filter options with occurrence counts.
+ */
+const countBy = (
+  items: DestinationSearchResult[],
+  getValue: (item: DestinationSearchResult) => string | string[]
+) => {
+  const counts = new Map<string, number>();
+
+  items.forEach((item) => {
+    const raw = getValue(item);
+    const values = Array.isArray(raw) ? raw : [raw];
+    values.filter(Boolean).forEach((value) => {
+      counts.set(value, (counts.get(value) || 0) + 1);
+    });
+  });
+
+  return Array.from(counts.entries()).map(([value, count]) => ({
+    id: value,
+    value,
+    label: `${value} (${count})`,
+  }));
+};
+
+export const Default = (props: DestinationListingProps) => {
   const { t } = useI18n();
+  const id = props.params.RenderingIdentifier;
   const hideTitleSection = props.params?.styles?.includes(TitleSectionFlags.HideTitleSection);
   const showGradientBackground = props.params?.styles?.includes(
     HeroBannerStyles.ShowGradientOverlay
   );
 
-  const {
-    state: { page, itemsPerPage },
-    queryResult: {
-      isLoading,
-      isFetching,
-      data: { total_item: totalItems = 0, content: destinations = [], facet: facets = [] } = {},
-    },
-    actions: { onKeyphraseChange, onPageNumberChange, onFacetClick },
-  } = useSearchResults<DestinationSearchResult, InitialState>({
-    state: {
-      sortType: 'featured_desc',
-      page: 1,
-      itemsPerPage: ITEMS_PER_PAGE,
-      keyphrase: '',
-    },
-    query: (query) => {
-      if (SEARCH_CONFIG.source) {
-        const sources = SEARCH_CONFIG.source.split('|');
-        sources.forEach((source) => query.getRequest().addSource(source.trim()));
-      }
-    },
-  });
+  const destinations = useMemo(
+    () => (props.fields?.items || []).map(mapDestination),
+    [props.fields?.items]
+  );
 
-  const [displayedResults, setDisplayedResults] = useState<DestinationSearchResult[]>([]);
+  const [keyphrase, setKeyphrase] = useState('');
+  const [selectedContinents, setSelectedContinents] = useState<string[]>([]);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
-  useEffect(() => {
-    if (page === 1) {
-      setDisplayedResults((prev) => {
-        // Only update if destinations actually changed
-        const isSame =
-          prev.length === destinations.length && prev.every((p, i) => p.id === destinations[i]?.id);
-        return isSame ? prev : destinations;
-      });
-    } else {
-      setDisplayedResults((prev) => {
-        const existingIds = new Set(prev.map((p) => p.id));
-        const newItems = destinations.filter((d) => !existingIds.has(d.id));
-        // Only update if there are actually new items
-        return newItems.length === 0 ? prev : [...prev, ...newItems];
-      });
-    }
-  }, [destinations, page]);
+  const continentOptions = useMemo(
+    () => countBy(destinations, (item) => item.continent),
+    [destinations]
+  );
+  const typeOptions = useMemo(() => countBy(destinations, (item) => item.label), [destinations]);
+  const activityOptions = useMemo(
+    () => countBy(destinations, (item) => item.activities),
+    [destinations]
+  );
 
-  const totalPages = Math.ceil((totalItems ?? 0) / itemsPerPage);
-  const hasMore = page < totalPages;
+  const filteredDestinations = useMemo(() => {
+    const query = keyphrase.trim().toLowerCase();
 
-  const handleLoadMore = () => {
-    if (hasMore) {
-      onPageNumberChange({ page: page + 1 });
-    }
-  };
+    return destinations.filter((destination) => {
+      const matchesQuery =
+        !query ||
+        [destination.name, destination.country, destination.description, destination.continent]
+          .join(' ')
+          .toLowerCase()
+          .includes(query);
+      const matchesContinent =
+        selectedContinents.length === 0 || selectedContinents.includes(destination.continent);
+      const matchesType = selectedTypes.length === 0 || selectedTypes.includes(destination.label);
+      const matchesActivity =
+        selectedActivities.length === 0 ||
+        destination.activities.some((activity) => selectedActivities.includes(activity));
 
-  type FacetOption = {
-    label: string;
-    value: string;
-    id: string;
-    facetId: string;
-    facetIndex: number;
-    facetValueId: string;
-  };
+      return matchesQuery && matchesContinent && matchesType && matchesActivity;
+    });
+  }, [destinations, keyphrase, selectedContinents, selectedTypes, selectedActivities]);
 
-  const getFacetOptions = (facets: SearchResponseFacet[], facetName: string): FacetOption[] => {
-    const facet = facets.find((f) => f.name === facetName);
-
-    if (!facet) return [];
-
-    const options = facet.value.map((v: SearchResponseFacetItem, index: number) => ({
-      label: `${v.text} (${v.count})`,
-      value: v.text,
-      id: v.id,
-      facetId: facetName,
-      facetIndex: index,
-      facetValueId: v.id,
-    }));
-
-    return [...options];
-  };
-
-  const continentOptions = useMemo(() => getFacetOptions(facets, 'continent'), [facets, t]);
-  const typeOptions = useMemo(() => getFacetOptions(facets, 'label'), [facets, t]);
-  const activityOptions = useMemo(() => getFacetOptions(facets, 'activities'), [facets, t]);
-
-  const selectedFacets = useSearchResultsSelectedFacets();
+  const displayedResults = filteredDestinations.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredDestinations.length;
 
   return (
-    <>
+    <section
+      className={`component destination-listing ${props?.params?.styles?.trimEnd()}`}
+      id={id}
+    >
       <div
         className={`relative inset-0 z-0 w-full ${
           showGradientBackground ? 'from-accent-dark to-accent bg-linear-to-r' : 'bg-accent'
@@ -151,9 +164,10 @@ const DestinationListingInner = (props: DestinationListingProps) => {
                     <input
                       type="text"
                       placeholder={t('search_destinations') || 'Search destinations...'}
-                      onChange={(e) => {
-                        onKeyphraseChange({ keyphrase: e.target.value });
-                        onPageNumberChange({ page: 1 });
+                      value={keyphrase}
+                      onChange={(event) => {
+                        setKeyphrase(event.target.value);
+                        setVisibleCount(ITEMS_PER_PAGE);
                       }}
                       className="text-foreground placeholder:text-foreground-muted focus:outline-accent-gray/60 h-9 w-full rounded-md border bg-transparent py-1 pr-6 pl-10 text-xs shadow-xs placeholder:text-xs focus:outline-3"
                     />
@@ -161,37 +175,29 @@ const DestinationListingInner = (props: DestinationListingProps) => {
                   <FilterDropdown
                     options={continentOptions}
                     placeholder={t('continent_label') || 'Continent'}
-                    facetId="continent"
-                    selectedValues={
-                      selectedFacets
-                        .find((f) => f.id === 'continent')
-                        ?.values.map((v) => v.valueLabel || '') || []
-                    }
-                    onFacetClick={onFacetClick}
+                    selectedValues={selectedContinents}
+                    onToggle={(value) => {
+                      setSelectedContinents((current) => toggleValue(current, value));
+                      setVisibleCount(ITEMS_PER_PAGE);
+                    }}
                   />
-
                   <FilterDropdown
                     options={typeOptions}
                     placeholder={t('type_label') || 'Type'}
-                    facetId="label"
-                    selectedValues={
-                      selectedFacets
-                        .find((f) => f.id === 'label')
-                        ?.values.map((v) => v.valueLabel || '') || []
-                    }
-                    onFacetClick={onFacetClick}
+                    selectedValues={selectedTypes}
+                    onToggle={(value) => {
+                      setSelectedTypes((current) => toggleValue(current, value));
+                      setVisibleCount(ITEMS_PER_PAGE);
+                    }}
                   />
-
                   <FilterDropdown
                     options={activityOptions}
                     placeholder={t('activities_label') || 'Activities'}
-                    facetId="activities"
-                    selectedValues={
-                      selectedFacets
-                        .find((f) => f.id === 'activities')
-                        ?.values.map((v) => v.valueLabel || '') || []
-                    }
-                    onFacetClick={onFacetClick}
+                    selectedValues={selectedActivities}
+                    onToggle={(value) => {
+                      setSelectedActivities((current) => toggleValue(current, value));
+                      setVisibleCount(ITEMS_PER_PAGE);
+                    }}
                   />
                 </div>
               </form>
@@ -216,18 +222,12 @@ const DestinationListingInner = (props: DestinationListingProps) => {
           ))}
         </div>
 
-        {(isLoading || isFetching) && (
-          <div className="relative flex justify-center py-8">
-            <LoaderCircle className="text-accent inline size-10 animate-spin" />
-          </div>
-        )}
-
-        {!isLoading && displayedResults.length > 0 && (
+        {displayedResults.length > 0 && (
           <div className="flex justify-center py-8">
             <button
-              onClick={handleLoadMore}
+              onClick={() => setVisibleCount((current) => current + ITEMS_PER_PAGE)}
               className="btn-outline w-auto!"
-              disabled={!hasMore || isFetching}
+              disabled={!hasMore}
             >
               {hasMore
                 ? t('load_more_destinations') || 'Load More Destinations'
@@ -236,25 +236,6 @@ const DestinationListingInner = (props: DestinationListingProps) => {
           </div>
         )}
       </div>
-    </>
-  );
-};
-
-const DestinationListingWidget = widget(
-  DestinationListingInner,
-  WidgetDataType.SEARCH_RESULTS,
-  'destination'
-);
-
-export const Default = (props: DestinationListingProps) => {
-  const id = props.params.RenderingIdentifier;
-
-  return (
-    <section
-      className={`component destination-listing ${props?.params?.styles?.trimEnd()}`}
-      id={id}
-    >
-      <DestinationListingWidget rfkId={DESTINATIONS_WIDGET_ID} {...props} />
     </section>
   );
 };

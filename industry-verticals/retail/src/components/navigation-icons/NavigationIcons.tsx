@@ -8,8 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/shadcn/components/ui/
 import { PopoverClose } from '@radix-ui/react-popover';
 import { MiniCart } from '../non-sitecore/MiniCart';
 import { LinkField } from '@sitecore-content-sdk/nextjs';
-import PreviewSearch from '../non-sitecore/search/PreviewSearch';
-import { PREVIEW_WIDGET_ID } from '@/constants/search';
+import HeaderSearch from '../non-sitecore/HeaderSearch';
 
 export type NavigationIconsProps = ComponentProps & {
   fields: {
@@ -94,11 +93,7 @@ export const Default = (props: NavigationIconsProps): JSX.Element => {
         <div className="border-border bg-background absolute top-full right-0 left-0 z-50 border-b shadow-lg">
           <div className="mx-auto max-w-7xl px-4 py-4">
             <div className="flex items-center gap-2">
-              <PreviewSearch
-                rfkId={PREVIEW_WIDGET_ID}
-                isOpen={isSearchOpen}
-                setIsSearchOpen={setIsSearchOpen}
-              />
+              <HeaderSearch onClose={() => setIsSearchOpen(false)} />
 
               <button
                 onClick={() => setIsSearchOpen(false)}
