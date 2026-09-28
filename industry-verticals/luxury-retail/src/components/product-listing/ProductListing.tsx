@@ -27,22 +27,25 @@ interface ProductListingProps extends ComponentProps {
   };
 }
 
+const isProduct = (product: Partial<ProductIGQL> | undefined): product is ProductIGQL =>
+  Boolean(product?.id && product.title && product.url?.path);
+
 export const Default = (props: ProductListingProps) => {
   const id = props.params.RenderingIdentifier;
-  const items = props.fields.data.contextItem.children.results;
+  const items = props.fields?.data?.contextItem?.children?.results ?? [];
 
   const { t } = useI18n();
 
   const unformattedProducts = items
-    .filter((item) => Object.keys(item).length !== 0)
+    .filter((item) => item && Object.keys(item).length !== 0)
     .flatMap((item) => {
-      // Check if the item has children property (ProductCategoryPage)
+      // Category pages contain the products. Other child templates match none of the
+      // GraphQL fragments and come back without product fields.
       if ('children' in item && item.children?.results) {
-        return item.children.results;
-      } else {
-        // Otherwise, it's a Product itself
-        return [item as ProductIGQL];
+        return item.children.results.filter(isProduct);
       }
+
+      return isProduct(item) ? [item] : [];
     });
 
   const products = unformattedProducts
@@ -62,8 +65,12 @@ export const Default = (props: ProductListingProps) => {
   // Filtering logic
   const categories: Category[] = [];
   products.forEach((product) => {
-    const category = product.Category?.fields.CategoryName.value;
-    if (!categories.find((cat) => cat?.fields.CategoryName.value === category)) {
+    const category = product.Category?.fields?.CategoryName?.value;
+    if (
+      category &&
+      product.Category &&
+      !categories.find((cat) => cat?.fields?.CategoryName?.value === category)
+    ) {
       categories.push(product.Category);
     }
   });
@@ -72,13 +79,17 @@ export const Default = (props: ProductListingProps) => {
 
   const filteredProducts = React.useMemo(() => {
     if (!selectedCategory) return products;
-    return products.filter((p) => p.Category?.fields.CategoryName.value === selectedCategory);
+    return products.filter((p) => p.Category?.fields?.CategoryName?.value === selectedCategory);
   }, [selectedCategory, products]);
 
   // Infinite scroll state
   const PAGE_SIZE = 8;
   const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
   const [isLoading, setIsLoading] = React.useState(false);
+  const selectCategory = (category: string | null) => {
+    setSelectedCategory(category);
+    setVisibleCount(PAGE_SIZE);
+  };
 
   const visibleProducts = filteredProducts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredProducts.length;
@@ -92,10 +103,6 @@ export const Default = (props: ProductListingProps) => {
     }, 500);
   }, [hasMore, isLoading]);
 
-  React.useEffect(() => {
-    setVisibleCount(PAGE_SIZE);
-  }, [selectedCategory]);
-
   return (
     <section
       className={`component product-listing py-18 ${props?.params.styles.trimEnd()}`}
@@ -105,7 +112,7 @@ export const Default = (props: ProductListingProps) => {
         {categories.length > 0 && (
           <div className="mb-8 flex flex-wrap items-center gap-6 text-xl font-light">
             <button
-              onClick={() => setSelectedCategory(null)}
+              onClick={() => selectCategory(null)}
               className={`hover:text-accemt transition-colors ${
                 !selectedCategory ? 'text-accent underline' : 'text-foreground'
               }`}
@@ -116,14 +123,14 @@ export const Default = (props: ProductListingProps) => {
             {categories.map((cat) => (
               <button
                 key={cat?.id}
-                onClick={() => setSelectedCategory(cat?.fields.CategoryName.value)}
+                onClick={() => selectCategory(cat?.fields?.CategoryName?.value ?? null)}
                 className={`hover:text-accent transition-colors ${
-                  selectedCategory === cat?.fields.CategoryName.value
+                  selectedCategory === cat?.fields?.CategoryName?.value
                     ? 'text-accent underline'
                     : 'text-foreground'
                 }`}
               >
-                {cat?.fields.CategoryName.value}
+                {cat?.fields?.CategoryName?.value}
               </button>
             ))}
           </div>

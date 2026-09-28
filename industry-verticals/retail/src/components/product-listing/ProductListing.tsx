@@ -29,28 +29,32 @@ interface ProductListingProps extends ComponentProps {
   };
 }
 
+const isProduct = (product: Partial<ProductIGQL> | undefined): product is ProductIGQL =>
+  Boolean(product?.id && product.title && product.url?.path);
+
 export const Default = (props: ProductListingProps) => {
   const { t } = useI18n();
   const id = props.params.RenderingIdentifier;
-  const items = props.fields.data.contextItem.children.results;
+  const items = props.fields?.data?.contextItem?.children?.results ?? [];
 
   const unformattedProducts = items
-    .filter((item) => Object.keys(item).length !== 0)
+    .filter((item) => item && Object.keys(item).length !== 0)
     .flatMap((item) => {
-      // Check if the item has children property (ProductCategory)
+      // Category pages contain the products. Other child templates match none of the
+      // GraphQL fragments and come back without product fields.
       if ('children' in item && item.children?.results) {
-        return item.children.results;
+        return item.children.results.filter(isProduct);
       }
-      // Otherwise, it's a Product itself
-      return [item as ProductIGQL];
+
+      return isProduct(item) ? [item] : [];
     });
 
   const products = unformattedProducts.map((product) => {
     return {
-      Title: product.title.jsonValue,
-      Price: product.price.jsonValue,
-      Image1: product.image1.jsonValue,
-      Category: product.category.jsonValue,
+      Title: product.title?.jsonValue,
+      Price: product.price?.jsonValue,
+      Image1: product.image1?.jsonValue,
+      Category: product.category?.jsonValue,
       Rating: calculateAverageRatingFromIGQL(product.reviews?.targetItems || []),
       id: product.id,
       url: product.url.path,
