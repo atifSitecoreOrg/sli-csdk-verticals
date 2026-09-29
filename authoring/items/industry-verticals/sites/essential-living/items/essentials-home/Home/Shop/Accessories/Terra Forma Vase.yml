@@ -50,6 +50,12 @@ SharedFields:
           s:ph="/headless-main/sxa-product-content/related-products-1" />
       </d>
     </r>
+- ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
+  Hint: sc_path
+  Value: /sitecore/content/industry-verticals/essential-living/Home/Shop/Accessories/Terra Forma Vase
+- ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+  Hint: sc_url
+  Value: /Shop/Accessories/Terra Forma Vase
 Languages:
 - Language: en
   Versions:

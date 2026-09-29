@@ -49,6 +49,12 @@ SharedFields:
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
   Value: "95aead0e-69f2-46f3-8f35-879dc75afc13"
+- ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
+  Hint: sc_path
+  Value: /sitecore/content/industry-verticals/essential-living/Home/Shop/Furniture/Drift Sofa
+- ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+  Hint: sc_url
+  Value: /Shop/Furniture/Drift Sofa
 Languages:
 - Language: en
   Versions:
