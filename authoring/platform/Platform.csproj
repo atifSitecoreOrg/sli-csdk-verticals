@@ -74,6 +74,10 @@
     <Folder Include="App_Config\Include\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Rules\ProductPageSearchFieldsSaveRule.cs" />
+    <Content Include="App_Config\Include\IndustryVerticals\ProductPageSearchFieldsSaveRule.config" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="App_Data\**" />
   </ItemGroup>
   <PropertyGroup>
