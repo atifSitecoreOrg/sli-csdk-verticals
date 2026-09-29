@@ -41,10 +41,10 @@ SharedFields:
   Hint: __Shared revision
   Value: "01ba6eeb-d190-4538-9954-1e91bde6d082"
 - ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
-  Hint: sc_path
+  Hint: scPath
   Value: /sitecore/content/industry-verticals/essential-living/Home/Shop/Lighting/Seraphina Glow
 - ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
-  Hint: sc_url
+  Hint: scUrl
   Value: /Shop/Lighting/Seraphina Glow
 Languages:
 - Language: en

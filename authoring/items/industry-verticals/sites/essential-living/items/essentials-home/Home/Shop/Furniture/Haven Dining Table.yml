@@ -37,10 +37,10 @@ SharedFields:
   Hint: __Shared revision
   Value: "d8f6c1c8-b2a8-48cb-95b1-7b83b53d9305"
 - ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
-  Hint: sc_path
+  Hint: scPath
   Value: /sitecore/content/industry-verticals/essential-living/Home/Shop/Furniture/Haven Dining Table
 - ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
-  Hint: sc_url
+  Hint: scUrl
   Value: /Shop/Furniture/Haven Dining Table
 Languages:
 - Language: en

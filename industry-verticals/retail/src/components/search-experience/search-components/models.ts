@@ -10,8 +10,8 @@ export type SearchParams = ComponentParams & {
 
 export type SearchDocument = {
   sc_item_id: string;
-  sc_url: string;
-  sc_path: string;
+  scUrl: string;
+  scPath: string;
   [key: string]: string | string[] | number | boolean;
 };
 

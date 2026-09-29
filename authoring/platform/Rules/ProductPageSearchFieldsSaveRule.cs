@@ -12,8 +12,8 @@ namespace XmCloudNextJsStarter.Rules
     public class ProductPageSearchFieldsSaveRule
     {
         private const string MasterDatabaseName = "master";
-        private const string PathFieldName = "sc_path";
-        private const string UrlFieldName = "sc_url";
+        private const string PathFieldName = "scPath";
+        private const string UrlFieldName = "scUrl";
         private const string HomeSegment = "/Home/";
         private static readonly ID ProductPageTemplateId = new ID("{F6E44A9E-074A-4865-987E-0C2DC00B7AF5}");
 

@@ -58,8 +58,8 @@ export const SearchItem = ({ data, mapping, variant = 'card', onClick }: SearchI
         : undefined,
       category: mapping.type ? (getField(data, mapping.type) as { value: string }) : undefined,
       link: (getField(data, mapping.link) ||
-        getField(data, 'sc_url') ||
-        getField(data, 'sc_path')) as { value: string } | undefined,
+        getField(data, 'scUrl') ||
+        getField(data, 'scPath')) as { value: string } | undefined,
     };
   }, [data, mapping]);
 
