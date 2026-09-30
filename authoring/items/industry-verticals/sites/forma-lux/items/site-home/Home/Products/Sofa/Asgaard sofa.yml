@@ -85,7 +85,7 @@ SharedFields:
   Value: /sitecore/content/industry-verticals/forma-lux/Home/Products/Sofa/Asgaard sofa
 - ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
   Hint: scUrl
-  Value: /Products/Sofa/Asgaard sofa
+  Value: /Products/Sofa/Asgaard-sofa
 Languages:
 - Language: en
   Fields:

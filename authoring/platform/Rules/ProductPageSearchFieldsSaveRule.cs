@@ -73,7 +73,7 @@ namespace XmCloudNextJsStarter.Rules
                 return fullPath;
             }
 
-            return fullPath.Substring(homeIndex + "/Home".Length);
+            return fullPath.Substring(homeIndex + "/Home".Length).Replace(" ", "-");
         }
     }
 }
