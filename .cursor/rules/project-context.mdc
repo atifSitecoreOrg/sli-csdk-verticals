@@ -18,13 +18,15 @@ Repository Structure:
 
 ## Industry Verticals Frontend Applications
 
-Available Sites:
+Available Sites (keep in sync with `.cursor/SITE-REGISTRY.md`):
 - `healthcare` - **Nova Medical** - Healthcare focused site template with physicians listing
 - `luxury-retail` - **Essential Living** - Retail focused site template for an upscale furniture brand with products and articles
-- `retail` - **FormaLux** - Retail focused site template for a furniture brand with products and articles
-- `starter` - **starter** - Simple Next.js starter with basic components
+- `retail` - **FormaLux** - Retail focused site template for a furniture brand with products and articles (`renderingHosts` key `nextjsstarter`)
+- `starter` - **starter** - Simple Next.js starter with basic components (not in `xmcloud.build.json`)
 - `travel` - **Skywings** - Travel focused site template with articles and destinations
 - `energy` - **Gridwell** - Energy focused site template with grid condition/status and articles
+
+New hosts go under `industry-verticals/{folder}/`. When a site is created, cloned, or renamed, update this list and the registry in the same change (`new-site-inventory`).
 
 Each site demonstrates:
 - Tailwind-based styling with Shadcn/ui components

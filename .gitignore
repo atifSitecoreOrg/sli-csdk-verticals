@@ -1,6 +1,9 @@
 ﻿# may contain OAuth secrets, do not commit
 .sitecore/user.json
 
+# Local Deploy and Vercel secrets. Never commit.
+.local/
+
 # NuGet cache for Sitecore CLI
 .sitecore/package-cache/
 

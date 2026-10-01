@@ -2,6 +2,8 @@
 
 This directory contains AI coding agent guidance files to help maintain consistent code quality and follow SitecoreAI best practices across all starter applications in this repository.
 
+Skills (on-demand website-to-Sitecore workflows) live in `skills/`. The full rules and skills reference is [AGENTS.md](./AGENTS.md). Sites that exist in this clone are listed in [SITE-REGISTRY.md](./SITE-REGISTRY.md). Playwright setup for capture scripts is in [RUNTIME-DEPENDENCIES.md](./RUNTIME-DEPENDENCIES.md).
+
 ## Rules Overview
 
 ### Core Rules (Always Applied)
