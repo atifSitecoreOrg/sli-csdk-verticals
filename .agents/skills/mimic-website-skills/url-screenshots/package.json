@@ -1,0 +1,17 @@
+{
+  "name": "@cursor-skills/url-screenshots",
+  "private": true,
+  "type": "module",
+  "description": "Self-contained Playwright dependency for the url-screenshots Cursor skill",
+  "scripts": {
+    "setup": "playwright install chromium",
+    "capture": "node scripts/capture.mjs",
+    "sections": "node scripts/section-capture.mjs",
+    "merge-sections": "node scripts/merge-page-sections.mjs",
+    "enrich-design": "node scripts/enrich-page-design.mjs",
+    "fetch-html": "node scripts/fetch-html.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  }
+}

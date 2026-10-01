@@ -1,0 +1,19 @@
+---
+description: When a site is created, cloned, or renamed, update the site registry, project context, and agent docs in the same change.
+alwaysApply: true
+---
+
+# New site inventory
+
+Hosts in this repo live under `industry-verticals/{folder}/`. The live list is [.cursor/SITE-REGISTRY.md](../SITE-REGISTRY.md).
+
+When you add, clone, or rename a rendering host, Sitecore site, or serialization module, update these in the **same change** before you finish:
+
+1. `.cursor/SITE-REGISTRY.md` — add or move the row; set **Last verified** to today.
+2. `.cursor/rules/project-context.mdc` — Available Sites.
+3. `docs/README.md` — Industry Verticals table.
+4. `.cursor/AGENTS.md` — industry skill row when the type is new.
+5. `docs/{SITE}.md` — paths, host key, content path, module name.
+6. The matching industry skill under `.cursor/skills/industry-*/SKILL.md`. Extend it when the type already exists.
+
+Follow [.cursor/skills/new-site-inventory/SKILL.md](../skills/new-site-inventory/SKILL.md). Do not describe a site as present unless its folder and, if deployed, its `xmcloud.build.json` key exist.

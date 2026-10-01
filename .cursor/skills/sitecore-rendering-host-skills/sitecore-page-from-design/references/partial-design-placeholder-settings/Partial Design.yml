@@ -1,0 +1,9 @@
+---
+ID: "{PARTIAL-DESIGN-PLACEHOLDER-FOLDER-GUID}"
+Parent: "{PLACEHOLDER-SETTINGS-GUID}"
+Template: "52288e39-7830-4694-b62d-32a54c6ef7ba"
+Path: "{siteContentPath}/Presentation/Placeholder Settings/Partial Design"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
