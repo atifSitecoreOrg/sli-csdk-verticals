@@ -27,19 +27,19 @@ Run this before finishing any task that adds, clones, renames, or removes a site
 | `renderingHosts` key | `xmcloud.build.json` (may differ from the folder; retail is `nextjsstarter`) |
 | Sitecore site | Site item name under the collection |
 | Serialization | `*.module.json` namespace, or `postActions.scsModules` |
-| Skill | `.cursor/skills/{name}/SKILL.md` if one exists |
+| Skill | Industry skill for the type (`industry-retail`, `industry-healthcare`, `industry-travel`, `industry-energy`) |
 | Guide | `docs/{SITE}.md` |
 
-If the host folder is not on disk, leave the row under **Playbooks without a host**. Do not invent a `renderingHosts` key.
+If the host folder is not on disk, do not add a hosts row. Do not invent a `renderingHosts` key.
 
 ## Write
 
-1. **Registry** — one row in the hosts table, or move it out of the playbooks table. Set **Last verified** to the current date.
+1. **Registry** — one row in the hosts table and the industry-skills table. Set **Last verified** to the current date.
 2. **project-context** — add the same folder, brand, and one-line purpose under Available Sites in `.cursor/rules/project-context.mdc`.
 3. **docs/README.md** — same row in the Industry Verticals table. Link `docs/{SITE}.md` once that guide exists.
-4. **AGENTS.md** — add the site skill under Site-specific when the skill file exists. Link the guide.
-5. **Site guide** — create or update `docs/{SITE}.md` with folder, host key, content path, module, and the skill name.
-6. **Site skill** — create `.cursor/skills/{name}/SKILL.md` when the site has rules a later session must not miss (isolated collection, commerce, search). Description must name the folder and `authoring/items` path.
+4. **AGENTS.md** — add an industry skill row only when the type is new. Link the guide.
+5. **Site guide** — create or update `docs/{SITE}.md` with folder, host key, content path, module, and the industry skill name.
+6. **Industry skill** — extend the existing industry skill when the type already exists. Create `.cursor/skills/industry-{type}/SKILL.md` only for a new type, and point it at [industry-verticals](../industry-verticals/SKILL.md). Description must name the host folder.
 
 Skip a file only when it already matches the new row. Do not commit `.env.local` or secrets.
 

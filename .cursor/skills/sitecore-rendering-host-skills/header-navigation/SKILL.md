@@ -23,7 +23,7 @@ Header
 
 Do **not** follow the travel `Header.tsx` anti-pattern of repeating `header-nav` / `header-right` inside the mobile drawer when a single responsive panel can hold both.
 
-**Header search overlay (Legal):** keep the magnifying glass in Header; implement results in `src/lib/HeaderSearch.tsx` (not under `src/components/` — generate-map would register it). Reuse the site search catalog so the overlay mocks `/search` cards, then submit to `?q=`. See [`legal-pinsent`](../../legal-pinsent/SKILL.md).
+**Header search overlay:** keep the magnifying glass in Header. Put the results UI in `src/lib/`, not under `src/components/` (generate-map would register it). Reuse the site search catalog so the overlay shows the same cards as the results page, then submit to `?q=`. See [industry-verticals](../../industry-verticals/SKILL.md).
 
 ### 2. Navigation — start from industry-verticals travel
 

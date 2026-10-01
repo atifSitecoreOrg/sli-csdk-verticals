@@ -11,7 +11,7 @@ paths:
 
 Use only for App Router hosts. Pages Router is not supported by this optimized skill.
 
-**Pages Router catalog search (Legal):** do not use this skill. `SiteSearch` + `src/lib/search-catalog.ts` + `src/lib/HeaderSearch.tsx` mock Pinsent results. See [`legal-pinsent`](../legal-pinsent/SKILL.md).
+The industry verticals use this component. A header search overlay that lists the same cards as the results page lives in `src/lib/`, not under `src/components/`. See [industry-verticals](../industry-verticals/SKILL.md).
 
 ## Steps
 

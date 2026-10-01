@@ -19,25 +19,23 @@ New hosts go under `industry-verticals/{folder}/`. Shared tenant content stays u
 
 `deployItems.modules`: `Project.IndustryVerticals`.
 
-## Playbooks without a host here
+## Industry skills
 
-These skills describe earlier demos. Their `docs/*.md` guides were removed because the hosts are not in this clone. A site becomes real when a folder exists under `industry-verticals/` and a `renderingHosts` entry is added. Then move it into the table above, write `docs/{SITE}.md`, and follow `new-site-inventory`.
+Brand-specific skills (ASOS, Brother, Pinsent, Capco, Openhand, Aspire) are folded into the industry type. Use [industry-verticals](./skills/industry-verticals/SKILL.md) to pick the host, then the matching skill:
 
-| Skill | Former host |
-|-------|-------------|
-| `legal-pinsent` | `industry-verticals/legal` |
-| `nonprofit-openhand` | `industry-verticals/nonprofit` |
-| `capco-consulting` | `industry-verticals/capco` |
-| `brother-commerce` | `industry-verticals/brother` |
-| `asos-fashion` | `industry-verticals/asos` |
-| `recruitment-aspire` | `industry-verticals/recruitment` |
+| Type | Skill | Hosts |
+|------|-------|-------|
+| Retail / luxury retail | [industry-retail](./skills/industry-retail/SKILL.md) | `retail`, `luxury-retail` |
+| Healthcare / people | [industry-healthcare](./skills/industry-healthcare/SKILL.md) | `healthcare` |
+| Travel | [industry-travel](./skills/industry-travel/SKILL.md) | `travel` |
+| Energy | [industry-energy](./skills/industry-energy/SKILL.md) | `energy` |
 
 ## Same-change updates
 
 1. This file (move or add the row; refresh **Last verified**).
 2. [.cursor/rules/project-context.mdc](./rules/project-context.mdc) — Available Sites.
-3. [.cursor/AGENTS.md](./AGENTS.md) — site-specific skill row when a skill exists.
+3. [.cursor/AGENTS.md](./AGENTS.md) — industry skill row when the type is new.
 4. [docs/README.md](../docs/README.md) — verticals table.
 5. `docs/{SITE}.md` and, when components land, a section in [docs/COMPONENTS.md](../docs/COMPONENTS.md).
-6. `.cursor/skills/{site-skill}/SKILL.md` for day-to-day rules on that site.
+6. The industry skill for that type (extend [industry-retail](./skills/industry-retail/SKILL.md), [industry-healthcare](./skills/industry-healthcare/SKILL.md), [industry-travel](./skills/industry-travel/SKILL.md), or [industry-energy](./skills/industry-energy/SKILL.md)). Add a new industry skill only when the type is new.
 7. `xmcloud.build.json` `renderingHosts` (and `postActions.scsModules` when the site serializes on deploy).

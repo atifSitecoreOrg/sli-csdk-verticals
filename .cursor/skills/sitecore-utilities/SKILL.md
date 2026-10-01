@@ -22,7 +22,7 @@ Use this skill only for explicit support tasks outside the main website-to-Sitec
 | Auth0 login/register/profile | [sitecore-auth0-authentication](../sitecore-rendering-host-skills/sitecore-auth0-authentication/SKILL.md) |
 | Header / navigation patterns | [header-navigation](../sitecore-rendering-host-skills/header-navigation/SKILL.md) |
 | Isolated collection + site playbook | [isolated-collection-site](../sitecore-serialization-skills/isolated-collection-site/SKILL.md) |
-| Legal / Pinsent day-to-day | [legal-pinsent](../legal-pinsent/SKILL.md) |
+| Industry vertical (retail, healthcare, travel, energy) | [industry-verticals](../industry-verticals/SKILL.md) |
 | Cloud SDK custom events | [sitecore-cloudsdk-custom-events](../sitecore-cloud-sdk-skills/sitecore-cloudsdk-custom-events/SKILL.md) |
 | Cloud SDK identity events | [sitecore-cloudsdk-identity-events](../sitecore-cloud-sdk-skills/sitecore-cloudsdk-identity-events/SKILL.md) |
 

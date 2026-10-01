@@ -12,7 +12,8 @@ When you add, clone, or rename a rendering host, Sitecore site, or serialization
 1. `.cursor/SITE-REGISTRY.md` — add or move the row; set **Last verified** to today.
 2. `.cursor/rules/project-context.mdc` — Available Sites.
 3. `docs/README.md` — Industry Verticals table.
-4. `.cursor/AGENTS.md` — site-specific skill row, once `.cursor/skills/{site}/SKILL.md` exists.
+4. `.cursor/AGENTS.md` — industry skill row when the type is new.
 5. `docs/{SITE}.md` — paths, host key, content path, module name.
+6. The matching industry skill under `.cursor/skills/industry-*/SKILL.md`. Extend it when the type already exists.
 
-Follow [.cursor/skills/new-site-inventory/SKILL.md](../skills/new-site-inventory/SKILL.md). Do not describe a site as present unless its folder and, if deployed, its `xmcloud.build.json` key exist. Playbooks in `.cursor/skills/` without a host stay in the registry’s “without a host” table.
+Follow [.cursor/skills/new-site-inventory/SKILL.md](../skills/new-site-inventory/SKILL.md). Do not describe a site as present unless its folder and, if deployed, its `xmcloud.build.json` key exist.

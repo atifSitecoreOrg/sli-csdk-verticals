@@ -70,7 +70,7 @@ design-screenshots/{project}/component-review.json
 
 ## Reference in this repo: FormaLux
 
-Use retail as the in-repo example. Isolated-collection skills (`legal-pinsent`, `brother-commerce`, and the others) describe hosts that are **not** in this clone. Do not look for their old `docs/*.md` guides.
+Use retail as the in-repo example. Pick the industry type in [industry-verticals](../industry-verticals/SKILL.md) and clone that host. Do not look for brand playbooks (ASOS, Brother, Pinsent, Capco, Openhand, Aspire) or their old `docs/*.md` guides.
 
 | Artifact | Path |
 |----------|------|

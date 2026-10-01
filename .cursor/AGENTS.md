@@ -66,7 +66,7 @@ flowchart LR
 
 | Skill | What it does |
 |-------|----------------|
-| **[website-to-sitecore](./skills/website-to-sitecore/SKILL.md)** | Orchestrator only. Defines outcome paths (`design-screenshots/`, `src/components/`, `authoring/items/`), review manifest shape, Bristan + Brother + **Legal** as reference implementations. Delegates to skills below; stops for approval before TSX/YAML. |
+| **[website-to-sitecore](./skills/website-to-sitecore/SKILL.md)** | Orchestrator only. Defines outcome paths (`design-screenshots/`, `src/components/`, `authoring/items/`), review manifest shape, and FormaLux as the reference host. Delegates to skills below; stops for approval before TSX/YAML. |
 | **[capture-website](./skills/capture-website/SKILL.md)** | Playwright capture: desktop/tablet/mobile PNGs, clean shots (no sticky chrome), `page.html`, section crops, manifests, design tokens. No TSX/YAML here. |
 | **[visual-cms-map](./skills/visual-cms-map/SKILL.md)** | Reads screenshots + `sections/manifest.json` → writes `component-review.json` (CMS names, fields, placeholders, reuse vs create). Visual-first, not one-div-per-component. |
 | **[sitecore-from-capture](./skills/sitecore-from-capture/SKILL.md)** | After manifest approval: TSX, placeholders, component-map, page wiring, **harvest images → media YAML + push**. |
@@ -118,18 +118,17 @@ Redirects: `search-experience/` and `sitecore-rendering-host-skills/search-exper
 | **[sitecore-serializing-roles-json](./skills/sitecore-serialization-skills/sitecore-serializing-roles-json/SKILL.md)** | `*.module.json` role predicates only. |
 | **[sitecore-serializing-users-json](./skills/sitecore-serialization-skills/sitecore-serializing-users-json/SKILL.md)** | `*.module.json` user predicates + GraphQL settings. |
 
-### Site-specific
+### Industry verticals
 
-These skills are playbooks. A site is in this clone only when [SITE-REGISTRY.md](./SITE-REGISTRY.md) lists a host folder. Add a row here when you add the skill.
+Shared rules and the map of industry type → host are in [industry-verticals](./skills/industry-verticals/SKILL.md). One skill per type, matched to the hosts in this clone.
 
 | Skill | What it does |
 |-------|----------------|
-| **[legal-pinsent](./skills/legal-pinsent/SKILL.md)** | Pinsent people / Out-Law / events / header search / DAM / Pages `headless-main`. Use when editing `industry-verticals/legal` or `authoring/items/legal`. |
-| **[nonprofit-openhand](./skills/nonprofit-openhand/SKILL.md)** | Openhand isolated collection — advice AEO, partners, appeals, fundraise A/B, storyboard. |
-| **[capco-consulting](./skills/capco-consulting/SKILL.md)** | Capco isolated collection — FS + Energy, Perspectives AEO, T+1 story, storyboard. |
-| **[brother-commerce](./skills/brother-commerce/SKILL.md)** | Brother demo cart, PDP add-to-cart, CtaBanner on page layout (not ProductContent partial). |
-| **[asos-fashion](./skills/asos-fashion/SKILL.md)** | ASOS isolated collection — wide-leg jeans, denim catalogue, search, fit profile, Content Hub brand 95911. |
-| **[recruitment-aspire](./skills/recruitment-aspire/SKILL.md)** | Aspire recruitment — jobs, consultants, articles, branches, header search. Use when editing `industry-verticals/recruitment` or `authoring/items/Recruitment`. |
+| **[industry-verticals](./skills/industry-verticals/SKILL.md)** | Common layout, DAM, and Pages rules. Which vertical to clone for retail, healthcare, travel, energy, and for people-led or catalogue sites. |
+| **[industry-retail](./skills/industry-retail/SKILL.md)** | FormaLux and Essential Living. Product listing, product detail, offers, articles, cart-style actions. |
+| **[industry-healthcare](./skills/industry-healthcare/SKILL.md)** | Nova Medical. Person listing and detail, reviews. Also the pattern for consultants or lawyers. |
+| **[industry-travel](./skills/industry-travel/SKILL.md)** | Skywings. Destinations, articles, deals. |
+| **[industry-energy](./skills/industry-energy/SKILL.md)** | Gridwell. Articles plus grid status. |
 
 ### Cloud SDK
 
