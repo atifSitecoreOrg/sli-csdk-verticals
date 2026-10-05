@@ -1,21 +1,21 @@
 ---
-ID: "ab0b3969-bbeb-5577-a8db-1d8c6e4331bf"
-Parent: "1d298843-3750-53b2-a204-7888aaf7a073"
+ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+Parent: "9b6e4c21-5a38-4d7f-8e14-c0f2a7d3b651"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/industry-verticals/Page/search/scPath"
+Path: "/sitecore/templates/Foundation/JSS Experience Accelerator/Multisite/Base Page/search/scUrl"
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 100
+  Value: 200
 - ID: "be351a73-fcb0-4213-93fa-c302d8ab4f51"
   Hint: Shared
   Value: 1
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "17b6f7ee-8ce5-561e-a4cf-679cbb862385"
+  Value: "e85a2c64-a39f-41d7-d05b-6c2f4b8d0e97"
 Languages:
 - Language: en
   Versions:
@@ -23,7 +23,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20261005T134000Z
+      Value: 20260929T151200Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,11 +34,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f55c321d-1caf-54e9-8815-14dd8a0e9cc9"
+      Value: "f96b3d75-b4a0-42e8-e16c-7d3a5c9e1fa8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20261005T134000Z
+      Value: 20261005T144500Z
