@@ -5,7 +5,7 @@
     "includes": [
       {
         "name": "basePageSearch",
-        "path": "/sitecore/templates/Foundation/JSS Experience Accelerator/Multisite/Base Page/search",
+        "path": "/sitecore/templates/Foundation/Experience Accelerator/Multisite/Content/Page/search",
         "scope": "ItemAndDescendants",
         "allowedPushOperations": "CreateUpdateAndDelete"
       }

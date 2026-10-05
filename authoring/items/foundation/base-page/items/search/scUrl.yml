@@ -2,7 +2,7 @@
 ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
 Parent: "9b6e4c21-5a38-4d7f-8e14-c0f2a7d3b651"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Foundation/JSS Experience Accelerator/Multisite/Base Page/search/scUrl"
+Path: "/sitecore/templates/Foundation/Experience Accelerator/Multisite/Content/Page/search/scUrl"
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
