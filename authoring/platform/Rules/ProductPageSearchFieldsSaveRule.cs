@@ -16,7 +16,16 @@ namespace XmCloudNextJsStarter.Rules
         private const string PathFieldName = "scPath";
         private const string UrlFieldName = "scUrl";
         private const string HomeSegment = "/Home/";
-        private static readonly ID PageTemplateId = new ID("{98E60957-0783-4A9A-85CC-77DAD30E9711}");
+        private static readonly ID[] PageTemplateIds =
+        {
+            new ID("{98E60957-0783-4A9A-85CC-77DAD30E9711}"),
+            new ID("{412BF445-B1A6-4AFF-8054-0B21A1FEBC47}"),
+            new ID("{F6E44A9E-074A-4865-987E-0C2DC00B7AF5}"),
+            new ID("{4D2B49E6-1130-444A-B22C-5C7E25D01B56}"),
+            new ID("{B79B5166-C106-4F82-A8CA-11CEC6032D52}"),
+            new ID("{2F814F03-C3EF-4229-854C-CBCED6D24704}"),
+            new ID("{C0274E9D-2974-4766-A29A-0C4F9FAF8C86}")
+        };
 
         public void OnItemSaved(object sender, EventArgs args)
         {
@@ -64,7 +73,20 @@ namespace XmCloudNextJsStarter.Rules
             }
 
             var template = TemplateManager.GetTemplate(item);
-            return template != null && template.InheritsFrom(PageTemplateId);
+            if (template == null)
+            {
+                return false;
+            }
+
+            foreach (var pageTemplateId in PageTemplateIds)
+            {
+                if (template.InheritsFrom(pageTemplateId))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private static string ToPublicUrl(string fullPath)
