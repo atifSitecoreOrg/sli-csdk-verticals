@@ -1,8 +1,8 @@
 ---
 ID: "9b6e4c21-5a38-4d7f-8e14-c0f2a7d3b651"
-Parent: "47151711-26ca-434e-8132-d3e0b7d26683"
+Parent: "3f8a6a5d-7b1a-4566-8cd4-0a50f3030bd8"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: "/sitecore/templates/Foundation/JSS Experience Accelerator/Multisite/Base Page/search"
+Path: "/sitecore/templates/Foundation/Experience Accelerator/Multisite/Content/Page/search"
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder

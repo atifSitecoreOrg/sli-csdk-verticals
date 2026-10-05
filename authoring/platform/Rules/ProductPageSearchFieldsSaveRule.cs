@@ -16,7 +16,7 @@ namespace XmCloudNextJsStarter.Rules
         private const string PathFieldName = "scPath";
         private const string UrlFieldName = "scUrl";
         private const string HomeSegment = "/Home/";
-        private static readonly ID BasePageTemplateId = new ID("{47151711-26CA-434E-8132-D3E0B7D26683}");
+        private static readonly ID BasePageTemplateId = new ID("{3F8A6A5D-7B1A-4566-8CD4-0A50F3030BD8}");
         private static readonly ID[] PageTemplateIds =
         {
             new ID("{98E60957-0783-4A9A-85CC-77DAD30E9711}"),
