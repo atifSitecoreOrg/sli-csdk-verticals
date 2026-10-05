@@ -47,7 +47,7 @@
     }
   },
   "deployItems": {
-    "modules": ["Project.IndustryVerticals"]
+    "modules": ["Project.IndustryVerticals", "Foundation.BasePage"]
   },
   "postActions": {
     "actions": {

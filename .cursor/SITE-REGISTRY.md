@@ -2,7 +2,7 @@
 
 Source of truth for sites in **this** clone. When a site is created, cloned, or renamed, update this file in the same change as the host and authoring. Procedure: [skills/new-site-inventory/SKILL.md](./skills/new-site-inventory/SKILL.md).
 
-Last verified: 2026-10-01 against `industry-verticals/*/package.json` and `xmcloud.build.json`.
+Last verified: 2026-10-05 against `industry-verticals/*/package.json` and `xmcloud.build.json`.
 
 New hosts go under `industry-verticals/{folder}/`. Shared tenant content stays under `authoring/items/industry-verticals/` unless the site is an isolated collection.
 
@@ -17,7 +17,7 @@ New hosts go under `industry-verticals/{folder}/`. Shared tenant content stays u
 | `travel` | Skywings | `travel` | `skywings` | `Project.Travel-Content`, `Project.Travel-Media` |
 | `energy` | Gridwell | `energy` | `gridwell` | `Project.Energy-Content`, `Project.Energy-Media` |
 
-`deployItems.modules`: `Project.IndustryVerticals`.
+`deployItems.modules`: `Project.IndustryVerticals`, `Foundation.BasePage`.
 
 ## Industry skills
 
