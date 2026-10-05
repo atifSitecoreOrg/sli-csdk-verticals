@@ -2,12 +2,13 @@ using System;
 using Sitecore.Data;
 using Sitecore.Data.Events;
 using Sitecore.Data.Items;
+using Sitecore.Data.Managers;
 using Sitecore.Events;
 
 namespace XmCloudNextJsStarter.Rules
 {
     /// <summary>
-    /// Item-saved rule that keeps the product search fields aligned with the item location.
+    /// Item-saved rule that keeps page search fields aligned with the item location.
     /// </summary>
     public class ProductPageSearchFieldsSaveRule
     {
@@ -15,7 +16,7 @@ namespace XmCloudNextJsStarter.Rules
         private const string PathFieldName = "scPath";
         private const string UrlFieldName = "scUrl";
         private const string HomeSegment = "/Home/";
-        private static readonly ID ProductPageTemplateId = new ID("{F6E44A9E-074A-4865-987E-0C2DC00B7AF5}");
+        private static readonly ID PageTemplateId = new ID("{98E60957-0783-4A9A-85CC-77DAD30E9711}");
 
         public void OnItemSaved(object sender, EventArgs args)
         {
@@ -62,7 +63,8 @@ namespace XmCloudNextJsStarter.Rules
                 return false;
             }
 
-            return item.TemplateID == ProductPageTemplateId;
+            var template = TemplateManager.GetTemplate(item);
+            return template != null && template.InheritsFrom(PageTemplateId);
         }
 
         private static string ToPublicUrl(string fullPath)
