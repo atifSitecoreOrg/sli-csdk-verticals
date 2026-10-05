@@ -1,0 +1,14 @@
+{
+  "$schema": "../../../../.sitecore/schemas/ModuleFile.schema.json",
+  "namespace": "Foundation.BasePage",
+  "items": {
+    "includes": [
+      {
+        "name": "basePageSearch",
+        "path": "/sitecore/templates/Foundation/JSS Experience Accelerator/Multisite/Base Page/search",
+        "scope": "ItemAndDescendants",
+        "allowedPushOperations": "CreateUpdateAndDelete"
+      }
+    ]
+  }
+}
