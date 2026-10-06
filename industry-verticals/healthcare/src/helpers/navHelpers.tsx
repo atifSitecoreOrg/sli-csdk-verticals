@@ -1,4 +1,4 @@
-import { Text as ContentSdkText, LinkField } from '@sitecore-content-sdk/nextjs';
+import { Text as ContentSdkText, FieldMetadata, LinkField } from '@sitecore-content-sdk/nextjs';
 import { NavigationListProps } from '@/components/navigation/Navigation';
 
 export const getNavigationText = function (props: NavigationListProps) {
@@ -15,12 +15,13 @@ export const getNavigationText = function (props: NavigationListProps) {
   return text;
 };
 
-export const getLinkField = (props: NavigationListProps): LinkField => ({
+export const getLinkField = (props: NavigationListProps): LinkField & FieldMetadata => ({
   value: {
     href: props.fields.Href,
     title: getLinkTitle(props),
     querystring: props.fields.Querystring,
   },
+  metadata: props.fields.NavigationTitle?.metadata ?? props.fields.Title?.metadata,
 });
 
 const getLinkTitle = (props: NavigationListProps): string | undefined => {

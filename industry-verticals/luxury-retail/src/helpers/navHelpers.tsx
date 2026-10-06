@@ -1,6 +1,6 @@
 import { NavigationProps, NavItemFields } from '@/components/navigation/Navigation';
 import { JSX } from 'react';
-import { LinkField, Text } from '@sitecore-content-sdk/nextjs';
+import { FieldMetadata, LinkField, Text } from '@sitecore-content-sdk/nextjs';
 
 export const isNavLevel = (fields: NavItemFields, level: number): boolean => {
   return Array.isArray(fields.Styles) && fields.Styles.includes(`level${level}`);
@@ -30,7 +30,7 @@ export const getLinkContent = (fields: NavItemFields, logoSrc?: string): JSX.Ele
   return fields.DisplayName;
 };
 
-export const getLinkField = (fields: NavItemFields): LinkField => ({
+export const getLinkField = (fields: NavItemFields): LinkField & FieldMetadata => ({
   value: {
     href: fields.Href,
     title:
@@ -39,6 +39,7 @@ export const getLinkField = (fields: NavItemFields): LinkField => ({
       fields.DisplayName,
     querystring: fields.Querystring,
   },
+  metadata: fields.NavigationTitle?.metadata ?? fields.Title?.metadata,
 });
 
 export const prepareFields = (
