@@ -3,6 +3,7 @@
     "nextjsstarter": {
       "path": "./industry-verticals/retail",
       "nodeVersion": "24.18.0",
+      "packageManager": "npm",
       "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
       "enabled": true,
       "type": "sxa",
@@ -12,6 +13,7 @@
     "luxury-retail": {
       "path": "./industry-verticals/luxury-retail",
       "nodeVersion": "24.18.0",
+      "packageManager": "npm",
       "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
       "enabled": true,
       "type": "sxa",
@@ -21,6 +23,7 @@
     "healthcare": {
       "path": "./industry-verticals/healthcare",
       "nodeVersion": "24.18.0",
+      "packageManager": "npm",
       "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
       "enabled": true,
       "type": "sxa",
@@ -30,6 +33,7 @@
     "travel": {
       "path": "./industry-verticals/travel",
       "nodeVersion": "24.18.0",
+      "packageManager": "npm",
       "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
       "enabled": true,
       "type": "sxa",
@@ -39,6 +43,7 @@
     "energy": {
       "path": "./industry-verticals/energy",
       "nodeVersion": "24.18.0",
+      "packageManager": "npm",
       "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
       "enabled": true,
       "type": "sxa",

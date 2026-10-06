@@ -1,17 +1,20 @@
 const path = require('path');
 
 /**
+ * Client-only stand-in for `@sitecore-content-sdk/content/tools`.
+ * That barrel re-exports Node-only templating; the generated import map only
+ * needs `combineImportEntries`.
+ */
+const contentToolsClientStub = path.resolve(__dirname, 'src/lib/content-sdk-tools.client.ts');
+
+/**
  * @type {import('next').NextConfig}
+ * Next.js 16 defaults to Turbopack; this app relies on custom webpack (Content SDK
+ * component-props-loader, FEAAS externals). Scripts use `next * --webpack`; see next:build/next:dev.
  */
 const nextConfig = {
   // Allow specifying a distinct distDir when concurrently running app in a container
   distDir: process.env.NEXTJS_DIST_DIR || '.next',
-
-  // Enable Turbopack file system caching for faster dev startup (beta)
-  // See: https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack
-  experimental: {
-    turbopackFileSystemCacheForDev: true,
-  },
 
   i18n: {
     // These are all the locales you want to support in your application.
@@ -49,6 +52,8 @@ const nextConfig = {
         port: '',
       },
     ],
+    // Disable image optimization in development to avoid upstream timeouts
+    unoptimized: process.env.NODE_ENV === 'development',
   },
 
   async rewrites() {
@@ -63,10 +68,29 @@ const nextConfig = {
         source: '/robots.txt',
         destination: '/api/robots',
       },
+      {
+        source: '/llms.txt',
+        destination: '/api/llms-txt',
+      },
       // sitemap route
       {
-        source: '/sitemap:id([\\w-]{0,}).xml',
+        source: '/sitemap.xml',
         destination: '/api/sitemap',
+      },
+      // Numbered sitemap index pages (e.g. /sitemap-0.xml, /sitemap-1.xml)
+      {
+        source: '/sitemap-:id(\\d+).xml',
+        destination: '/api/sitemap',
+      },
+      // ai.txt route for AI crawlers
+      {
+        source: '/.well-known/ai.txt',
+        destination: '/api/well-known/ai-txt',
+      },
+      // LLM-optimized sitemap for AI crawler ingestion
+      {
+        source: '/sitemap-llm.xml',
+        destination: '/api/sitemap-llm',
       },
       // feaas api route
       {
@@ -83,6 +107,26 @@ const nextConfig = {
         test: /src\\components\\.*\.tsx$/,
         use: ['@sitecore-content-sdk\\nextjs\\component-props-loader'],
       });
+
+      // Keep the Node-only `/tools` barrel out of the browser graph. The generated
+      // import map imports `@sitecore-content-sdk/nextjs/codegen`, which re-exports
+      // `combineImportEntries` from `@sitecore-content-sdk/content/tools`.
+      const contentToolsAliases = {
+        '@sitecore-content-sdk/content/tools$': contentToolsClientStub,
+        '@sitecore-content-sdk/content/dist/esm/tools$': contentToolsClientStub,
+        '@sitecore-content-sdk/content/dist/esm/tools/index.js': contentToolsClientStub,
+      };
+
+      if (Array.isArray(config.resolve.alias)) {
+        Object.entries(contentToolsAliases).forEach(([name, alias]) => {
+          config.resolve.alias.unshift({ name, alias });
+        });
+      } else {
+        config.resolve.alias = {
+          ...config.resolve.alias,
+          ...contentToolsAliases,
+        };
+      }
     } else {
       // Force use of CommonJS on the server for FEAAS SDK since Content SDK also uses CommonJS entrypoint to FEAAS SDK.
       // This prevents issues arising due to FEAAS SDK's dual CommonJS/ES module support on the server (via conditional exports).

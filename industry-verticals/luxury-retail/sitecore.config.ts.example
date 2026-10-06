@@ -26,7 +26,7 @@ export default defineConfig({
   editingSecret: process.env.SITECORE_EDITING_SECRET,
   redirects: {
     enabled: true,
-    locales: ['en'],
+    locales: ['en', 'fr-FR', 'es-ES'],
   },
   multisite: {
     enabled: true,
@@ -34,7 +34,13 @@ export default defineConfig({
   },
   personalize: {
     scope: process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE,
-    edgeTimeout: parseInt(process.env.PERSONALIZE_PROXY_EDGE_TIMEOUT!, 10),
-    cdpTimeout: parseInt(process.env.PERSONALIZE_PROXY_CDP_TIMEOUT!, 10),
+    edgeTimeout: parseInt(
+      process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT || process.env.PERSONALIZE_PROXY_EDGE_TIMEOUT!,
+      10
+    ),
+    cdpTimeout: parseInt(
+      process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT || process.env.PERSONALIZE_PROXY_CDP_TIMEOUT!,
+      10
+    ),
   },
 });
