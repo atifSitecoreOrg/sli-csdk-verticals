@@ -1,5 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import sites from '.sitecore/sites.json';
+import sitesJson from '.sitecore/sites.json';
+
+/**
+ * Generated `.sitecore/sites.json` is often `[]` before sites are resolved, which
+ * TypeScript types as `never[]`. Cast so `hostName` is available when entries exist.
+ */
+const sites = sitesJson as { hostName?: string }[];
 
 const CACHE_MAX_AGE = 86400; // 24 hours
 
