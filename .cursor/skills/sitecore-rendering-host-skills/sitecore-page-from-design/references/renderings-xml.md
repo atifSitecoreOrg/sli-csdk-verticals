@@ -92,13 +92,15 @@ Headless pages use the default device ID on the outer `<d>` element:
 
 ```xml
 <r xmlns:p="p" xmlns:s="s" p:p="1">
-  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
     <!-- <r> rendering entries -->
   </d>
 </r>
 ```
 
-Copy this wrapper from an existing page in the same collection — do not change the device ID unless the site module defines otherwise.
+`l` is the JSS layout (`/sitecore/layout/Layouts/Foundation/JSS Experience Accelerator/Presentation/JSS Layout`). That layout lists `headless-header`, `headless-main`, and `headless-footer` in Layout Service Placeholders. Without it, the platform uses the MVC layout and returns an empty `placeholders` object, so header and footer are not found.
+
+Copy this wrapper from an existing page in the same collection — do not change the device ID or the JSS layout ID unless the site module defines otherwise.
 
 ---
 
@@ -162,7 +164,8 @@ SharedFields:
     <r xmlns:p="p" xmlns:s="s"
       p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
         ...
       </d>
     </r>
@@ -172,6 +175,7 @@ SharedFields:
 
 ## Pre-push checklist
 
+- [ ] Device `<d>` includes JSS layout `l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}"`
 - [ ] Copied XML structure from a working page in the same site module
 - [ ] Every `s:par` uses `&amp;`, never bare `&`
 - [ ] Every `uid` and every `p:after='{…}'` GUID is **uppercase** and consistent
@@ -190,6 +194,7 @@ SharedFields:
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
 | Homepage `/` empty (header/footer only) | Renderings on `Home/Home` instead of scaffold `Home`; or `StartItem` ≠ `Home.yml` ID | Put `__Renderings` on `{siteContentPath}/Home.yml`; delete `Home/Home`; keep `StartItem` on `Home` — [homepage-authoring.md](homepage-authoring.md) |
+| Header, footer, and main placeholders missing from layout JSON | Device XML has no `l` attribute, so the MVC layout is used and its Layout Service Placeholders field is empty | Set `l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}"` on every `<d>` |
 | Content Editor error opening Home (or any page) | Invalid `__Renderings` XML | Apply rules 1–2; validate; push |
 | Pages editor shows wrong variant | Missing or wrong `FieldNames` in `s:par` | Set Headless Variant GUID — **Carousel** when design is a slider |
 | Carousel shows as static grid | `FieldNames` points to Default, not Carousel | Use Carousel variant GUID from Headless Variants folder |
