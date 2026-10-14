@@ -58,6 +58,7 @@
     "actions": {
       "scsModules": {
         "modules": [
+          "Project.IndustryVerticals",
           "Project.Retail-Content",
           "Project.Retail-Media",
           "Project.Healthcare-Content",
