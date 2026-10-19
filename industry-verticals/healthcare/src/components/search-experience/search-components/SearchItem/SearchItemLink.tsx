@@ -1,35 +1,32 @@
 'use client';
 import { HTMLAttributes } from 'react';
 import { useTranslations } from '../useTranslations';
-import { Link } from '@sitecore-content-sdk/nextjs';
 import { cn } from 'lib/utils';
-import { SearchItemFields } from './index';
 import { DICTIONARY_KEYS } from '../constants';
 
-type SearchItemLinkProps = {
-  link: SearchItemFields['title'];
-  onClick: () => void;
-} & HTMLAttributes<HTMLAnchorElement>;
+type SearchItemLinkProps = HTMLAttributes<HTMLSpanElement>;
 
-export const SearchItemLink = ({ className, link, onClick, ...props }: SearchItemLinkProps) => {
+export const SearchItemLink = ({ className, ...props }: SearchItemLinkProps) => {
   const t = useTranslations();
 
   return (
-    link && (
-      <Link
-        field={{ href: link.value }}
-        className={cn(
-          'text-primary hover:text-primary-hover inline-flex items-center font-medium',
-          className
-        )}
-        onClick={onClick}
-        {...props}
+    <span
+      className={cn(
+        'text-accent mt-auto inline-flex items-center gap-1 pt-6 font-semibold',
+        className
+      )}
+      {...props}
+    >
+      {t(DICTIONARY_KEYS.VIEW_PROFILE) || 'View profile'}
+      <svg
+        className="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
       >
-        {t(DICTIONARY_KEYS.READ_MORE) || 'Read More'}
-        <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </Link>
-    )
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </span>
   );
 };

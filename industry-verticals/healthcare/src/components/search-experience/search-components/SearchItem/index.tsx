@@ -27,13 +27,31 @@ type SearchItemProps = {
   onClick: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 
+const toPlainText = (value: string) =>
+  value
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+
+/**
+ * The doctor index does not return scUrl. Profile routes follow the Doctors item name.
+ */
+const profilePath = (name?: string) => {
+  if (!name?.trim()) return undefined;
+  return `/Doctors/${name.trim().replace(/\s+/g, '-')}`;
+};
+
 const getField = (
   fields: SearchDocument,
   key?: string
 ): { value: string | string[] } | undefined => {
   if (!key) return undefined;
   const value = fields[key];
-  if (value === undefined) {
+  if (value == null || value === '') {
     return undefined;
   }
   if (typeof value !== 'string') {
@@ -54,7 +72,10 @@ export const SearchItem = ({ data, mapping, variant = 'card', onClick }: SearchI
         ? (getField(data, mapping.tags) as { value: string | string[] })
         : undefined,
       summary: mapping.description
-        ? (getField(data, mapping.description) as { value: string })
+        ? (() => {
+            const summary = getField(data, mapping.description) as { value: string } | undefined;
+            return summary ? { ...summary, value: toPlainText(summary.value) } : undefined;
+          })()
         : undefined,
       category: mapping.type ? (getField(data, mapping.type) as { value: string }) : undefined,
       link: (getField(data, mapping.link) ||
@@ -63,24 +84,33 @@ export const SearchItem = ({ data, mapping, variant = 'card', onClick }: SearchI
     };
   }, [data, mapping]);
 
-  const image = fields.image ? (
-    <SearchItemImage image={fields.image} variant={variant} />
+  const indexedHref = typeof fields.link?.value === 'string' ? fields.link.value : '';
+  const href = indexedHref || profilePath(fields.title?.value);
+  const imageSrc = typeof fields.image?.value === 'string' ? fields.image.value : '';
+  const image = imageSrc ? (
+    <SearchItemImage image={fields.image} alt={fields.title?.value} />
   ) : undefined;
   const components = (
     <>
+      {fields.title && <SearchItemTitle text={fields.title} />}
       {fields.category && (
         <SearchItemCategory category={fields.category} className="line-clamp-2" />
       )}
-      {fields.title && <SearchItemTitle text={fields.title} className="line-clamp-2" />}
-      {fields.tags && <SearchItemTags tags={fields.tags} className="line-clamp-2" />}
-      {fields.summary && <SearchItemSummary summary={fields.summary} className="line-clamp-3" />}
-      {fields.link && <SearchItemLink link={fields.link} onClick={onClick} />}
+      {fields.tags && (
+        <SearchItemTags tags={fields.tags} className={isCard ? 'justify-center' : undefined} />
+      )}
+      {fields.summary && <SearchItemSummary summary={fields.summary} />}
+      {href && <SearchItemLink className={isCard ? 'justify-center' : 'justify-start'} />}
     </>
   );
 
   return isCard ? (
-    <ItemCardFrame image={image}>{components}</ItemCardFrame>
+    <ItemCardFrame image={image} href={href} label={fields.title?.value} onNavigate={onClick}>
+      {components}
+    </ItemCardFrame>
   ) : (
-    <ItemListFrame image={image}>{components}</ItemListFrame>
+    <ItemListFrame image={image} href={href} label={fields.title?.value} onNavigate={onClick}>
+      {components}
+    </ItemListFrame>
   );
 };

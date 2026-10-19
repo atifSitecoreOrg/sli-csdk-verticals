@@ -1,0 +1,80 @@
+﻿---
+ID: "04b7cdc7-8be2-497f-b9b2-cc370da3909c"
+Parent: "756c92c4-91ca-4db3-8a25-01a3a22ae20f"
+Template: "2f814f03-c3ef-4229-854c-cbced6d24704"
+Path: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Amara Diallo"
+SharedFields:
+- ID: "32ed8c8c-8ce4-4047-bbd3-b7b1141b1ef0"
+  Hint: ogImage
+  Value: |
+    <image mediaid="{5ed564ae-aeeb-48ab-a407-8b60c0cb6f89}" alt="Amara Diallo" />
+- ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
+  Hint: scPath
+  Value: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Amara Diallo"
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{E83CCA4C-9E82-447F-A085-109C41CC832A}" />
+- ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+  Hint: scUrl
+  Value: "/Doctors/Amara-Diallo"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "3b7489c2-63f7-49d7-927b-80eca571cf06"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17f193f8-30f6-46f1-b96d-52ff7d1e980a"
+      Hint: pageSummary
+      Value: Dr. Amara Diallo provides medical and surgical eye care, including cataracts, glaucoma, and diabetic eye disease.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261019T170807Z
+    - ID: "3ac1a186-26b7-4845-9048-443c0dd0e487"
+      Hint: Bio
+      Value: <p>Dr. Amara Diallo provides medical and surgical eye care, including cataracts, glaucoma, and diabetic eye disease. She explains test results in everyday language and schedules treatment before vision is allowed to slip. Her clinic time includes both routine examinations and urgent drops in vision. She practices with the Nova Medical eye service.</p>
+    - ID: "3d5c2024-49b4-4918-bfff-5911d8b60b29"
+      Hint: metadataDescription
+      Value: Dr. Amara Diallo provides medical and surgical eye care, including cataracts, glaucoma, and diabetic eye disease.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Amara Diallo
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "58a94784-3297-4c4a-a2b4-e4f87d015f50"
+      Hint: JobTitle
+      Value: Ophthalmologist
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "65d340d2-4eb3-4593-9bdd-9a66c4dcfab7"
+      Hint: FullName
+      Value: Amara Diallo
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "45e5c9c0-8ccc-4220-83a5-01cc84c9dbae"
+    - ID: "b6c4de28-a3f5-40a7-9e67-ffb12c9c44ad"
+      Hint: metadataTitle
+      Value: Amara Diallo | Ophthalmologist
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d845cc62-7249-4609-a4d2-3a85eabf4951"
+      Hint: metadataKeywords
+      Value: Ophthalmologist
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261019T174517Z
+    - ID: "ea706e77-5d62-426e-bbb3-68805298e75c"
+      Hint: Photo
+      Value: |
+        <image mediaid="{5ed564ae-aeeb-48ab-a407-8b60c0cb6f89}" alt="Amara Diallo" />
+    - ID: "fb359b0f-3087-41f2-aae3-2dd492eb2c60"
+      Hint: Title
+      Value: Amara Diallo

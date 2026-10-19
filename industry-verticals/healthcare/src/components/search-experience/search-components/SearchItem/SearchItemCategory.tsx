@@ -5,18 +5,14 @@ import { cn } from 'lib/utils';
 
 type SearchItemCategoryProps = {
   category: { value: string } | undefined;
-} & HTMLAttributes<HTMLDivElement>;
+} & HTMLAttributes<HTMLParagraphElement>;
 
 export const SearchItemCategory = ({ category, className, ...props }: SearchItemCategoryProps) => {
   return (
     category && (
-      <div className={cn('mb-4 flex flex-wrap gap-2', className)} {...props}>
-        <Text
-          field={category}
-          tag="span"
-          className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700"
-        />
-      </div>
+      <p className={cn('text-accent mb-4 text-lg lg:text-xl', className)} {...props}>
+        <Text field={category} />
+      </p>
     )
   );
 };

@@ -14,40 +14,82 @@ type SearchSkeletonItemProps = {
  */
 export const SearchSkeletonItem = ({ mapping, variant = 'card' }: SearchSkeletonItemProps) => {
   const isCard = variant === 'card';
+  const image = mapping.images ? (
+    <div className="bg-background-tertiary/70 dark:bg-background-dark/40 absolute inset-0 animate-pulse" />
+  ) : undefined;
 
   const fields = (
     <>
-      {mapping.type && <SearchItemCategorySkeleton />}
-      {mapping.title && <SearchItemTitleSkeleton />}
+      {mapping.title && <SearchItemTitleSkeleton centered={isCard} />}
+      {mapping.type && <SearchItemCategorySkeleton centered={isCard} />}
       {mapping.description && <SearchItemSummarySkeleton />}
-      {mapping.link && <SearchItemLinkSkeleton />}
+      {mapping.link && <SearchItemLinkSkeleton centered={isCard} />}
     </>
   );
 
-  return isCard ? <ItemCardFrame>{fields}</ItemCardFrame> : <ItemListFrame>{fields}</ItemListFrame>;
+  return isCard ? (
+    <ItemCardFrame image={image}>{fields}</ItemCardFrame>
+  ) : (
+    <ItemListFrame image={image}>{fields}</ItemListFrame>
+  );
 };
 
-const SearchItemTitleSkeleton = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
+const SearchItemTitleSkeleton = ({
+  className,
+  centered,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & { centered?: boolean }) => {
   return (
-    <div className={cn('mb-3 h-6 w-3/4 animate-pulse rounded bg-gray-200', className)} {...props} />
+    <div
+      className={cn(
+        'bg-background-tertiary/80 mb-3 h-7 w-3/4 animate-pulse rounded',
+        centered && 'mx-auto',
+        className
+      )}
+      {...props}
+    />
   );
 };
 
 const SearchItemSummarySkeleton = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div className={cn('mb-4 space-y-2', className)} {...props}>
-      <div className="h-4 w-full animate-pulse rounded bg-gray-200" />
-      <div className="h-4 w-5/6 animate-pulse rounded bg-gray-200" />
+      <div className="bg-background-tertiary/70 h-4 w-full animate-pulse rounded" />
+      <div className="bg-background-tertiary/70 h-4 w-5/6 animate-pulse rounded" />
     </div>
   );
 };
 
-const SearchItemLinkSkeleton = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
-  return <div className={cn('h-5 w-24 animate-pulse rounded bg-gray-200', className)} {...props} />;
+const SearchItemLinkSkeleton = ({
+  className,
+  centered,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & { centered?: boolean }) => {
+  return (
+    <div
+      className={cn(
+        'bg-background-tertiary/80 mt-auto h-5 w-28 animate-pulse rounded pt-6',
+        centered && 'mx-auto',
+        className
+      )}
+      {...props}
+    />
+  );
 };
 
-const SearchItemCategorySkeleton = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
+const SearchItemCategorySkeleton = ({
+  className,
+  centered,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & { centered?: boolean }) => {
   return (
-    <div className={cn('mb-3 h-6 w-1/4 animate-pulse rounded bg-gray-200', className)} {...props} />
+    <div
+      className={cn(
+        'bg-accent/50 mb-4 h-6 w-1/2 animate-pulse rounded',
+        centered && 'mx-auto',
+        className
+      )}
+      {...props}
+    />
   );
 };

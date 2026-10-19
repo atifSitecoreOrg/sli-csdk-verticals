@@ -1,0 +1,80 @@
+﻿---
+ID: "fb20e12a-f1ee-4fc3-bd86-c0c82351b645"
+Parent: "756c92c4-91ca-4db3-8a25-01a3a22ae20f"
+Template: "2f814f03-c3ef-4229-854c-cbced6d24704"
+Path: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Helena Petrov"
+SharedFields:
+- ID: "32ed8c8c-8ce4-4047-bbd3-b7b1141b1ef0"
+  Hint: ogImage
+  Value: |
+    <image mediaid="{07b117c9-544e-43d8-baf4-dfacbd165cde}" alt="Helena Petrov" />
+- ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
+  Hint: scPath
+  Value: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Helena Petrov"
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{44112EBE-A099-4757-982C-D5AD16AD3E4C}" />
+- ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+  Hint: scUrl
+  Value: "/Doctors/Helena-Petrov"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "7af2359d-bae6-4523-995c-00dbc0a990dd"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17f193f8-30f6-46f1-b96d-52ff7d1e980a"
+      Hint: pageSummary
+      Value: Dr. Helena Petrov looks after adults and older patients in general practice, with particular attention to several conditions at once.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261019T170846Z
+    - ID: "3ac1a186-26b7-4845-9048-443c0dd0e487"
+      Hint: Bio
+      Value: <p>Dr. Helena Petrov looks after adults and older patients in general practice, with particular attention to several conditions at once. She simplifies medicine lists and checks which tablets are still earning their place. Her manner is unhurried, and she writes down the plan before the visit ends. She practices in the Nova Medical family clinic.</p>
+    - ID: "3d5c2024-49b4-4918-bfff-5911d8b60b29"
+      Hint: metadataDescription
+      Value: Dr. Helena Petrov looks after adults and older patients in general practice, with particular attention to several conditions at once.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Helena Petrov
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "58a94784-3297-4c4a-a2b4-e4f87d015f50"
+      Hint: JobTitle
+      Value: Family Physician
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "65d340d2-4eb3-4593-9bdd-9a66c4dcfab7"
+      Hint: FullName
+      Value: Helena Petrov
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e253eb8c-d26c-4b6a-bbaa-008fb29deeef"
+    - ID: "b6c4de28-a3f5-40a7-9e67-ffb12c9c44ad"
+      Hint: metadataTitle
+      Value: Helena Petrov | Family Physician
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d845cc62-7249-4609-a4d2-3a85eabf4951"
+      Hint: metadataKeywords
+      Value: Family Physician
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261019T174523Z
+    - ID: "ea706e77-5d62-426e-bbb3-68805298e75c"
+      Hint: Photo
+      Value: |
+        <image mediaid="{07b117c9-544e-43d8-baf4-dfacbd165cde}" alt="Helena Petrov" />
+    - ID: "fb359b0f-3087-41f2-aae3-2dd492eb2c60"
+      Hint: Title
+      Value: Helena Petrov

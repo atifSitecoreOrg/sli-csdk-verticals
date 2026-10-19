@@ -35,11 +35,18 @@ export const SearchPagination = ({
   return (
     <div className="flex items-center justify-center gap-2">
       <button
+        type="button"
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
-        className="hover:bg-primary-hover hover:text-primary-foreground flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-gray-600 disabled:cursor-not-allowed disabled:opacity-50"
+        className="hover:bg-background-secondary dark:hover:bg-background-secondary-dark flex items-center gap-1 rounded-lg px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
         {t(DICTIONARY_KEYS.PREVIOUS_PAGE) || 'Previous'}
@@ -48,7 +55,7 @@ export const SearchPagination = ({
       {showLeftEllipsis && (
         <span
           key="left-ellipsis"
-          className="flex h-10 w-10 items-center justify-center text-gray-400 select-none"
+          className="flex h-10 w-10 items-center justify-center select-none"
           aria-hidden
         >
           …
@@ -58,11 +65,12 @@ export const SearchPagination = ({
       {pages.map((page) => (
         <button
           key={page}
+          type="button"
           onClick={() => onPageChange(page)}
-          className={`hover:bg-primary-hover hover:text-primary-foreground h-10 w-10 cursor-pointer rounded-lg ${
+          className={`h-10 w-10 rounded-lg font-semibold ${
             currentPage === page
-              ? 'bg-primary text-primary-foreground'
-              : 'text-gray-600 hover:bg-gray-100'
+              ? 'bg-foreground text-background dark:bg-foreground-dark dark:text-background-dark'
+              : 'hover:bg-background-secondary dark:hover:bg-background-secondary-dark'
           }`}
         >
           {page}
@@ -72,7 +80,7 @@ export const SearchPagination = ({
       {showRightEllipsis && (
         <span
           key="right-ellipsis"
-          className="flex h-10 w-10 items-center justify-center text-gray-400 select-none"
+          className="flex h-10 w-10 items-center justify-center select-none"
           aria-hidden
         >
           …
@@ -80,12 +88,19 @@ export const SearchPagination = ({
       )}
 
       <button
+        type="button"
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}
-        className="hover:bg-primary-hover hover:text-primary-foreground flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-gray-600 disabled:cursor-not-allowed disabled:opacity-50"
+        className="hover:bg-background-secondary dark:hover:bg-background-secondary-dark flex items-center gap-1 rounded-lg px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {t(DICTIONARY_KEYS.NEXT_PAGE) || 'Next'}
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>

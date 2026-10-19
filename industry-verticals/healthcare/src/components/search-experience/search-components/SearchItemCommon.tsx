@@ -1,41 +1,103 @@
 'use client';
-import { HTMLAttributes } from 'react';
+
+import type { HTMLAttributes, ReactNode } from 'react';
+import Link from 'next/link';
 import { cn } from 'lib/utils';
 
 export type SearchItemVariant = 'card' | 'list';
 
-type ItemListFrameProps = HTMLAttributes<HTMLDivElement> & { image?: React.ReactNode };
+type ItemFrameProps = HTMLAttributes<HTMLDivElement> & {
+  image?: ReactNode;
+  href?: string;
+  label?: string;
+  onNavigate?: () => void;
+};
 
-export const ItemListFrame = ({ className, children, image, ...props }: ItemListFrameProps) => {
+const frameClassName =
+  'bg-background-secondary dark:bg-background-secondary-dark shadow-soft focus-visible:ring-accent flex h-full overflow-hidden rounded-lg transition-shadow outline-none hover:shadow-lg focus-visible:ring-2';
+
+const ItemFrame = ({
+  className,
+  href,
+  label,
+  onNavigate,
+  children,
+}: {
+  className?: string;
+  href?: string;
+  label?: string;
+  onNavigate?: () => void;
+  children: ReactNode;
+}) => {
+  if (!href) {
+    return <div className={className}>{children}</div>;
+  }
+
+  if (href.startsWith('http')) {
+    return (
+      <a href={href} onClick={onNavigate} aria-label={label} className={className}>
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <div
-      className={cn(
-        'cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg md:h-57',
-        className
-      )}
-      {...props}
-    >
-      <div className="flex h-full w-full flex-col md:flex-row">
-        {image}
-        <div className="p-6 md:flex-1">{children}</div>
-      </div>
-    </div>
+    <Link href={href} onClick={onNavigate} aria-label={label} className={className}>
+      {children}
+    </Link>
   );
 };
 
-type ItemCardFrameProps = HTMLAttributes<HTMLDivElement> & { image?: React.ReactNode };
-
-export const ItemCardFrame = ({ className, children, image, ...props }: ItemCardFrameProps) => {
+/**
+ * Horizontal doctor row: portrait beside the name, specialty, and biography.
+ */
+export const ItemListFrame = ({
+  className,
+  children,
+  image,
+  href,
+  label,
+  onNavigate,
+}: ItemFrameProps) => {
   return (
-    <div
-      className={cn(
-        'cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg',
-        className
-      )}
-      {...props}
+    <ItemFrame
+      href={href}
+      label={label}
+      onNavigate={onNavigate}
+      className={cn(frameClassName, 'flex-col md:min-h-64 md:flex-row', className)}
     >
-      {image}
-      <div className="p-6">{children}</div>
-    </div>
+      {image && (
+        <div className="placeholder-pattern-background relative aspect-square w-full shrink-0 md:aspect-auto md:w-64">
+          {image}
+        </div>
+      )}
+      <div className="flex flex-1 flex-col justify-center p-7 md:p-10">{children}</div>
+    </ItemFrame>
+  );
+};
+
+/**
+ * Physician card: square photo, then centered name and specialty.
+ */
+export const ItemCardFrame = ({
+  className,
+  children,
+  image,
+  href,
+  label,
+  onNavigate,
+}: ItemFrameProps) => {
+  return (
+    <ItemFrame
+      href={href}
+      label={label}
+      onNavigate={onNavigate}
+      className={cn(frameClassName, 'flex-col', className)}
+    >
+      {image && (
+        <div className="placeholder-pattern-background relative aspect-square w-full">{image}</div>
+      )}
+      <div className="flex flex-1 flex-col p-7 text-center">{children}</div>
+    </ItemFrame>
   );
 };

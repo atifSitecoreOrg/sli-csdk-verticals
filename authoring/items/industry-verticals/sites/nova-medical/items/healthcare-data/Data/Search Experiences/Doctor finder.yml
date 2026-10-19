@@ -1,0 +1,38 @@
+﻿---
+ID: "4a53a9ca-85ed-4e97-a1e1-68ecb0342c1a"
+Parent: "bc3baec3-7457-4467-bd46-bde9eccdd189"
+Template: "4650bdba-5f18-49f9-8fda-824bbc52fa01"
+Path: "/sitecore/content/industry-verticals/nova-medical/Data/Search Experiences/Doctor finder"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261019T135652Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\steve.little@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\steve.little@sitecore.com
+    - ID: "8977c3f4-c9bf-4175-9b1f-d09dab593f65"
+      Hint: search
+      Value: |
+        {"searchIndex":"3654e4b7-43ed-49df-ad2b-4f8857e3195f","fieldsMapping":{"images":"Photo","description":"Bio","title":"FullName","type":"JobTitle","link":"scUrl","tags":""},"fieldPreviewEnabled":{"images":true,"description":true,"title":true,"type":true},"previewEnabled":true,"autocompleteEnabled":true,"moreLikeThisEnabled":false}
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a666235e-9c57-4936-ac0d-03daaa32cd85"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261019T142342Z

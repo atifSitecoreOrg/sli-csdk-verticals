@@ -1,0 +1,80 @@
+﻿---
+ID: "18912b22-c42d-4020-b6b2-f76eb2ae24ae"
+Parent: "756c92c4-91ca-4db3-8a25-01a3a22ae20f"
+Template: "2f814f03-c3ef-4229-854c-cbced6d24704"
+Path: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Aisha Rahman"
+SharedFields:
+- ID: "32ed8c8c-8ce4-4047-bbd3-b7b1141b1ef0"
+  Hint: ogImage
+  Value: |
+    <image mediaid="{7bb9ea61-1bc8-416d-9dcc-0f4c962f3ab0}" alt="Aisha Rahman" />
+- ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
+  Hint: scPath
+  Value: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Aisha Rahman"
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{12293AF5-12BF-4C27-8411-E218397EFC78}" />
+- ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+  Hint: scUrl
+  Value: "/Doctors/Aisha-Rahman"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "d8a533f0-52cf-4875-9a9f-5279fd374ad1"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17f193f8-30f6-46f1-b96d-52ff7d1e980a"
+      Hint: pageSummary
+      Value: Dr. Aisha Rahman cares for people with complex breathlessness, lung nodules, and recovery after chest infection.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261019T170831Z
+    - ID: "3ac1a186-26b7-4845-9048-443c0dd0e487"
+      Hint: Bio
+      Value: <p>Dr. Aisha Rahman cares for people with complex breathlessness, lung nodules, and recovery after chest infection. She explains scans in plain terms and is clear about which findings need a biopsy. Smoking cessation and pulmonary rehabilitation are offered as treatment, not afterthoughts. She works with the Nova Medical lung service.</p>
+    - ID: "3d5c2024-49b4-4918-bfff-5911d8b60b29"
+      Hint: metadataDescription
+      Value: Dr. Aisha Rahman cares for people with complex breathlessness, lung nodules, and recovery after chest infection.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Aisha Rahman
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "58a94784-3297-4c4a-a2b4-e4f87d015f50"
+      Hint: JobTitle
+      Value: Pulmonologist
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "65d340d2-4eb3-4593-9bdd-9a66c4dcfab7"
+      Hint: FullName
+      Value: Aisha Rahman
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9e0f5a08-e037-4f19-bb37-cdfffc3cff83"
+    - ID: "b6c4de28-a3f5-40a7-9e67-ffb12c9c44ad"
+      Hint: metadataTitle
+      Value: Aisha Rahman | Pulmonologist
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d845cc62-7249-4609-a4d2-3a85eabf4951"
+      Hint: metadataKeywords
+      Value: Pulmonologist
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261019T174524Z
+    - ID: "ea706e77-5d62-426e-bbb3-68805298e75c"
+      Hint: Photo
+      Value: |
+        <image mediaid="{7bb9ea61-1bc8-416d-9dcc-0f4c962f3ab0}" alt="Aisha Rahman" />
+    - ID: "fb359b0f-3087-41f2-aae3-2dd492eb2c60"
+      Hint: Title
+      Value: Aisha Rahman

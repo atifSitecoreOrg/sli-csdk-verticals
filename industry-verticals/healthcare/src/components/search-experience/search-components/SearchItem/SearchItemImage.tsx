@@ -1,54 +1,35 @@
 'use client';
 import { HTMLAttributes, useState } from 'react';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { cn } from 'lib/utils';
 import { SearchItemFields } from './index';
-import { SearchItemVariant } from '../SearchItemCommon';
 
 type SearchItemImageProps = {
   image: SearchItemFields['image'];
   alt?: string;
-  variant?: SearchItemVariant;
-  width?: number;
-  height?: number;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const SearchItemImage = ({
-  className,
-  alt,
-  image,
-  variant = 'card',
-  width = 400,
-  height = 250,
-  ...props
-}: SearchItemImageProps) => {
+export const SearchItemImage = ({ className, alt, image, ...props }: SearchItemImageProps) => {
   const [brokenImage, setBrokenImage] = useState<boolean>(false);
-  const isCard = variant === 'card';
+  const src = typeof image?.value === 'string' ? image.value : '';
+
+  if (!src) {
+    return null;
+  }
 
   return (
-    image && (
-      <div
-        className={cn('relative bg-gray-900', isCard ? 'w-full' : 'h-full', className)}
-        style={isCard ? { height } : { width }}
-        {...props}
-      >
-        {!brokenImage ? (
-          <Image
-            fill
-            src={image.value}
-            alt={alt || 'Product image'}
-            onError={() => setBrokenImage(true)}
-            unoptimized
-            className="object-cover"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gray-100">
-            <FontAwesomeIcon icon={faImage} size="2xl" className="text-gray-300" />
-          </div>
-        )}
-      </div>
-    )
+    <div className={cn('absolute inset-0', className)} {...props}>
+      {!brokenImage && (
+        <Image
+          fill
+          src={src}
+          alt={alt || ''}
+          onError={() => setBrokenImage(true)}
+          unoptimized
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+        />
+      )}
+    </div>
   );
 };

@@ -1,0 +1,80 @@
+﻿---
+ID: "3930a8be-2fcf-480c-8fe6-0384a86b67cd"
+Parent: "756c92c4-91ca-4db3-8a25-01a3a22ae20f"
+Template: "2f814f03-c3ef-4229-854c-cbced6d24704"
+Path: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Tomasz Wojcik"
+SharedFields:
+- ID: "32ed8c8c-8ce4-4047-bbd3-b7b1141b1ef0"
+  Hint: ogImage
+  Value: |
+    <image mediaid="{db305f77-6ba6-4404-8617-e1dba1949fc1}" alt="Tomasz Wojcik" />
+- ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
+  Hint: scPath
+  Value: "/sitecore/content/industry-verticals/nova-medical/Home/Doctors/Tomasz Wojcik"
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{889E160D-7543-4C21-A495-CDED012ACF0A}" />
+- ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+  Hint: scUrl
+  Value: "/Doctors/Tomasz-Wojcik"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "d5d0d8f9-a605-41e2-b895-f54c64239df8"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "17f193f8-30f6-46f1-b96d-52ff7d1e980a"
+      Hint: pageSummary
+      Value: "Dr. Tomasz Wojcik treats retinal disease, dry eye, and age-related changes in sight."
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261019T170809Z
+    - ID: "3ac1a186-26b7-4845-9048-443c0dd0e487"
+      Hint: Bio
+      Value: "<p>Dr. Tomasz Wojcik treats retinal disease, dry eye, and age-related changes in sight. He is deliberate about when observation is enough and when a procedure should not wait. Patients leave with written drop schedules and a date to return. He is a senior clinician in the Nova Medical ophthalmology clinic.</p>"
+    - ID: "3d5c2024-49b4-4918-bfff-5911d8b60b29"
+      Hint: metadataDescription
+      Value: "Dr. Tomasz Wojcik treats retinal disease, dry eye, and age-related changes in sight."
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Tomasz Wojcik
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "58a94784-3297-4c4a-a2b4-e4f87d015f50"
+      Hint: JobTitle
+      Value: Ophthalmologist
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "65d340d2-4eb3-4593-9bdd-9a66c4dcfab7"
+      Hint: FullName
+      Value: Tomasz Wojcik
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "43b533bd-2216-4f2c-abb1-c79910c9a945"
+    - ID: "b6c4de28-a3f5-40a7-9e67-ffb12c9c44ad"
+      Hint: metadataTitle
+      Value: Tomasz Wojcik | Ophthalmologist
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d845cc62-7249-4609-a4d2-3a85eabf4951"
+      Hint: metadataKeywords
+      Value: Ophthalmologist
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261019T174518Z
+    - ID: "ea706e77-5d62-426e-bbb3-68805298e75c"
+      Hint: Photo
+      Value: |
+        <image mediaid="{db305f77-6ba6-4404-8617-e1dba1949fc1}" alt="Tomasz Wojcik" />
+    - ID: "fb359b0f-3087-41f2-aae3-2dd492eb2c60"
+      Hint: Title
+      Value: Tomasz Wojcik

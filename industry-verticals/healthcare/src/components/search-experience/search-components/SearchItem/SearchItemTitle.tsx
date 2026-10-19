@@ -11,10 +11,7 @@ type SearchItemTitleProps = {
 export const SearchItemTitle = ({ className, text, ...props }: SearchItemTitleProps) => {
   return (
     text && (
-      <h3
-        className={cn('mb-3 line-clamp-2 text-xl font-semibold text-gray-900', className)}
-        {...props}
-      >
+      <h3 className={cn('mb-2 line-clamp-2 text-xl font-bold lg:text-2xl', className)} {...props}>
         <Text field={text} />
       </h3>
     )

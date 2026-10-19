@@ -9,7 +9,7 @@ import {
 
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
 import { Link, Text, useSitecore, RichText, withDatasourceCheck, Placeholder, NextImage, CdpHelper } from '@sitecore-content-sdk/nextjs';
-import { useMemo, useCallback, useEffect, useState, useRef, useId } from 'react';
+import { useMemo, useCallback, useEffect, useRef, useState, useId } from 'react';
 import React from 'react';
 import { useTheme } from 'next-themes';
 import Head from 'next/head';
@@ -37,14 +37,14 @@ import { useI18n } from 'next-localization';
 import { useDebouncedCallback } from 'src/components/search-experience/search-components/useDebounce';
 import { event, pageView } from '@sitecore-content-sdk/events';
 import { ItemCardFrame, ItemListFrame } from 'src/components/search-experience/search-components/SearchItemCommon';
+import Image from 'next/image';
+import { faImage, faArrowRight, faBars, faChevronDown, faChevronUp, faTimes, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { SearchItemTitle } from 'src/components/search-experience/search-components/SearchItem/SearchItemTitle';
 import { SearchItemSummary } from 'src/components/search-experience/search-components/SearchItem/SearchItemSummary';
 import { SearchItemLink } from 'src/components/search-experience/search-components/SearchItem/SearchItemLink';
 import { SearchItemCategory } from 'src/components/search-experience/search-components/SearchItem/SearchItemCategory';
 import { SearchItemTags } from 'src/components/search-experience/search-components/SearchItem/SearchItemTags';
 import { SearchItemImage } from 'src/components/search-experience/search-components/SearchItem/SearchItemImage';
-import Image from 'next/image';
-import { faImage, faArrowRight, faBars, faChevronDown, faChevronUp, faTimes, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import BlobAccent_ff719d36323bb13e49440edf42521225aa8ecaa1 from '@/assets/shapes/BlobAccent';
 import BlobAccent_c450f25c63b00a2e370305e155038c473dbb9c49 from 'src/components/non-sitecore/BlobAccent';
 import CurvedClip_6089ba18dc7000eae1dc64c54178a20f58206b41 from 'src/components/non-sitecore/CurvedClip';
@@ -87,8 +87,8 @@ const importMap = [
       { name: 'useMemo', value: useMemo },
       { name: 'useCallback', value: useCallback },
       { name: 'useEffect', value: useEffect },
-      { name: 'useState', value: useState },
       { name: 'useRef', value: useRef },
+      { name: 'useState', value: useState },
       { name: 'useId', value: useId },
       { name: 'default', value: React },
     ]
@@ -261,6 +261,26 @@ const importMap = [
     ]
   },
   {
+    module: 'next/image',
+    exports: [
+      { name: 'default', value: Image },
+    ]
+  },
+  {
+    module: '@fortawesome/free-solid-svg-icons',
+    exports: [
+      { name: 'faImage', value: faImage },
+      { name: 'faArrowRight', value: faArrowRight },
+      { name: 'faBars', value: faBars },
+      { name: 'faChevronDown', value: faChevronDown },
+      { name: 'faChevronUp', value: faChevronUp },
+      { name: 'faTimes', value: faTimes },
+      { name: 'faEnvelope', value: faEnvelope },
+      { name: 'faPhone', value: faPhone },
+      { name: 'faArrowLeft', value: faArrowLeft },
+    ]
+  },
+  {
     module: 'src/components/search-experience/search-components/SearchItem/SearchItemTitle',
     exports: [
       { name: 'SearchItemTitle', value: SearchItemTitle },
@@ -294,26 +314,6 @@ const importMap = [
     module: 'src/components/search-experience/search-components/SearchItem/SearchItemImage',
     exports: [
       { name: 'SearchItemImage', value: SearchItemImage },
-    ]
-  },
-  {
-    module: 'next/image',
-    exports: [
-      { name: 'default', value: Image },
-    ]
-  },
-  {
-    module: '@fortawesome/free-solid-svg-icons',
-    exports: [
-      { name: 'faImage', value: faImage },
-      { name: 'faArrowRight', value: faArrowRight },
-      { name: 'faBars', value: faBars },
-      { name: 'faChevronDown', value: faChevronDown },
-      { name: 'faChevronUp', value: faChevronUp },
-      { name: 'faTimes', value: faTimes },
-      { name: 'faEnvelope', value: faEnvelope },
-      { name: 'faPhone', value: faPhone },
-      { name: 'faArrowLeft', value: faArrowLeft },
     ]
   },
   {
