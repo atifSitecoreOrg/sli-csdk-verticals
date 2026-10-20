@@ -9,7 +9,7 @@ import {
 
 import { jsx, Fragment, jsxs } from 'react/jsx-runtime';
 import { Link, Text, useSitecore, RichText, withDatasourceCheck, Placeholder, NextImage, CdpHelper } from '@sitecore-content-sdk/nextjs';
-import { useMemo, useCallback, useEffect, useRef, useState, useId } from 'react';
+import { useMemo, useCallback, useEffect, useState, useRef, useId } from 'react';
 import React from 'react';
 import { useTheme } from 'next-themes';
 import Head from 'next/head';
@@ -18,7 +18,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BlobAccent from 'src/assets/shapes/BlobAccent';
 import CurvedClip from 'src/assets/shapes/CurvedClip';
 import { CommonStyles, FeatureStyles } from '@/types/styleFlags';
-import { useTranslations } from 'src/components/search-experience/search-components/useTranslations';
 import { useSearchParams, useRouter as useRouter_38d453563358e259e30871f8ef5a0334c186c57e, usePathname } from 'next/navigation';
 import { useSearch, useInfiniteSearch } from '@sitecore-content-sdk/nextjs/search';
 import { cn } from 'lib/utils';
@@ -28,17 +27,21 @@ import { SearchItem } from 'src/components/search-experience/search-components/S
 import { SearchSkeletonItem } from 'src/components/search-experience/search-components/SearchSkeletonItem';
 import { SearchPagination } from 'src/components/search-experience/search-components/SearchPagination';
 import { SearchInput } from 'src/components/search-experience/search-components/SearchInput';
+import { SearchFinderFrame } from 'src/components/search-experience/search-components/SearchFinderBar';
+import { SearchExperienceLayout } from 'src/components/search-experience/search-components/SearchExperienceLayout';
+import { useFinderControls } from 'src/components/search-experience/search-components/useFinderControls';
 import { useEvent } from 'src/components/search-experience/search-components/useEvent';
 import { useSearchField } from 'src/components/search-experience/search-components/useSearchField';
 import { useParams } from 'src/components/search-experience/search-components/useParams';
-import { DICTIONARY_KEYS, gridColsClass, DEFAULT_PAGE_SIZE, DEBOUNCE_TIME } from 'src/components/search-experience/search-components/constants';
+import { gridColsClass, DICTIONARY_KEYS, DEFAULT_PAGE_SIZE, NAME_SORT_FIELD, SPECIALTY_FACET, DEBOUNCE_TIME } from 'src/components/search-experience/search-components/constants';
 import { useRouter } from 'src/components/search-experience/search-components/useRouter';
+import { useTranslations } from 'src/components/search-experience/search-components/useTranslations';
 import { useI18n } from 'next-localization';
 import { useDebouncedCallback } from 'src/components/search-experience/search-components/useDebounce';
 import { event, pageView } from '@sitecore-content-sdk/events';
 import { ItemCardFrame, ItemListFrame } from 'src/components/search-experience/search-components/SearchItemCommon';
+import Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 from 'next/link';
 import Image from 'next/image';
-import { faImage, faArrowRight, faBars, faChevronDown, faChevronUp, faTimes, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { SearchItemTitle } from 'src/components/search-experience/search-components/SearchItem/SearchItemTitle';
 import { SearchItemSummary } from 'src/components/search-experience/search-components/SearchItem/SearchItemSummary';
 import { SearchItemLink } from 'src/components/search-experience/search-components/SearchItem/SearchItemLink';
@@ -46,13 +49,16 @@ import { SearchItemCategory } from 'src/components/search-experience/search-comp
 import { SearchItemTags } from 'src/components/search-experience/search-components/SearchItem/SearchItemTags';
 import { SearchItemImage } from 'src/components/search-experience/search-components/SearchItem/SearchItemImage';
 import BlobAccent_ff719d36323bb13e49440edf42521225aa8ecaa1 from '@/assets/shapes/BlobAccent';
+import { faArrowRight, faBars, faChevronDown, faChevronUp, faTimes, faEnvelope, faPhone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import BlobAccent_c450f25c63b00a2e370305e155038c473dbb9c49 from 'src/components/non-sitecore/BlobAccent';
 import CurvedClip_6089ba18dc7000eae1dc64c54178a20f58206b41 from 'src/components/non-sitecore/CurvedClip';
 import { getLinkField, getNavigationText } from '@/helpers/navHelpers';
 import HeroClip from '@/assets/shapes/HeroClip';
-import Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Keyboard, Navigation, Pagination } from 'swiper/modules';
+import { Bot, ExternalLink, LayoutGrid, List, RotateCcw, Send, Sparkles, User } from 'lucide-react';
+import { SearchItem as SearchItem_ac37a13e209c1b8c39f73cb4a28aa9509854f875 } from '@/components/search-experience/search-components/SearchItem';
+import { useEvent as useEvent_0e0be8af80a732e3d4035f9e90454e5a83aafdcc } from '@/components/search-experience/search-components/useEvent';
 import client from 'lib/sitecore-client';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';
@@ -87,8 +93,8 @@ const importMap = [
       { name: 'useMemo', value: useMemo },
       { name: 'useCallback', value: useCallback },
       { name: 'useEffect', value: useEffect },
-      { name: 'useRef', value: useRef },
       { name: 'useState', value: useState },
+      { name: 'useRef', value: useRef },
       { name: 'useId', value: useId },
       { name: 'default', value: React },
     ]
@@ -136,12 +142,6 @@ const importMap = [
     exports: [
       { name: 'CommonStyles', value: CommonStyles },
       { name: 'FeatureStyles', value: FeatureStyles },
-    ]
-  },
-  {
-    module: 'src/components/search-experience/search-components/useTranslations',
-    exports: [
-      { name: 'useTranslations', value: useTranslations },
     ]
   },
   {
@@ -202,6 +202,24 @@ const importMap = [
     ]
   },
   {
+    module: 'src/components/search-experience/search-components/SearchFinderBar',
+    exports: [
+      { name: 'SearchFinderFrame', value: SearchFinderFrame },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/SearchExperienceLayout',
+    exports: [
+      { name: 'SearchExperienceLayout', value: SearchExperienceLayout },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/useFinderControls',
+    exports: [
+      { name: 'useFinderControls', value: useFinderControls },
+    ]
+  },
+  {
     module: 'src/components/search-experience/search-components/useEvent',
     exports: [
       { name: 'useEvent', value: useEvent },
@@ -222,9 +240,11 @@ const importMap = [
   {
     module: 'src/components/search-experience/search-components/constants',
     exports: [
-      { name: 'DICTIONARY_KEYS', value: DICTIONARY_KEYS },
       { name: 'gridColsClass', value: gridColsClass },
+      { name: 'DICTIONARY_KEYS', value: DICTIONARY_KEYS },
       { name: 'DEFAULT_PAGE_SIZE', value: DEFAULT_PAGE_SIZE },
+      { name: 'NAME_SORT_FIELD', value: NAME_SORT_FIELD },
+      { name: 'SPECIALTY_FACET', value: SPECIALTY_FACET },
       { name: 'DEBOUNCE_TIME', value: DEBOUNCE_TIME },
     ]
   },
@@ -232,6 +252,12 @@ const importMap = [
     module: 'src/components/search-experience/search-components/useRouter',
     exports: [
       { name: 'useRouter', value: useRouter },
+    ]
+  },
+  {
+    module: 'src/components/search-experience/search-components/useTranslations',
+    exports: [
+      { name: 'useTranslations', value: useTranslations },
     ]
   },
   {
@@ -261,23 +287,15 @@ const importMap = [
     ]
   },
   {
-    module: 'next/image',
+    module: 'next/link',
     exports: [
-      { name: 'default', value: Image },
+      { name: 'default', value: Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 },
     ]
   },
   {
-    module: '@fortawesome/free-solid-svg-icons',
+    module: 'next/image',
     exports: [
-      { name: 'faImage', value: faImage },
-      { name: 'faArrowRight', value: faArrowRight },
-      { name: 'faBars', value: faBars },
-      { name: 'faChevronDown', value: faChevronDown },
-      { name: 'faChevronUp', value: faChevronUp },
-      { name: 'faTimes', value: faTimes },
-      { name: 'faEnvelope', value: faEnvelope },
-      { name: 'faPhone', value: faPhone },
-      { name: 'faArrowLeft', value: faArrowLeft },
+      { name: 'default', value: Image },
     ]
   },
   {
@@ -323,6 +341,19 @@ const importMap = [
     ]
   },
   {
+    module: '@fortawesome/free-solid-svg-icons',
+    exports: [
+      { name: 'faArrowRight', value: faArrowRight },
+      { name: 'faBars', value: faBars },
+      { name: 'faChevronDown', value: faChevronDown },
+      { name: 'faChevronUp', value: faChevronUp },
+      { name: 'faTimes', value: faTimes },
+      { name: 'faEnvelope', value: faEnvelope },
+      { name: 'faPhone', value: faPhone },
+      { name: 'faArrowLeft', value: faArrowLeft },
+    ]
+  },
+  {
     module: 'src/components/non-sitecore/BlobAccent',
     exports: [
       { name: 'default', value: BlobAccent_c450f25c63b00a2e370305e155038c473dbb9c49 },
@@ -348,12 +379,6 @@ const importMap = [
     ]
   },
   {
-    module: 'next/link',
-    exports: [
-      { name: 'default', value: Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 },
-    ]
-  },
-  {
     module: 'swiper/react',
     exports: [
       { name: 'Swiper', value: Swiper },
@@ -366,6 +391,31 @@ const importMap = [
       { name: 'Keyboard', value: Keyboard },
       { name: 'Navigation', value: Navigation },
       { name: 'Pagination', value: Pagination },
+    ]
+  },
+  {
+    module: 'lucide-react',
+    exports: [
+      { name: 'Bot', value: Bot },
+      { name: 'ExternalLink', value: ExternalLink },
+      { name: 'LayoutGrid', value: LayoutGrid },
+      { name: 'List', value: List },
+      { name: 'RotateCcw', value: RotateCcw },
+      { name: 'Send', value: Send },
+      { name: 'Sparkles', value: Sparkles },
+      { name: 'User', value: User },
+    ]
+  },
+  {
+    module: '@/components/search-experience/search-components/SearchItem',
+    exports: [
+      { name: 'SearchItem', value: SearchItem_ac37a13e209c1b8c39f73cb4a28aa9509854f875 },
+    ]
+  },
+  {
+    module: '@/components/search-experience/search-components/useEvent',
+    exports: [
+      { name: 'useEvent', value: useEvent_0e0be8af80a732e3d4035f9e90454e5a83aafdcc },
     ]
   },
   {

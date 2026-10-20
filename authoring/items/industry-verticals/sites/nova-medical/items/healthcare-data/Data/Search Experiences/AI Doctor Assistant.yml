@@ -1,0 +1,66 @@
+---
+ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a140"
+Parent: "bc3baec3-7457-4467-bd46-bde9eccdd189"
+Template: "7b34c912-8a45-4c19-9d63-1b42e8f9a101"
+Path: "/sitecore/content/industry-verticals/nova-medical/Data/Search Experiences/AI Doctor Assistant"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261019T180500Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a110"
+      Hint: search
+      Value: |
+        {"searchIndex":"3654e4b7-43ed-49df-ad2b-4f8857e3195f","fieldsMapping":{"images":"Photo","description":"Bio","title":"FullName","type":"JobTitle","link":"scUrl","tags":""},"fieldPreviewEnabled":{"images":true,"description":true,"title":true,"type":true},"previewEnabled":true,"autocompleteEnabled":true,"moreLikeThisEnabled":false}
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a113"
+      Hint: additionalSearchSources
+      Value: "{4A53A9CA-85ED-4E97-A1E1-68ECB0342C1A}"
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a116"
+      Hint: title
+      Value: Ask Our AI Doctor Assistant
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a119"
+      Hint: subtitle
+      Value: Describe symptoms, conditions, or the kind of specialist you need, and our conversational search will match verified Nova Medical physicians from SitecoreAI Search.
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a11c"
+      Hint: welcomeMessage
+      Value: "Hello! Tell me what symptoms, health goals, or specialty you are looking for, and I will find the right Nova Medical specialists from our live directory."
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a11f"
+      Hint: inputPlaceholder
+      Value: "Ask a question (e.g., \"Who can help with recurring migraines?\" or \"Which doctor treats sports knee injuries?\")..."
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a122"
+      Hint: suggestedPrompts
+      Value: |
+        Who can help with recurring migraines or neurological symptoms?
+        Which cardiologists are available for heart rhythm evaluations?
+        Do you have a pediatrician for newborn and child checkups?
+        Which specialist should I see for a sports knee injury?
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a125"
+      Hint: systemInstructions
+      Value: "You are the Nova Medical AI Physician Directory Assistant. Help patients and visitors discover verified Nova Medical doctors based on their specialty, clinical background, and patient needs. Always ground recommendations in the returned SitecoreAI Search profiles and remind users that directory guidance does not replace emergency medical care."
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a128"
+      Hint: enableWebSearch
+      Value: 0
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7b34c912-8a45-4c19-9d63-1b42e8f9a141"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261019T180500Z

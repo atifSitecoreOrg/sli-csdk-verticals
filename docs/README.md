@@ -24,6 +24,7 @@ Component lists: [COMPONENTS.md](./COMPONENTS.md).
 | [Project structure](./PROJECT-STRUCTURE.md) | You need the repo layout, serialization modules, or where a host lives |
 | [Junior developer guide](./JUNIOR-DEVELOPER-GUIDE.md) | You are new to XM Cloud, templates, placeholders, or this repo |
 | [Components](./COMPONENTS.md) | You need the React components in each vertical, or the Pages toolbox |
+| [Conversational Search](./CONVERSATIONAL-SEARCH.md) | You are deploying or authoring the AI search component, or connecting Microsoft Foundry |
 
 Run a site locally:
 

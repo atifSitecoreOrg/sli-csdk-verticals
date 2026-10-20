@@ -56,7 +56,9 @@ In Pages, open a placeholder (`headless-main`, `headless-header`, `headless-foot
 
 Doctors and reviews.
 
-`doctor-details`, `doctors-listing`, `reviews`, `header-extended`, `theme-switcher`
+`conversational-search`, `doctor-details`, `doctors-listing`, `reviews`, `header-extended`, `theme-switcher`
+
+Conversational Search is the Page Builder assistant on the AI Doctor Assistant page. Setup, what works without a model, and how to connect Microsoft Foundry are in [Conversational Search](./CONVERSATIONAL-SEARCH.md).
 
 ## Luxury retail — Essential Living
 
