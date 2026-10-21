@@ -1,81 +1,62 @@
 # Conversational Search
 
-Standalone Page Builder component that lets a visitor ask a question in plain language and get answers grounded in one or more SitecoreAI Search indexes.
+Page Builder component that answers a question from one or more SitecoreAI Search indexes.
 
-Nova Medical ships it on **AI Doctor Assistant** (`/AI-Doctor-Assistant`). Doctor Finder stays the directory search. The same Sitecore template and rendering can be reused on any site that has a Search Experience index. The React component, API route, and search library currently live in `industry-verticals/healthcare`. Copy those three areas into another host before you drop the rendering there.
+| Site | Host folder | Page | Local URL |
+| --- | --- | --- | --- |
+| Nova Medical | `industry-verticals/healthcare` | `/sitecore/content/industry-verticals/nova-medical/Home/AI Doctor Assistant` | http://localhost:3000/AI-Doctor-Assistant |
+| FormaLux | `industry-verticals/retail` | `/sitecore/content/industry-verticals/forma-lux/Home/AI Search` | http://localhost:3000/AI-Search |
 
-## Purpose
+The React component, API route, and search library are copied in both hosts. They do not share code. Change both copies when the behavior should match.
 
-The existing Search Experience component is a directory: filters, keywords, and result cards. Conversational Search sits in front of the same indexes and answers questions such as “Who can help with recurring migraines?” or “Which specialist should I see for a sports knee injury?”
+Doctor Finder on Nova Medical stays the directory search. FormaLux product and article listing pages stay the directory search.
 
-It is designed for SitecoreAI and Pages:
+## What a question does
 
-- Authors drop one rendering on a page and point it at a Search Experience datasource.
-- Answers and profile cards come from indexed Sitecore content. The assistant does not invent doctor names, bios, or profile URLs.
-- Extra indexes (articles, services, products) can be attached later without a new component.
-- Web search is optional and off by default. Directory answers stay grounded in Sitecore even when web search is on.
-- The experience works with no model key. Microsoft Foundry supplies the written conversation. SitecoreAI Search remains the source of the records.
+Each question runs one SitecoreAI Search query per configured index, using the question as the keyphrase. Each index contributes up to 4 hits. The combined list stops at 12, so a later index is not dropped when the first index fills the list.
 
-## What already works without Foundry
+One `gpt-5-mini` chat completion then writes the answer from those hits. The request uses `reasoning_effort: low` and does not set `temperature`. The model is not called a second time, and the component does not prefetch the catalog.
 
-Nothing extra is required for the Nova Medical demo. With the site’s existing `SITECORE_EDGE_CONTEXT_ID`, the component:
+Each hit sent to the model includes `sourceName`. A specialty chip is added only when that item’s type field is a specialty, such as Job Title. A SKU or product code is not a specialty.
 
-1. Reads the Search Experience index and field mapping from the datasource (`search`) and any extra indexes from `additionalSearchSources`.
-2. Loads the index catalog (categories such as Neurologist, Cardiologist, and their counts) through Sitecore Search.
-3. Maps the question onto those categories. “Migraines” and “headaches” resolve to Neurologist. “Knee injury” resolves to Orthopedic Surgeon. A person’s name is matched directly.
-4. Returns real indexed profiles as cards or a list, with a short written summary, specialty chips, and follow-up questions the visitor can click.
-5. Keeps the last turns of the chat so a follow-up can reuse the previous topic.
-6. Offers an **Include Web Search** toggle. That path does not use the Foundry key. It uses Tavily when `TAVILY_API_KEY` is set, otherwise the free DuckDuckGo Instant Answer API.
+If the Foundry key is missing or the model call fails, the same search hits are still shown and the answer is a short grounded summary. The API `provider` is `grounded-fallback` in that case, and `openai-compatible` when Foundry answers.
 
-The API response `provider` is `grounded-fallback` on this path. The answer text is assembled from the matched records (name, specialty, and a trimmed bio). It is accurate to the index, and the sentence patterns are fixed.
+`systemInstructions` on the datasource are sent only on the Foundry call.
 
-`systemInstructions` on the datasource are stored and sent, but they are applied only when Foundry actually answers. Without a working model call they do not change the reply.
+**Include Web Search** is off unless the datasource checkbox or the visitor turns it on. That path uses Tavily when `TAVILY_API_KEY` is set, otherwise the DuckDuckGo Instant Answer API. Web notes are separate from the index cards.
 
-## What Foundry changes
+## What is in this repo
 
-GitHub Models was retired on 30 July 2026. A GitHub personal access token no longer reaches a chat model. Microsoft Foundry is the replacement: you deploy a model in Azure, and this component calls that deployment’s OpenAI-compatible chat completions endpoint.
+Serialized items and the rendering host code are in git once they are committed. Sitecore Search sources and widgets are not.
 
-When the Foundry call succeeds, the page, datasource, and indexes stay in place. The API gives the model two tools:
+| Piece | Where it lives |
+| --- | --- |
+| Template and rendering | `Project.IndustryVerticals` under `authoring/items/industry-verticals/common` |
+| Nova Medical page and datasource | `Project.Healthcare-Content` |
+| FormaLux page, datasources, and Available Renderings | `Project.Retail-Content` |
+| Healthcare code | `industry-verticals/healthcare/src/components/conversational-search`, `src/lib/conversational-search`, `src/pages/api/conversational-search.ts` |
+| FormaLux code | The same three paths under `industry-verticals/retail` |
+| Component registration | Each host’s `.sitecore/component-map.ts` |
 
-| Tool | When it runs | What it returns |
-| --- | --- | --- |
-| `search_sitecore_index` | Every question | Profiles from the configured SitecoreAI Search index. The model must call this before it answers. |
-| `search_external_web` | Only if **Include Web Search** is on | Public web snippets, still shown separately from directory cards |
+FormaLux datasources:
 
-With Foundry connected, the model:
+| Item | Role |
+| --- | --- |
+| `.../forma-lux/Data/Search Experiences/AI Product Search` | Conversational Search datasource. **Search** is the products widget `dd32f7fe-b1c7-489e-aba8-abb51ad5194f`. |
+| `.../forma-lux/Data/Search Experiences/Article Search` | Search Experience item for the articles widget `083bdb25-f6af-4d2c-9f7d-865af20a15d4`. Selected on **Additional search sources**. |
+| `.../forma-lux/Home/AI Search` | Page. JSS layout, `ConversationalSearch` on `headless-main`, datasource AI Product Search. |
 
-- Reads up to the last six chat turns and writes an answer for that question, instead of filling a fixed template.
-- Chooses which returned records to show as cards.
-- Writes the follow-up chips.
-- Follows the datasource **System instructions** (tone, disclaimers, what to refuse).
-- Still cannot cite a doctor who was not returned by Sitecore Search. The cards are the tool results, not text the model made up.
+Nova Medical datasource `AI Doctor Assistant` uses the doctors widget `3654e4b7-43ed-49df-ad2b-4f8857e3195f`, with type mapped to Job Title.
 
-The API response `provider` becomes `openai-compatible`. If the key is missing, the call fails, or the endpoint is unreachable, the API falls back to the grounded engine above and the page keeps working. The response `provider` is `grounded-fallback` again.
+These widget ids belong to the Sitecore Search app for this environment. They are stored in the datasource **Search** field JSON. Creating a new XM Cloud environment does not create the sources, the widgets, or the indexed documents. Recreate those in Sitecore Search, then point the datasource **Search** fields at the new widget ids.
 
-Foundry usage is billed to the Azure subscription. Deploy `gpt-5-mini`. `gpt-4o-mini` is deprecated and is not the model for this assistant.
+`Article Search` on disk is the full serialized item pulled from Sitecore. A clone that deploys `Project.Retail-Content` gets that item and its mapping. It does not get the articles index itself.
 
-## Get a Foundry key
+## Local setup
 
-You need an Azure subscription with a payment method, and permission to deploy a model in Microsoft Foundry.
-
-1. Open [Microsoft Foundry](https://ai.azure.com) and sign in with the Azure account. If the portal opens in the classic experience, switch to the new Foundry experience from the upper-right control.
-2. Create or open a Foundry project.
-3. Deploy **gpt-5-mini** from the model catalog. It supports tool calling. Leave the deployment name as `gpt-5-mini` unless you need another name. Wait until the deployment status is Succeeded. Do not deploy `gpt-4o-mini`.
-4. Open the deployment and copy three values. They are not interchangeable:
-   - **Endpoint.** The resource host, for example `https://YOUR-RESOURCE.openai.azure.com`. Foundry may also show `https://YOUR-RESOURCE.services.ai.azure.com`. Either host works when you append the path in the next section.
-   - **Key.** Key 1 from the deployment or project keys. This is the bearer token. It is not a GitHub personal access token.
-   - **Deployment name.** The name you gave the deployment. The catalog model name is not accepted unless you deployed it under that exact name.
-5. In the Foundry playground, send a short prompt with that deployment. A normal text reply means the key and deployment are live. Do not continue to the rendering host until that playground call succeeds.
-
-Treat the key as a server secret. Do not prefix it with `NEXT_PUBLIC_`, store it in a Sitecore field, or commit `.env.local`.
-
-## Connect Foundry to the experience
-
-Two connections are required. Foundry only writes. The Search Experience datasource decides which SitecoreAI Search index is queried.
-
-### 1. Point the rendering host at the deployment
-
-On the machine that runs the healthcare host, edit `industry-verticals/healthcare/.env.local`. Remove `GITHUB_MODELS_TOKEN` and `GITHUB_TOKEN` if they are present. Those names are read before `OPENAI_API_KEY`, so a leftover GitHub token is sent to Foundry and the call falls back to the templated summary.
+1. Copy the host’s `.env.remote.site` to `.env.local` in that host folder. Do not commit `.env.local`.
+2. Set the Sitecore Edge context id and editing secret for the environment you are reading.
+3. Set Foundry on every host that should write answers. `GITHUB_MODELS_TOKEN` and `GITHUB_TOKEN` are read before `OPENAI_API_KEY`. Remove them if they are present.
 
 ```powershell
 AI_BASE_URL=https://YOUR-RESOURCE.services.ai.azure.com/openai/v1/chat/completions
@@ -83,118 +64,114 @@ AI_MODEL=gpt-5-mini
 OPENAI_API_KEY=your-foundry-key
 ```
 
-`AI_BASE_URL` must be the chat completions URL on your resource host. Foundry’s code sample often shows `https://YOUR-RESOURCE.services.ai.azure.com/openai/v1/responses`. This assistant calls chat completions, so replace `responses` with `chat/completions`. `AI_MODEL` must be the deployment name. If you renamed the deployment in Foundry, use that name instead of `gpt-5-mini`. The host sends the key as `Authorization: Bearer`. The request does not set `temperature`, because `gpt-5-mini` only accepts the default.
+`AI_BASE_URL` must end in `/openai/v1/chat/completions`. A Foundry sample that ends in `/responses` will not work. `AI_MODEL` is the deployment name.
 
-Optional, unrelated to Foundry:
+Optional:
 
 ```powershell
 TAVILY_API_KEY=tvly-...
 ```
 
-Restart `npm run dev` from `industry-verticals/healthcare`. A content publish is not required for the key to take effect.
+4. From the host folder, install and start:
 
-On XM Cloud or Vercel, set `AI_BASE_URL`, `AI_MODEL`, and `OPENAI_API_KEY` on the **healthcare** rendering host, then redeploy or restart that host. `POST /api/conversational-search` is the only route that reads them.
+```powershell
+cd industry-verticals/healthcare
+npm install
+npm run dev
+```
 
-### 2. Point the component at a Search Experience
+Use `industry-verticals/retail` for FormaLux. Both default to port 3000, so run only one host on that port, or start the other with `npm run next:dev -- --port 3010`.
 
-The Nova Medical page is already wired:
+On XM Cloud or Vercel, set `AI_BASE_URL`, `AI_MODEL`, and `OPENAI_API_KEY` on that rendering host. Redeploy or restart the host. The route that reads them is `POST /api/conversational-search`.
 
-| Piece | Where it lives |
-| --- | --- |
-| Page | `/sitecore/content/industry-verticals/nova-medical/Home/AI Doctor Assistant` (`/AI-Doctor-Assistant`) |
-| Rendering | `ConversationalSearch` in `headless-main` |
-| Datasource | `/sitecore/content/industry-verticals/nova-medical/Data/Search Experiences/AI Doctor Assistant` |
-| Index | The Doctors SitecoreAI Search index, selected on the datasource **Search** field, with title, image, description, type, and link mapped |
+## Get a Foundry key
 
-To attach another index, edit that datasource. **Search** is the primary index. **Additional search sources** accepts other Search Experience items; each item’s own **Search** field becomes another index. Duplicate index IDs are ignored. Publish the datasource after changing it.
+You need an Azure subscription and permission to deploy a model in Microsoft Foundry.
 
-For a new page, insert **ConversationalSearch**, create a **Conversational Search** datasource under the site’s `Data/Search Experiences` folder, select the index on **Search**, and publish both items. The Foundry key is shared by every page on that rendering host. Each page chooses its own indexes through its datasource.
+1. Open [Microsoft Foundry](https://ai.azure.com) and sign in.
+2. Create or open a project.
+3. Deploy **gpt-5-mini**. Wait until the deployment status is Succeeded. Do not deploy `gpt-4o-mini`.
+4. Copy the resource endpoint, Key 1, and the deployment name.
+5. Send a short prompt in the Foundry playground. Continue only after that reply succeeds.
 
-### 3. Confirm the two sides are connected
+Do not prefix the key with `NEXT_PUBLIC_`, store it in a Sitecore field, or commit it.
 
-Open [http://localhost:3000/AI-Doctor-Assistant](http://localhost:3000/AI-Doctor-Assistant) and ask “I’ve had chest tightness when I climb stairs.”
+## Confirm Foundry is connected
 
-- Foundry is connected when the reply is written for that question and the cards are indexed cardiologists. The API `provider` is `openai-compatible`.
-- Foundry is not connected when the cards are right but the sentences follow the fixed “Based on your question, I matched…” pattern. The API `provider` is `grounded-fallback`. Check that the playground call works, that `GITHUB_MODELS_TOKEN` is gone, and that `AI_MODEL` is the deployment name. The rendering host log prints `Conversational search model call failed` with the HTTP status.
+On Nova Medical, ask “I’ve had chest tightness when I climb stairs.” On FormaLux, ask “Show me velvet sofas.”
 
-## Use it on Nova Medical
+- Foundry is connected when the reply is written for that question and the cards come from the index. The API `provider` is `openai-compatible`.
+- Foundry is not connected when the cards are right and the answer is the fixed grounded summary. The API `provider` is `grounded-fallback`. Check the playground call, remove any GitHub token, and confirm `AI_MODEL` is the deployment name. The host log prints `Conversational search model call failed` with the HTTP status.
 
-Open [http://localhost:3000/AI-Doctor-Assistant](http://localhost:3000/AI-Doctor-Assistant) with `npm run dev` running in `industry-verticals/healthcare`.
+FormaLux product cards should not show a **Specialty:** chip for a SKU such as `SOF0004`. Nova Medical doctor cards should show a specialty such as Neurologist.
 
-Visitors can:
+## Attach another index
 
-- Click a suggested prompt, or type a question and press **Ask AI**.
-- Switch **Cards** and **List**.
-- Turn on **Include Web Search** for that session. The datasource checkbox sets the default.
-- Click a follow-up chip to continue the thread.
-- Open **View profile** on a card. The link is the indexed doctor URL.
-- Press **Reset** to clear the thread.
+The **Search** field stores one widget. To search a second content type:
 
-Authors edit the experience on the datasource item:
+1. In Sitecore Search, create a source and a widget for that content. Map the attributes the card needs: title, image, description, type, and link.
+2. Under the site’s `Data/Search Experiences` folder, create a **Search Experience** item. On its **Search** field, select that widget and map the same attributes. Changing the widget in that dialog clears the mappings, so set them again after a switch.
+3. On the Conversational Search datasource, leave **Search** on the primary widget. In **Additional search sources**, select the new Search Experience item.
+4. Publish the Search Experience item and the datasource.
 
-`/sitecore/content/industry-verticals/nova-medical/Data/Search Experiences/AI Doctor Assistant`
+Duplicate widget ids are ignored. The layout must expand the treelist to items that include `fields.search`. An id with no search JSON does not query anything.
+
+FormaLux is already wired this way: products on **AI Product Search**, articles on **Article Search**.
+
+The articles widget currently returns `scUrl` as empty. Article cards will not have a working link until that attribute is filled in the Articles source and the source is reindexed. The ArticlePage template has no link field. The page URL is the item path, which Sitecore Search is expected to store in `scUrl`.
+
+Article **Tags** is a treelist of tag items and is not an attribute on the articles widget. Product documents do not include a tag attribute. Content tags appear on cards only after those attributes are added to the widgets and reindexed. Until then, the answer shows **Grounded in:** with the datasource title, such as Ask FormaLux.
+
+## Authoring fields
 
 | Field | What it controls |
 | --- | --- |
-| Search | Primary SitecoreAI Search index and field mapping (title, image, description, type, link). Nova Medical uses the Doctors index. |
-| Additional search sources | Other Search Experience items. Each one’s `search` field becomes another index. Duplicate index IDs are ignored. |
-| Title, Subtitle, Welcome message, Input placeholder | Copy on the component. Editable inline in Pages. |
-| Suggested prompts | One question per line. Shown as starter chips before the first question. |
+| Search | Primary widget and field mapping. One widget only. |
+| Additional search sources | Other Search Experience items. Each item’s **Search** field is another widget. |
+| Title, Subtitle, Welcome message, Input placeholder | Copy on the component. The title is also the primary source label when the layout does not include the datasource item name. |
+| Suggested prompts | One question per line. |
 | System instructions | Extra rules for the model. Used only when Foundry answers. |
-| Enable web search | Default state of the visitor’s **Include Web Search** checkbox. |
+| Enable web search | Default for **Include Web Search**. |
 
 Rendering parameters:
 
 | Parameter | Effect |
 | --- | --- |
-| Variant `Default` | Chat and results in one column. This is what AI Doctor Assistant uses. |
+| Variant `Default` | Chat and results in one column. |
 | Variant `Compact` | Chat with the latest matches in a side panel. |
-| `pageSize` | Maximum cards per answer. Defaults to 6, capped at 12. |
-| `columns` | `1` opens the results in list view. Any other value opens cards. |
-
-In Pages, while editing, the component also shows which indexes are connected.
+| `columns` | `1` opens list view. Any other value opens cards. |
 
 ## Deploy
 
-The items are already serialized and, on the connected `verticals_sli` environment, have been pushed and published. Use this when you need to deploy them again or onto another environment.
-
-From the repository root, with the Sitecore CLI logged in:
+From the repository root, with the Sitecore CLI logged into the target environment:
 
 ```powershell
-dotnet sitecore serialization push -n verticals_sli -i Project.IndustryVerticals -i Project.Healthcare-Content
+dotnet sitecore serialization push -n verticals_sli -i Project.IndustryVerticals -i Project.Healthcare-Content -i Project.Retail-Content
 ```
 
-Run the same command with `-w` first if you want the list of creates and updates without writing them.
+Run the same command with `-w` first to list creates and updates without writing them.
 
-Publish the template (with children), the rendering, the datasource, Available Renderings, and the AI Doctor Assistant page:
+Publish the shared rendering and the pages you changed:
 
 ```powershell
-dotnet sitecore publish item -n verticals_sli -p "/sitecore/templates/Project/industry-verticals/Components/Search Experience/Conversational Search" --subitems
 dotnet sitecore publish item -n verticals_sli -p "/sitecore/layout/Renderings/Project/industry-verticals/Search/ConversationalSearch"
-dotnet sitecore publish item -n verticals_sli -p "/sitecore/content/industry-verticals/nova-medical/Data/Search Experiences/AI Doctor Assistant"
-dotnet sitecore publish item -n verticals_sli -p "/sitecore/content/industry-verticals/nova-medical/Presentation/Available Renderings/Page Content"
 dotnet sitecore publish item -n verticals_sli -p "/sitecore/content/industry-verticals/nova-medical/Home/AI Doctor Assistant" --subitems
+dotnet sitecore publish item -n verticals_sli -p "/sitecore/content/industry-verticals/nova-medical/Data/Search Experiences/AI Doctor Assistant"
+dotnet sitecore publish item -n verticals_sli -p "/sitecore/content/industry-verticals/forma-lux/Home/AI Search"
+dotnet sitecore publish item -n verticals_sli -p "/sitecore/content/industry-verticals/forma-lux/Data/Search Experiences/AI Product Search"
+dotnet sitecore publish item -n verticals_sli -p "/sitecore/content/industry-verticals/forma-lux/Data/Search Experiences/Article Search"
 ```
 
-The rendering host must be running a build that contains:
-
-- `industry-verticals/healthcare/src/components/conversational-search/ConversationalSearch.tsx`
-- `industry-verticals/healthcare/src/lib/conversational-search/`
-- `industry-verticals/healthcare/src/pages/api/conversational-search.ts`
-- `ConversationalSearch` registered in `industry-verticals/healthcare/.sitecore/component-map.ts`
-
-Regenerate the map from `industry-verticals/healthcare` if the component folder is new on that machine:
+The rendering host build must contain that host’s conversational search component, library, API route, and `ConversationalSearch` in `.sitecore/component-map.ts`. Regenerate the map from the host folder when the component folder is new there:
 
 ```powershell
 npm run sitecore-tools:generate-map
 ```
 
-### Add it to another page or another site
+Cloud editing for FormaLux uses the `nextjsstarter` rendering host. That host shows the component only after a retail build that includes it is deployed.
 
-1. In Pages, open the page and insert **ConversationalSearch** into `headless-main` (it is under the site’s Page Content available renderings on Nova Medical).
-2. Create a datasource from **Conversational Search** under the site’s `Data/Search Experiences` folder. The folder insert option includes this template.
-3. On **Search**, pick the SitecoreAI Search index and map title, image, description, type, and link the same way a normal Search Experience does.
-4. Publish the datasource and the page.
-5. For a host other than healthcare, copy the component folder, `src/lib/conversational-search`, and `src/pages/api/conversational-search.ts` into that host, run `sitecore-tools:generate-map`, and deploy the host. The shared template and rendering item do not need to be duplicated.
+To refresh disk from Sitecore after an authoring change:
 
-If the datasource has no index selected, the assistant says so and returns no cards.
+```powershell
+dotnet sitecore serialization pull -n verticals_sli -i Project.Retail-Content -i Project.Healthcare-Content -i Project.IndustryVerticals
+```

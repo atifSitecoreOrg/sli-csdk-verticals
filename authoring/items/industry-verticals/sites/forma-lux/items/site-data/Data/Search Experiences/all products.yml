@@ -1,0 +1,38 @@
+﻿---
+ID: "b0f389ff-e771-4e80-a69c-565a5e1108df"
+Parent: "25a432e8-c9e8-43f9-809b-e7931a70eacd"
+Template: "4650bdba-5f18-49f9-8fda-824bbc52fa01"
+Path: "/sitecore/content/industry-verticals/forma-lux/Data/Search Experiences/all products"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260929T162242Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\steve.little@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\steve.little@sitecore.com
+    - ID: "8977c3f4-c9bf-4175-9b1f-d09dab593f65"
+      Hint: search
+      Value: |
+        {"searchIndex":"dd32f7fe-b1c7-489e-aba8-abb51ad5194f","fieldsMapping":{"images":"Image1","description":"ShortDescription","title":"Title","type":"ShortDescription","link":"scUrl"},"fieldPreviewEnabled":{"images":true,"description":true,"title":true,"type":true,"link":true},"previewEnabled":true,"autocompleteEnabled":true,"moreLikeThisEnabled":false}
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1dd00ecd-d170-4afc-b519-b537f697433f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261019T140810Z

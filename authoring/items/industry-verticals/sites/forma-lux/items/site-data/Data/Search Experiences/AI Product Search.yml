@@ -1,0 +1,63 @@
+﻿---
+ID: "904a96c1-e030-4ee6-905f-5ed64eba3c12"
+Parent: "25a432e8-c9e8-43f9-809b-e7931a70eacd"
+Template: "7b34c912-8a45-4c19-9d63-1b42e8f9a101"
+Path: "/sitecore/content/industry-verticals/forma-lux/Data/Search Experiences/AI Product Search"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261021T105947Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a110"
+      Hint: search
+      Value: |
+        {"searchIndex":"dd32f7fe-b1c7-489e-aba8-abb51ad5194f","fieldsMapping":{"images":"Image1","description":"ShortDescription","title":"Title","type":"SKU","link":"scUrl"},"fieldPreviewEnabled":{"images":true,"description":true,"title":true,"type":true,"link":true},"previewEnabled":true,"autocompleteEnabled":true,"moreLikeThisEnabled":false}
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a113"
+      Hint: additionalSearchSources
+      Value: "{7EE7D127-F423-4D7C-AC24-DB3647381176}"
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a116"
+      Hint: title
+      Value: Ask FormaLux
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a119"
+      Hint: subtitle
+      Value: Describe the furniture you want, and conversational search will match FormaLux products from SitecoreAI Search.
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a11c"
+      Hint: welcomeMessage
+      Value: "Hello! Tell me what you are looking for, and I will find matching FormaLux furniture from the product catalogue."
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a11f"
+      Hint: inputPlaceholder
+      Value: "Ask a question (e.g., \"Show me velvet sofas\" or \"Which chairs work in a small dining room?\")..."
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a122"
+      Hint: suggestedPrompts
+      Value: |
+        Show me velvet sofas
+        Which chairs work in a small dining room?
+        Do you have storage beds?
+        What table lamps do you sell?
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a125"
+      Hint: systemInstructions
+      Value: "You are the FormaLux product assistant. Help shoppers discover furniture from the FormaLux catalogue. Ground every recommendation in the returned SitecoreAI Search products."
+    - ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a128"
+      Hint: enableWebSearch
+      Value: 0
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "aaf6ab57-d7d0-4b2c-8c09-bb030a0e0415"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261021T105947Z

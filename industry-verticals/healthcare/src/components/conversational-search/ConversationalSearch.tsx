@@ -21,6 +21,8 @@ import {
   WebCitation,
 } from '@/lib/conversational-search/types';
 
+const isProductCode = (value: string): boolean => /^[A-Za-z]{1,8}\d{3,}$/.test(value.trim());
+
 export interface AdditionalSearchSourceItem {
   id?: string;
   name?: string;
@@ -89,6 +91,15 @@ function parseSearchFieldValue(raw?: string | null): SearchField | null {
   } catch {
     return null;
   }
+}
+
+function primarySourceName(rendering: ComponentRendering, title?: string | null): string {
+  const named = rendering as ComponentRendering & { displayName?: string; name?: string };
+  const fromItem = named.displayName?.trim() || named.name?.trim();
+  if (fromItem) return fromItem;
+  const fromTitle = title?.trim();
+  if (fromTitle) return fromTitle;
+  return 'Primary Directory';
 }
 
 function parseSuggestedPrompts(raw?: string | null): string[] {
@@ -181,7 +192,7 @@ const ConversationalSearchInner = ({
     if (primary) {
       list.push({
         id: 'primary',
-        name: 'Primary Directory',
+        name: primarySourceName(props.rendering, fields.title?.value),
         searchIndex: primary.searchIndex,
         fieldsMapping: primary.fieldsMapping,
       });
@@ -204,7 +215,7 @@ const ConversationalSearchInner = ({
     }
 
     return list;
-  }, [fields.search?.value, fields.additionalSearchSources]);
+  }, [fields.search?.value, fields.additionalSearchSources, fields.title?.value, props.rendering]);
 
   const starterPrompts = useMemo(
     () => parseSuggestedPrompts(fields.suggestedPrompts?.value),
@@ -505,14 +516,16 @@ const ConversationalSearchInner = ({
                             {/* Metadata badges */}
                             <div className="flex flex-wrap items-center gap-2 text-xs">
                               {turn.appliedFilters &&
-                                turn.appliedFilters.map((filter) => (
-                                  <span
-                                    key={filter}
-                                    className="bg-accent/35 rounded-full px-2.5 py-0.5 font-semibold"
-                                  >
-                                    Specialty: {filter}
-                                  </span>
-                                ))}
+                                turn.appliedFilters
+                                  .filter((filter) => !isProductCode(filter))
+                                  .map((filter) => (
+                                    <span
+                                      key={filter}
+                                      className="bg-accent/35 rounded-full px-2.5 py-0.5 font-semibold"
+                                    >
+                                      Specialty: {filter}
+                                    </span>
+                                  ))}
                               {turn.usedSources &&
                                 turn.usedSources.map((src) => (
                                   <span

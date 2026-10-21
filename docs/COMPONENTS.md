@@ -58,7 +58,7 @@ Doctors and reviews.
 
 `conversational-search`, `doctor-details`, `doctors-listing`, `reviews`, `header-extended`, `theme-switcher`
 
-Conversational Search is the Page Builder assistant on the AI Doctor Assistant page. Setup, what works without a model, and how to connect Microsoft Foundry are in [Conversational Search](./CONVERSATIONAL-SEARCH.md).
+Conversational Search is the Page Builder assistant on the AI Doctor Assistant page (`/AI-Doctor-Assistant`). The same component also runs on FormaLux. Setup is in [Conversational Search](./CONVERSATIONAL-SEARCH.md).
 
 ## Luxury retail — Essential Living
 
@@ -70,7 +70,9 @@ Products, offers, and a page header.
 
 The widest catalog: products, articles, offers, and forms. Deploy key is `nextjsstarter`.
 
-`all-products-carousel`, `product-details`, `product-listing`, `selected-products`, `article-details`, `article-listing`, `selected-articles`, `offers`, `reviews`, `breadcrumb`, `contact-form`, `subscribe`, `navigation-icons`, `language-switcher`, `social-feed`
+`all-products-carousel`, `product-details`, `product-listing`, `selected-products`, `article-details`, `article-listing`, `selected-articles`, `conversational-search`, `offers`, `reviews`, `breadcrumb`, `contact-form`, `subscribe`, `navigation-icons`, `language-switcher`, `social-feed`
+
+Conversational Search is on the AI Search page (`/AI-Search`). Setup for FormaLux and Nova Medical is in [Conversational Search](./CONVERSATIONAL-SEARCH.md).
 
 ## Starter
 

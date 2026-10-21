@@ -1,18 +1,28 @@
----
+﻿---
 ID: "7b34c912-8a45-4c19-9d63-1b42e8f9a160"
 Parent: "09dbe61d-b540-470b-b4df-34ba542f66ee"
 Template: "98e60957-0783-4a9a-85cc-77dad30e9711"
 Path: "/sitecore/content/industry-verticals/nova-medical/Home/AI Doctor Assistant"
 SharedFields:
+- ID: "0d83e59a-c3f1-41be-81b2-762d35e0799f"
+  Hint: NavigationClass
+  Value: "{6B4FBF1C-88C2-42CE-BE88-AB3485078363}"
 - ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
   Hint: scPath
   Value: "/sitecore/content/industry-verticals/nova-medical/Home/AI Doctor Assistant"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 50
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{1934D057-E525-4A9D-A17E-279024865447}" />
 - ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
   Hint: scUrl
   Value: "/AI-Doctor-Assistant"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "7211567a-49d5-4f53-99fb-80fd571eeae0"
 Languages:
 - Language: en
   Versions:
@@ -51,11 +61,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7b34c912-8a45-4c19-9d63-1b42e8f9a163"
+      Value: "f1ff03ff-9b5e-448f-a81d-0628abde50ac"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\steve.little@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20261020T115200Z
+      Value: 20261020T145257Z

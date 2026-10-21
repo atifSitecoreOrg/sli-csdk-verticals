@@ -7,7 +7,7 @@ BranchID: "45cf9f42-b3ac-4412-aab9-f8441c7e448e"
 SharedFields:
 - ID: "1ee576af-ba8e-4312-9fbd-2ccf8395baa1"
   Hint: StartItem
-  Value: "{4E869961-EFEF-4B47-BB69-170A251D689B}"
+  Value: 4e869961efef4b47bb69170a251d689b
 - ID: "301e719a-6f65-4874-b565-a953a7b5ac83"
   Hint: OtherProperties
   Value: isSiteThumbnailSource=true
@@ -31,10 +31,10 @@ SharedFields:
   Value: 1
 - ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
   Hint: HostName
-  Value: *
+  Value: "sli-csdk-verticals.vercel.app"
 - ID: "9eaf6dc9-b811-4cda-9edd-9697faba628a"
   Hint: POS
-  Value: "en=forma-lux"
+  Value: "en=forma-lux&fr-FR=forma-lux-fr-sli&es-ES=forma-lux_es-sle"
 - ID: "b59e43ab-84da-49f3-87a1-d2fcf648365b"
   Hint: Scheme
   Value: 
@@ -46,16 +46,16 @@ SharedFields:
   Value: *
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "c506d855-5984-457f-9fc2-da90a0c7ed9e"
+  Value: "183f8e88-ff4a-4086-b8e4-71a31af8698e"
 - ID: "e5b5ccb5-17a1-429d-bd3e-6122b3216e52"
   Hint: TargetHostName
-  Value: 
+  Value: "sli-csdk-verticals.vercel.app"
 - ID: "f19277fe-1b85-4b0a-8c26-5e74d766b3a3"
   Hint: Language
   Value: en
 - ID: "f57099a3-526a-49f2-aebd-635453e48875"
   Hint: RenderingHost
-  Value: Default
+  Value: nextjsstarter
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{23E42340-77BE-49FC-A7C4-77D3CB545223}"
@@ -77,14 +77,14 @@ Languages:
         sitecore\neli.kostadinova@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "73e4ca13-d916-4ccd-a0ea-d5d0904883b0"
+      Value: "2baf114a-e694-4954-9290-88adbcddcf0b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\movin.tilakaratne@sitecore.com
+        sitecore\steve.little@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251230T091554Z
+      Value: 20260928T123258Z
 - Language: "es-ES"
   Versions:
   - Version: 1

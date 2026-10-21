@@ -35,8 +35,7 @@ SharedFields:
     <r xmlns:p="p" xmlns:s="s"
       p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
           uid="{AE225B7C-0876-4FAE-A959-B3AFC8E0E91B}"
           p:before="*"
@@ -147,8 +146,7 @@ Languages:
         <r xmlns:p="p" xmlns:s="s"
           p:p="1">
           <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-            l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
               uid="{AE225B7C-0876-4FAE-A959-B3AFC8E0E91B}"
               s:par="FieldNames=%7B96409BF2-9023-4CE1-8EF3-AA01ED5D1F3A%7D&amp;RenderingIdentifier&amp;Styles=%7C%7B8562F7F8-721A-4C82-B884-AAF58B44C6B6%7D&amp;CSSStyles&amp;GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;DynamicPlaceholderId=1&amp;HideGradientOverlay=0&amp;HideAccentLine=0&amp;WithPlaceholder=0&amp;ReverseLayout=0" />
@@ -188,45 +186,19 @@ Languages:
       Value: "Explore Forma Lux’s luxurious furniture collections: heritage craftsmanship meets modern, sustainable design for elegant living spaces."
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f60db0fd-90b3-45d1-a4f9-5ff75556f93d"
+      Value: "51642bab-080a-43e3-aa16-b6f77c38d654"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\sanduni.galagoda@sitecore.com
+        sitecore\steve.little@sitecore.com
     - ID: "d3886445-9ee0-46a0-ae5e-8857dd6b395f"
       Hint: pageSummary
       Value: Forma Lux unites artisan heritage with contemporary design to create modular, sustainable furniture for elegant, livable spaces.
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260303T102845Z
+      Value: 20260929T142822Z
 - Language: "es-ES"
   Versions:
-  - Version: 1
-    Fields:
-    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
-      Hint: __Lock
-      Value: <r />
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20250828T085804Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\neli.kostadinova@sitecore.com
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\neli.kostadinova@sitecore.com
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "ac3ed4dd-db84-4f11-8eae-bdebe5d59e92"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\isuru.bandara@sitecore.com
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20251007T075314Z
   - Version: 2
     Fields:
     - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
@@ -238,8 +210,7 @@ Languages:
         <r xmlns:p="p" xmlns:s="s"
           p:p="1">
           <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-            l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
               uid="{AE225B7C-0876-4FAE-A959-B3AFC8E0E91B}"
               s:par="FieldNames=%7B96409BF2-9023-4CE1-8EF3-AA01ED5D1F3A%7D&amp;RenderingIdentifier&amp;Styles=%7C%7B8562F7F8-721A-4C82-B884-AAF58B44C6B6%7D&amp;CSSStyles&amp;GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;DynamicPlaceholderId=1&amp;HideGradientOverlay=0&amp;HideAccentLine=0&amp;WithPlaceholder=0&amp;ReverseLayout=0" />
@@ -321,8 +292,7 @@ Languages:
         <r xmlns:p="p" xmlns:s="s"
           p:p="1">
           <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-            l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
               uid="{6F31A773-DFBF-4730-A1E3-6E1CB04F850A}"
               s:par="FieldNames&amp;RenderingIdentifier&amp;Styles&amp;CSSStyles&amp;GridParameters=%7b7465D855-992E-4DC2-9855-A03250DFA74B%7d&amp;Loop=1&amp;DynamicPlaceholderId=9&amp;Autoplay=1" />

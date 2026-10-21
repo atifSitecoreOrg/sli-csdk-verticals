@@ -22,15 +22,14 @@ import * as UseRouter from 'src/components/search-experience/search-components/u
 import * as UseParams from 'src/components/search-experience/search-components/useParams';
 import * as UseEvent from 'src/components/search-experience/search-components/useEvent';
 import * as UseDebounce from 'src/components/search-experience/search-components/useDebounce';
-import * as Models from 'src/components/search-experience/search-components/models';
-import * as Constants from 'src/components/search-experience/search-components/constants';
 import * as SearchSkeletonItem from 'src/components/search-experience/search-components/SearchSkeletonItem';
 import * as SearchPagination from 'src/components/search-experience/search-components/SearchPagination';
 import * as SearchItemCommon from 'src/components/search-experience/search-components/SearchItemCommon';
 import * as SearchInput from 'src/components/search-experience/search-components/SearchInput';
 import * as SearchError from 'src/components/search-experience/search-components/SearchError';
 import * as SearchEmptyResults from 'src/components/search-experience/search-components/SearchEmptyResults';
-import * as Index from 'src/components/search-experience/search-components/SearchItem/index';
+import * as Models from 'src/components/search-experience/search-components/models';
+import * as Constants from 'src/components/search-experience/search-components/constants';
 import * as SearchItemTitle from 'src/components/search-experience/search-components/SearchItem/SearchItemTitle';
 import * as SearchItemTags from 'src/components/search-experience/search-components/SearchItem/SearchItemTags';
 import * as SearchItemSummary from 'src/components/search-experience/search-components/SearchItem/SearchItemSummary';
@@ -38,6 +37,7 @@ import * as SearchItemSubTitle from 'src/components/search-experience/search-com
 import * as SearchItemLink from 'src/components/search-experience/search-components/SearchItem/SearchItemLink';
 import * as SearchItemImage from 'src/components/search-experience/search-components/SearchItem/SearchItemImage';
 import * as SearchItemCategory from 'src/components/search-experience/search-components/SearchItem/SearchItemCategory';
+import * as Index from 'src/components/search-experience/search-components/SearchItem/index';
 import * as RowSplitter from 'src/components/row-splitter/RowSplitter';
 import * as RichText from 'src/components/rich-text/RichText';
 import * as Reviews from 'src/components/reviews/Reviews';
@@ -56,6 +56,7 @@ import * as HeroBanner from 'src/components/hero-banner/HeroBanner';
 import * as Header from 'src/components/header/Header';
 import * as Footer from 'src/components/footer/Footer';
 import * as Features from 'src/components/features/Features';
+import * as ConversationalSearch from 'src/components/conversational-search/ConversationalSearch';
 import * as ContentBlock from 'src/components/content-block/ContentBlock';
 import * as Container from 'src/components/container/Container';
 import * as ContactForm from 'src/components/contact-form/ContactForm';
@@ -84,15 +85,14 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['useParams', { ...UseParams, componentType: 'client' }],
   ['useEvent', { ...UseEvent, componentType: 'client' }],
   ['useDebounce', { ...UseDebounce, componentType: 'client' }],
-  ['models', { ...Models }],
-  ['constants', { ...Constants }],
   ['SearchSkeletonItem', { ...SearchSkeletonItem, componentType: 'client' }],
   ['SearchPagination', { ...SearchPagination, componentType: 'client' }],
   ['SearchItemCommon', { ...SearchItemCommon, componentType: 'client' }],
   ['SearchInput', { ...SearchInput, componentType: 'client' }],
   ['SearchError', { ...SearchError, componentType: 'client' }],
   ['SearchEmptyResults', { ...SearchEmptyResults, componentType: 'client' }],
-  ['index', { ...Index, componentType: 'client' }],
+  ['models', { ...Models }],
+  ['constants', { ...Constants }],
   ['SearchItemTitle', { ...SearchItemTitle, componentType: 'client' }],
   ['SearchItemTags', { ...SearchItemTags, componentType: 'client' }],
   ['SearchItemSummary', { ...SearchItemSummary, componentType: 'client' }],
@@ -100,6 +100,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['SearchItemLink', { ...SearchItemLink, componentType: 'client' }],
   ['SearchItemImage', { ...SearchItemImage, componentType: 'client' }],
   ['SearchItemCategory', { ...SearchItemCategory, componentType: 'client' }],
+  ['index', { ...Index, componentType: 'client' }],
   ['RowSplitter', { ...RowSplitter }],
   ['RichText', { ...RichText }],
   ['Reviews', { ...Reviews }],
@@ -118,6 +119,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Header', { ...Header }],
   ['Footer', { ...Footer }],
   ['Features', { ...Features }],
+  ['ConversationalSearch', { ...ConversationalSearch, componentType: 'client' }],
   ['ContentBlock', { ...ContentBlock }],
   ['Container', { ...Container }],
   ['ContactForm', { ...ContactForm, componentType: 'client' }],

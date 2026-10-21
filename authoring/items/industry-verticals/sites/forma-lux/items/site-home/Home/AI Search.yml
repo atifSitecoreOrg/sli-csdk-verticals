@@ -1,0 +1,67 @@
+﻿---
+ID: "26c8bde1-69fb-413d-967d-f91ca29b8f43"
+Parent: "4e869961-efef-4b47-bb69-170a251d689b"
+Template: "98e60957-0783-4a9a-85cc-77dad30e9711"
+Path: "/sitecore/content/industry-verticals/forma-lux/Home/AI Search"
+SharedFields:
+- ID: "b7e2a14f-3c58-4d6e-8a21-9f0c6d5e4b13"
+  Hint: scPath
+  Value: "/sitecore/content/industry-verticals/forma-lux/Home/AI Search"
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{B36AE266-EBF7-4569-806A-D07CDA8747A1}" />
+- ID: "c8f3b25a-4d69-4e7f-9b32-a01d7e6f5c24"
+  Hint: scUrl
+  Value: "/AI-Search"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "e2a81d23-6767-424a-87e4-b4536776981f"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+        <r
+          uid="{26C8BDE1-69FB-413D-967D-F91CA29B8F44}"
+          s:ds="{904A96C1-E030-4EE6-905F-5ED64EBA3C12}"
+          s:id="{7B34C912-8A45-4C19-9D63-1B42E8F9A130}"
+          s:par="columns=3&amp;GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=Default&amp;Styles&amp;RenderingIdentifier=ai-product-search&amp;CSSStyles&amp;DynamicPlaceholderId=1"
+          s:ph="headless-main" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261021T105111Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: AI Search
+    - ID: "4ff91248-33ab-4254-b6f7-2618fd0aebae"
+      Hint: Title
+      Value: AI Search
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5f6c43ac-fdeb-4caf-b4b5-c0928e429b66"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261021T125125Z

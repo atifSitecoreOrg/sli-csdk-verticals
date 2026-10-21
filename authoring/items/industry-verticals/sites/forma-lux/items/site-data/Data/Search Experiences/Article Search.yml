@@ -1,0 +1,35 @@
+﻿---
+ID: "7ee7d127-f423-4d7c-ac24-db3647381176"
+Parent: "25a432e8-c9e8-43f9-809b-e7931a70eacd"
+Template: "4650bdba-5f18-49f9-8fda-824bbc52fa01"
+Path: "/sitecore/content/industry-verticals/forma-lux/Data/Search Experiences/Article Search"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261021T142735Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "8977c3f4-c9bf-4175-9b1f-d09dab593f65"
+      Hint: search
+      Value: |
+        {"searchIndex":"083bdb25-f6af-4d2c-9f7d-865af20a15d4","fieldsMapping":{"images":"Image","description":"ShortDescription","title":"Title","type":"ReadTime","link":"scUrl"},"fieldPreviewEnabled":{"images":true,"description":true,"title":true,"type":true,"link":true},"previewEnabled":true,"autocompleteEnabled":true,"moreLikeThisEnabled":false}
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "03f1038c-7891-4154-a003-98ebaa8c3063"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\atif.unar@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261021T142735Z
