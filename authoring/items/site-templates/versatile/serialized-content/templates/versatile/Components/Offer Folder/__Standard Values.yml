@@ -1,0 +1,23 @@
+---
+ID: "61b14c9d-ab19-4a47-a172-03763327e68f"
+Parent: "a5923224-5a22-4902-af1d-274281af3922"
+Template: "a5923224-5a22-4902-af1d-274281af3922"
+Path: "/sitecore/templates/Project/versatile/Components/Offer Folder/__Standard Values"
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T120000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "61b14c9d-ab19-4a47-a172-03763327e68f"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T120000Z

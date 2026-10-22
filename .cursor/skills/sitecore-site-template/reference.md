@@ -19,9 +19,9 @@ Content JSON:
 
 ```json
 [
-  {"name":"Pages","content":"Home, Landing, Listing, Detail, Article, Contact, Search"},
+  {"name":"Pages","content":"Home, Landing, Listing, Detail, Article, Person, Contact, Search"},
   {"name":"Uses","content":"Real estate, retail, campaign"},
-  {"name":"Components","content":"Header, footer, hero, listing, article, contact"},
+  {"name":"Components","content":"Header, hero, projects, people, journal, search, contact"},
   {"name":"Integrations","content":"Personalization and Analytics"}
 ]
 ```

@@ -19,4 +19,6 @@ Read [sitecore-site-template](../sitecore-site-template/SKILL.md) before changin
 | Serialization | `authoring/items/site-templates/versatile` (`Project.Versatile`) |
 | Doc | `docs/versatile-site-template.md` |
 
-Logo, colours, and type live on `{site}/Settings/Brand`. Components read `--brand-*` variables. Motion is off while `page.mode.isEditing` is true.
+Logo, colours, and type live on `{site}/Settings/Brand`. PrimaryNavigation and CtaLink on that item drive the header and footer. Components read `--brand-*` variables. Motion is off while `page.mode.isEditing` is true.
+
+Placeholders are `headless-header`, `headless-main`, and `headless-footer`. The post-setup step sets RenderingHost to `versatile`, the host name to the site name, and creates Projects, People, Journal, Contact, and Search under the existing Home.

@@ -7,6 +7,14 @@ SharedFields:
 - ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
   Hint: Signature
   Value: footer
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+      <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+        <r uid="{B1B2C3D4-E5F6-4789-A012-3456789ABCDF}" s:id="{12333C72-52F7-4E39-A363-EA19B65BBD67}" s:ph="headless-footer" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:

@@ -6,7 +6,7 @@ Path: "/sitecore/templates/Branches/Project/versatile/Design Contact/$name"
 SharedFields:
 - ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
   Hint: PartialDesigns
-  Value: "c9526720-517c-4a5e-aa35-aca4e8f766c5|013f69a6-6e00-440e-a848-bc510706808f|3d22c8f4-21e9-4f72-a61c-6d415b835a5c"
+  Value: ""
 Languages:
 - Language: en
   Versions:

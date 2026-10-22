@@ -9,7 +9,7 @@ SharedFields:
   Value: |
     <r xmlns:p="p" xmlns:s="s" p:p="1">
           <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
-            <r uid="{991AD7B2-0E10-4AAA-A24F-D1F1D8F76E76}" p:before="*" s:ds="a245a7e9-3b66-4632-af03-9feef48be82c" s:id="{EDB5F829-36F2-45C8-A4D6-CB38F7AD3F10}" s:ph="headless-main" />
+            <r uid="{991AD7B2-0E10-4AAA-A24F-D1F1D8F76E76}" p:before="*" s:id="{EDB5F829-36F2-45C8-A4D6-CB38F7AD3F10}" s:ph="headless-main" />
             <r uid="{C25E00F0-744C-4B0A-AEE0-AF330F0D318D}" p:after="r[@uid='{991AD7B2-0E10-4AAA-A24F-D1F1D8F76E76}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
           </d>
         </r>

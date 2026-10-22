@@ -10,9 +10,13 @@ SharedFields:
 - ID: "9f437e68-a84d-48ae-8ce1-a3e26c0b5e64"
   Hint: Description
   Value: One site template for real estate, retail, and campaign sites. Logo, colour, and type live on the site Brand item.
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{4C1E8A20-7B55-4D11-9C3A-11AA01B10121}" />
 - ID: "da855368-e5f2-4932-ae55-7f8b08a5a205"
   Hint: Content
-  Value: "[{\"name\":\"Pages\",\"content\":\"Home, Landing, Listing, Detail, Article, Contact, Search\"},{\"name\":\"Uses\",\"content\":\"Real estate, retail, campaign\"},{\"name\":\"Components\",\"content\":\"Header, footer, hero, listing, article, contact\"},{\"name\":\"Integrations\",\"content\":\"Personalization and Analytics\"}]"
+  Value: "[{\"name\":\"Pages\",\"content\":\"Home, Landing, Listing, Detail, Article, Person, Contact, Search\"},{\"name\":\"Uses\",\"content\":\"Real estate, retail, campaign\"},{\"name\":\"Components\",\"content\":\"Header, hero, projects, people, journal, search, contact\"},{\"name\":\"Integrations\",\"content\":\"Personalization and Analytics\"}]"
 - ID: "c262443b-653d-461d-96c8-7cfaa0ef2b2d"
   Hint: Site Modules
   Value: |

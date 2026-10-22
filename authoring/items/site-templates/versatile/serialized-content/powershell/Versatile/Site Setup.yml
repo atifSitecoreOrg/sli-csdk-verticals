@@ -1,0 +1,242 @@
+---
+ID: "4c1e8a20-7b55-4d11-9c3a-11aa01b10131"
+Parent: "5ee3e844-d7d0-4660-afe4-1575bbb4afa2"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/JSS SXA/Versatile/Site Setup
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {
+        [CmdletBinding()]
+        param(
+            [Parameter(Mandatory = $true, Position = 0 )]
+            [Item]$Site,
+            [Parameter(Mandatory = $false, Position = 1 )]
+            [Item[]]$TenantTemplates
+        )
+        process {
+            if ($Site.Name -eq "versatile-preview") { return }
+            $sitePath = $Site.Paths.Path
+            $language = $Site.Language
+            $home = Get-Item -Path "$sitePath/Home" -Language $language
+            $homeTemplate = Get-Item -Path "master:" -ID "{57F7419D-D549-4229-ABF4-460CE7F10D62}"
+            Set-ItemTemplate -Item $home -TemplateItem $homeTemplate | Out-Null
+            $home = Get-Item -Path "$sitePath/Home" -Language $language
+            $removeNames = "Home|Landing|Listing|Detail|Article|Property showcase|Retail catalogue|Campaign launch|Contact|Search".Split("|")
+            $doomed = @($home.Children | Where-Object { $removeNames -contains $_.Name })
+            foreach ($child in $doomed) { $child.Delete() }
+            $home = Get-Item -Path "$sitePath/Home" -Language $language
+            $groupingRoot = Get-Item -Path "$sitePath/Settings/Site Grouping" -Language $language
+            $grouping = Get-Item -Path "$($groupingRoot.Paths.Path)/$($Site.Name)" -Language $language -ErrorAction SilentlyContinue
+            if (-not $grouping) { $grouping = @(Get-ChildItem -Path $groupingRoot.Paths.Path) | Select-Object -First 1 }
+            $grouping.Editing.BeginEdit()
+            $grouping.Fields["{F57099A3-526A-49F2-AEBD-635453E48875}"].Value = "versatile"
+            $grouping.Fields["{8E0DD914-9AFB-4D45-BF8B-7FF5D6E5337E}"].Value = $Site.Name
+            $grouping.Fields["{1EE576AF-BA8E-4312-9FBD-2CCF8395BAA1}"].Value = $home.ID
+            $grouping.Editing.EndEdit() | Out-Null
+            function Ensure-Item($parent, $name, $templateId) {
+                $existing = Get-Item -Path "$($parent.Paths.Path)/$name" -Language $language -ErrorAction SilentlyContinue
+                if ($existing) { return $existing }
+                return New-Item -Parent $parent -Name $name -ItemType $templateId
+            }
+            function Set-Fields($item, $values) {
+                $item.Editing.BeginEdit()
+                foreach ($key in $values.Keys) { $item[$key] = [string]$values[$key] }
+                $item.Editing.EndEdit() | Out-Null
+            }
+            function Set-InternalLink($item, $fieldName, $target, $text) {
+                $item.Editing.BeginEdit()
+                $link = New-Object Sitecore.Data.Fields.LinkField $item.Fields[$fieldName]
+                $link.LinkType = "internal"
+                $link.TargetID = $target.ID
+                $link.Text = $text
+                $item.Editing.EndEdit() | Out-Null
+            }
+            function Set-ExternalLink($item, $fieldName, $url, $text) {
+                $item.Editing.BeginEdit()
+                $link = New-Object Sitecore.Data.Fields.LinkField $item.Fields[$fieldName]
+                $link.LinkType = "external"
+                $link.Url = $url
+                $link.Text = $text
+                $item.Editing.EndEdit() | Out-Null
+            }
+            function Clear-Renderings($item) {
+                foreach ($rendering in @(Get-Rendering -Item $item -ErrorAction SilentlyContinue)) {
+                    Remove-Rendering -Item $item -Instance $rendering -ErrorAction SilentlyContinue
+                }
+            }
+            function Add-Block($page, $renderingId, $placeholder, $datasource) {
+                $renderingItem = Get-Item -Path "master:" -ID $renderingId
+                $definition = $renderingItem | New-Rendering
+                if ($datasource) {
+                    Add-Rendering -Item $page -PlaceHolder $placeholder -Instance $definition -DataSource $datasource.Paths.FullPath | Out-Null
+                } else {
+                    Add-Rendering -Item $page -PlaceHolder $placeholder -Instance $definition | Out-Null
+                }
+            }
+            function New-Data($page, $name, $templateId, $values) {
+                $folder = Ensure-Item $page "Data" "{A87A00B1-E6DB-45AB-8B54-636FEC3B5523}"
+                $item = Ensure-Item $folder $name $templateId
+                if ($values) { Set-Fields $item $values }
+                return $item
+            }
+            $projects = Ensure-Item $home "Projects" "{18E7F24E-D69F-40C9-A6B0-FD501945AFDC}"
+            $project = Ensure-Item $projects "Harbour House" "{F7C30E80-4498-4C8A-A49E-103A57FB07DA}"
+            $people = Ensure-Item $home "People" "{18E7F24E-D69F-40C9-A6B0-FD501945AFDC}"
+            $person = Ensure-Item $people "Avery Cole" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10112}"
+            $journal = Ensure-Item $home "Journal" "{18E7F24E-D69F-40C9-A6B0-FD501945AFDC}"
+            $article = Ensure-Item $journal "The long room" "{BAECD880-BEDB-419F-ACAB-6E3D9EA3F376}"
+            $contact = Ensure-Item $home "Contact" "{CC9F30EE-1015-4C84-A912-7362E1E83C72}"
+            $search = Ensure-Item $home "Search" "{96E1B3F7-819B-4A2C-A3C6-69C948AB3FF8}"
+            foreach ($page in @($home, $projects, $project, $people, $person, $journal, $article, $contact, $search)) {
+                if (-not $page["Title"]) { Set-Fields $page @{ Title = $page.Name } }
+            }
+            Set-Fields $home @{ Title = "Home" }
+            Set-Fields $project @{ Title = "Harbour House"; Summary = "A quiet house above the water, planned as a place to gather." }
+            Set-Fields $person @{ Title = "Avery Cole"; Tags = "Studio lead"; Summary = "Leads the work from the first brief to the finished place." }
+            Set-Fields $article @{ Title = "The long room"; Summary = "Notes on light, proportion, and a room that holds a conversation." }
+            $hero = New-Data $home "Hero" "{87DE27B7-92E0-4CE6-A444-82DBCD3714BF}" @{ Title = "A place for the work you want to be known for"; Subtitle = "Studio" }
+            Set-InternalLink $hero "Link" $projects "View the work"
+            $stats = New-Data $home "Stats" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10001}" @{ Title = "A practice with room to grow"; Stat1Value = "48"; Stat1Label = "Projects"; Stat2Value = "12"; Stat2Label = "Cities"; Stat3Value = "20"; Stat3Label = "Years"; Stat4Value = "4"; Stat4Label = "Collections" }
+            $features = New-Data $home "Features" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10011}" @{ Title = "How the work is held" }
+            $featureA = Ensure-Item $features "Advisory" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10012}"
+            $featureB = Ensure-Item $features "Delivery" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10012}"
+            $featureC = Ensure-Item $features "Stewardship" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10012}"
+            Set-Fields $featureA @{ featureTitle = "Advisory"; featureDescription = "A clear brief before anything is drawn." }
+            Set-Fields $featureB @{ featureTitle = "Delivery"; featureDescription = "A team that stays through the build." }
+            Set-Fields $featureC @{ featureTitle = "Stewardship"; featureDescription = "Care for the place after it opens." }
+            Set-Fields $features @{ Features = "$($featureA.ID)|$($featureB.ID)|$($featureC.ID)" }
+            $selected = New-Data $home "Selected" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10061}" @{ Title = "Selected work"; Description = "Places and launches from the current collection."; Destinations = $project.ID }
+            $offers = New-Data $home "Offers" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10021}" @{ Title = "This season" }
+            $offerA = Ensure-Item $offers "Private preview" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10022}"
+            $offerB = Ensure-Item $offers "Seasonal edit" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10022}"
+            $offerC = Ensure-Item $offers "Launch week" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10022}"
+            Set-Fields $offerA @{ OfferText = "Private preview" }
+            Set-Fields $offerB @{ OfferText = "Seasonal edit" }
+            Set-Fields $offerC @{ OfferText = "Launch week" }
+            Set-Fields $offers @{ Offers = "$($offerA.ID)|$($offerB.ID)|$($offerC.ID)" }
+            $reviews = New-Data $home "Reviews" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10031}" @{ Title = "From the people who live with the work" }
+            $reviewA = Ensure-Item $reviews "Review one" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10032}"
+            $reviewB = Ensure-Item $reviews "Review two" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10032}"
+            Set-Fields $reviewA @{ ReviewerName = "Nia Patel"; Description = "The house feels considered in every room, and still easy to live in." }
+            Set-Fields $reviewB @{ ReviewerName = "Jonah Ellis"; Description = "The launch felt like the brand, not a campaign laid on top of it." }
+            Set-Fields $reviews @{ Reviews = "$($reviewA.ID)|$($reviewB.ID)" }
+            $subscribe = New-Data $home "Subscribe" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10041}" @{ Title = "Notes from the studio" }
+            $cta = New-Data $home "Cta" "{2C4B116B-A062-4F42-AAE6-367B2F037BA9}" @{ Title = "Start a conversation"; Summary = "Tell us about a place, a product, or a launch." }
+            Set-InternalLink $cta "Link" $contact "Contact the studio"
+            Clear-Renderings $home
+            Add-Block $home "{AFD7E6C6-885D-4695-A64D-76B5CA8DC1DB}" "headless-main" $hero
+            Add-Block $home "{4C1E8A20-7B55-4D11-9C3A-11AA01B10003}" "headless-main" $stats
+            Add-Block $home "{4C1E8A20-7B55-4D11-9C3A-11AA01B10014}" "headless-main" $features
+            Add-Block $home "{4C1E8A20-7B55-4D11-9C3A-11AA01B10063}" "headless-main" $selected
+            Add-Block $home "{4C1E8A20-7B55-4D11-9C3A-11AA01B10024}" "headless-main" $offers
+            Add-Block $home "{4C1E8A20-7B55-4D11-9C3A-11AA01B10034}" "headless-main" $reviews
+            Add-Block $home "{4C1E8A20-7B55-4D11-9C3A-11AA01B10043}" "headless-main" $subscribe
+            Add-Block $home "{8C977EDF-2A7A-42E6-A078-0090332EA8F1}" "headless-main" $cta
+            $listing = New-Data $projects "Intro" "{2773422E-CD2B-49E7-A440-A93658E76C8F}" @{ Title = "Projects"; Summary = "A current collection of places and launches." }
+            $picked = New-Data $projects "Selected" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10061}" @{ Title = "In the collection"; Destinations = $project.ID }
+            Clear-Renderings $projects
+            Add-Block $projects "{2A45F62E-F60F-4145-AB05-0AADE32564A4}" "headless-main" $listing
+            Add-Block $projects "{4C1E8A20-7B55-4D11-9C3A-11AA01B10063}" "headless-main" $picked
+            $detail = New-Data $project "Detail" "{78CC08A5-1A9B-448C-A359-EAFD7B1688F2}" @{ Title = "Harbour House"; Tags = "Project"; Summary = "A quiet house above the water."; Body = "<p>Rooms are arranged around a long court, with light kept low and even through the day.</p>" }
+            $detailReviews = New-Data $project "Reviews" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10031}" @{ Title = "What people say"; Reviews = $reviewA.ID }
+            Clear-Renderings $project
+            Add-Block $project "{9D4E2139-51AB-418C-AC0E-A072D09D8BBF}" "headless-main" $detail
+            Add-Block $project "{4C1E8A20-7B55-4D11-9C3A-11AA01B10034}" "headless-main" $detailReviews
+            $peopleIntro = New-Data $people "Intro" "{2773422E-CD2B-49E7-A440-A93658E76C8F}" @{ Title = "People"; Summary = "The people who carry a brief from the first meeting to the opening." }
+            $peopleSelected = New-Data $people "Selected" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10061}" @{ Title = "The studio"; Destinations = $person.ID }
+            Clear-Renderings $people
+            Add-Block $people "{2A45F62E-F60F-4145-AB05-0AADE32564A4}" "headless-main" $peopleIntro
+            Add-Block $people "{4C1E8A20-7B55-4D11-9C3A-11AA01B10063}" "headless-main" $peopleSelected
+            $profile = New-Data $person "Profile" "{78CC08A5-1A9B-448C-A359-EAFD7B1688F2}" @{ Title = "Avery Cole"; Tags = "Studio lead"; Summary = "Leads the work from the first brief to the finished place."; Body = "<p>Avery keeps the brief, the drawings, and the opening day in one conversation.</p>" }
+            Clear-Renderings $person
+            Add-Block $person "{4C1E8A20-7B55-4D11-9C3A-11AA01B10111}" "headless-main" $profile
+            $journalIntro = New-Data $journal "Intro" "{2773422E-CD2B-49E7-A440-A93658E76C8F}" @{ Title = "Journal"; Summary = "Stories from the work." }
+            $journalList = New-Data $journal "Articles" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10071}" @{ Title = "Latest"; items = $article.ID }
+            Clear-Renderings $journal
+            Add-Block $journal "{2A45F62E-F60F-4145-AB05-0AADE32564A4}" "headless-main" $journalIntro
+            Add-Block $journal "{4C1E8A20-7B55-4D11-9C3A-11AA01B10073}" "headless-main" $journalList
+            $story = New-Data $article "Story" "{22DF248B-F3D6-400D-A1FD-926F815B365E}" @{ Title = "The long room"; Summary = "Notes on light, proportion, and a room that holds a conversation."; Body = "<p>The room is long enough for a table and a pause. Light comes in from one side and stays.</p>" }
+            $articleSubscribe = New-Data $article "Subscribe" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10041}" @{ Title = "More notes from the studio" }
+            Clear-Renderings $article
+            Add-Block $article "{5B702712-52A3-4A02-A3E6-355458F3D796}" "headless-main" $story
+            Add-Block $article "{4C1E8A20-7B55-4D11-9C3A-11AA01B10043}" "headless-main" $articleSubscribe
+            $form = New-Data $contact "Form" "{9B5D45A4-2F78-4CE1-A555-D8140D03A9D9}" @{ Title = "Contact"; Summary = "Write with a place, a product, or a date in mind." }
+            Clear-Renderings $contact
+            Add-Block $contact "{EDB5F829-36F2-45C8-A4D6-CB38F7AD3F10}" "headless-main" $form
+            $searchIntro = New-Data $search "Intro" "{F51088CE-2234-4B0A-A7AA-79CA7E92DD43}" @{ Title = "Search" }
+            $searchExperience = New-Data $search "Experience" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10091}" @{ title = "Search this site" }
+            $chat = New-Data $search "Conversation" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10101}" @{ title = "Ask the studio"; welcomeMessage = "Ask about a project, a story, or a person."; suggestedPrompts = "Which projects are open for a private viewing?|Show me the latest journal stories." }
+            Clear-Renderings $search
+            Add-Block $search "{1DC56524-84C6-4984-A5D2-FFF8438FF501}" "headless-main" $searchIntro
+            Add-Block $search "{4C1E8A20-7B55-4D11-9C3A-11AA01B10093}" "headless-main" $searchExperience
+            Add-Block $search "{4C1E8A20-7B55-4D11-9C3A-11AA01B10103}" "headless-main" $chat
+            $brand = Get-Item -Path "$sitePath/Settings/Brand" -Language $language
+            Set-Fields $brand @{ PrimaryNavigation = "$($projects.ID)|$($people.ID)|$($journal.ID)|$($contact.ID)" }
+            Set-InternalLink $brand "CtaLink" $contact "Contact"
+            $partialRoot = Get-Item -Path "$sitePath/Presentation/Partial Designs" -Language $language
+            $header = Get-ChildItem -Path $partialRoot.Paths.Path -Recurse | Where-Object { $_.Name -eq "header" } | Select-Object -First 1
+            $footer = Get-ChildItem -Path $partialRoot.Paths.Path -Recurse | Where-Object { $_.Name -eq "footer" } | Select-Object -First 1
+            if ($header) {
+                Clear-Renderings $header
+                Add-Block $header "{63A23492-86F7-41DF-A217-E0D7E9501927}" "headless-header" $brand
+            }
+            if ($footer) {
+                $social = New-Data $footer "Social" "{4C1E8A20-7B55-4D11-9C3A-11AA01B10051}" @{}
+                Set-ExternalLink $social "FacebookLink" "https://example.com" "Facebook"
+                Set-ExternalLink $social "InstagramLink" "https://example.com" "Instagram"
+                Set-ExternalLink $social "TwitterLink" "https://example.com" "Twitter"
+                Clear-Renderings $footer
+                Add-Block $footer "{12333C72-52F7-4E39-A363-EA19B65BBD67}" "headless-footer" $brand
+                Add-Block $footer "{4C1E8A20-7B55-4D11-9C3A-11AA01B10053}" "headless-footer" $social
+            }
+            $designRoot = Get-Item -Path "$sitePath/Presentation/Page Designs" -Language $language
+            $map = New-Object Sitecore.Text.UrlString
+            $pairs = @{
+                "{57F7419D-D549-4229-ABF4-460CE7F10D62}" = "Home"
+                "{95D5A2E5-1168-4B8B-A7BE-BB6551706171}" = "Landing"
+                "{18E7F24E-D69F-40C9-A6B0-FD501945AFDC}" = "Listing"
+                "{F7C30E80-4498-4C8A-A49E-103A57FB07DA}" = "Detail"
+                "{BAECD880-BEDB-419F-ACAB-6E3D9EA3F376}" = "Article"
+                "{CC9F30EE-1015-4C84-A912-7362E1E83C72}" = "Contact"
+                "{96E1B3F7-819B-4A2C-A3C6-69C948AB3FF8}" = "Search"
+                "{4C1E8A20-7B55-4D11-9C3A-11AA01B10112}" = "Detail"
+            }
+            foreach ($key in $pairs.Keys) {
+                $design = Get-ChildItem -Path $designRoot.Paths.Path -Recurse | Where-Object { $_.Name -eq $pairs[$key] } | Select-Object -First 1
+                if (-not $design) { continue }
+                $signature = $pairs[$key].ToLower()
+                $signaturePartial = Get-ChildItem -Path $partialRoot.Paths.Path -Recurse | Where-Object { $_.Name -eq $signature } | Select-Object -First 1
+                $parts = @($header, $signaturePartial, $footer) | Where-Object { $_ }
+                $design.Editing.BeginEdit()
+                $design.Fields["{0966B999-0D0E-4278-ACC9-9DA69D461FE6}"].Value = (($parts | ForEach-Object { $_.ID.ToString().Trim("{}") }) -join "|")
+                $design.Editing.EndEdit() | Out-Null
+                $map[$key] = $design.ID.ToString()
+            }
+            $designRoot.Editing.BeginEdit()
+            $designRoot.Fields["{BA1F60D6-3DEB-40CC-BB61-EEC772279EE1}"].Value = [System.Web.HttpUtility]::UrlEncode($map.ToString())
+            $designRoot.Editing.EndEdit() | Out-Null
+            try {
+                $Site.Editing.BeginEdit()
+                $Site.Fields["__Thumbnail"].Value = '<image mediaid="{4C1E8A20-7B55-4D11-9C3A-11AA01B10121}" />'
+                $Site.Editing.EndEdit() | Out-Null
+            } catch {
+                Write-Verbose $_.Exception.Message
+            }
+        }
+    }
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T120000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4c1e8a20-7b55-4d11-9c3a-11aa01b10131"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T120000Z

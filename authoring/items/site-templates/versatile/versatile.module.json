@@ -19,6 +19,7 @@
       {
         "name": "media-library",
         "path": "/sitecore/media library/Project/versatile",
+        "allowedPushOperations": "CreateAndUpdate",
         "scope": "ItemAndDescendants"
       },
       {
