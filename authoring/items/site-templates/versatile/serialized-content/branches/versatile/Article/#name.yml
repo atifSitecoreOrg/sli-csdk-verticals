@@ -1,0 +1,30 @@
+---
+ID: "7f73897c-8a6d-42c1-ada3-390028864564"
+Parent: "89b163b1-0a9a-404b-a3d3-806e6ad202ca"
+Template: "baecd880-bedb-419f-acab-6e3d9ea3f376"
+Path: "/sitecore/templates/Branches/Project/versatile/Article/$name"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{9425CE59-7EBF-450A-AFCF-12D7D212DB59}" p:before="*" s:ds="228e727d-ecce-478c-a558-890aca161d7a" s:id="{5B702712-52A3-4A02-A3E6-355458F3D796}" s:ph="headless-main" />
+            <r uid="{E1EA5D6C-2547-4783-AB19-6E903B29336D}" p:after="r[@uid='{9425CE59-7EBF-450A-AFCF-12D7D212DB59}']" s:ds="2e12cacc-4ced-4484-a4b1-464c7a896d73" s:id="{347AAA02-9FA5-48C4-A467-5E3025BF95A1}" s:ph="headless-main" />
+            <r uid="{4C6F3E5C-B24A-4FCB-A93E-72AF838C1BA5}" p:after="r[@uid='{E1EA5D6C-2547-4783-AB19-6E903B29336D}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5519dd0e-d783-4b0a-a947-d7625af2ba6a"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

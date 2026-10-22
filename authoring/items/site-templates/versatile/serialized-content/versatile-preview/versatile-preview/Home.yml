@@ -1,0 +1,35 @@
+---
+ID: "57c9f1bb-a716-41f4-8fc2-5e74c5162f50"
+Parent: "64e22265-58f1-4693-82f1-7af7b84f9874"
+Template: "57f7419d-d549-4229-abf4-460ce7f10d62"
+Path: "/sitecore/content/versatile/versatile-preview/Home"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{635DF9DA-D857-4FD0-A093-121589026F3C}" p:before="*" s:ds="0cf06bcf-a776-4ae0-a197-0c864033cfa7" s:id="{AFD7E6C6-885D-4695-A64D-76B5CA8DC1DB}" s:ph="headless-main" />
+            <r uid="{A43C1CD9-A8C0-4C4D-A3BA-8410D1D956AB}" p:after="r[@uid='{635DF9DA-D857-4FD0-A093-121589026F3C}']" s:ds="6833f9f7-cf6c-46bc-a6be-a4d3a8e811f6" s:id="{2A45F62E-F60F-4145-AB05-0AADE32564A4}" s:ph="headless-main" />
+            <r uid="{DBB4A6F7-7565-4153-A918-730AE5D9B826}" p:after="r[@uid='{A43C1CD9-A8C0-4C4D-A3BA-8410D1D956AB}']" s:ds="cabc1348-ef6c-4d9f-ab7d-f0a68f2a47f8" s:id="{8C977EDF-2A7A-42E6-A078-0090332EA8F1}" s:ph="headless-main" />
+            <r uid="{063C75F6-6077-4F9D-AF61-036E68BEEE1A}" p:after="r[@uid='{DBB4A6F7-7565-4153-A918-730AE5D9B826}']" s:ds="e6bc7d73-1599-40ca-a072-f6e771a3ded7" s:id="{EDB5F829-36F2-45C8-A4D6-CB38F7AD3F10}" s:ph="headless-main" />
+            <r uid="{DD4B9929-60AC-494E-AC8C-45C55160833E}" p:after="r[@uid='{063C75F6-6077-4F9D-AF61-036E68BEEE1A}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5459a35e-474d-4dfe-a196-798385b61f71"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "033b0ebc-2b1e-4ce6-a5fa-142115117ca4"
+      Hint: Title
+      Value: Home

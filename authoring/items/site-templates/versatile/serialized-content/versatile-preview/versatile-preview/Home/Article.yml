@@ -1,0 +1,39 @@
+---
+ID: "2e24bc8a-f6f6-4ccc-afa9-fb8f4b4a390f"
+Parent: "57c9f1bb-a716-41f4-8fc2-5e74c5162f50"
+Template: "baecd880-bedb-419f-acab-6e3d9ea3f376"
+Path: "/sitecore/content/versatile/versatile-preview/Home/Article"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{0BDA3AA7-4B74-4E9C-AB56-8D4881E0052A}" p:before="*" s:ds="74272718-a6c2-4894-a388-6759cf69892f" s:id="{5B702712-52A3-4A02-A3E6-355458F3D796}" s:ph="headless-main" />
+            <r uid="{2F77308C-ED5D-4B5B-AFF9-D5130F1A3CF4}" p:after="r[@uid='{0BDA3AA7-4B74-4E9C-AB56-8D4881E0052A}']" s:ds="bf826330-6bf1-4eef-a5b1-505240bffa78" s:id="{347AAA02-9FA5-48C4-A467-5E3025BF95A1}" s:ph="headless-main" />
+            <r uid="{11DE6DA2-13F4-4B75-A56E-D8665D097CCF}" p:after="r[@uid='{2F77308C-ED5D-4B5B-AFF9-D5130F1A3CF4}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "82ed74c1-1b9a-41c8-aed5-e7b1419bcf89"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "033b0ebc-2b1e-4ce6-a5fa-142115117ca4"
+      Hint: Title
+      Value: Article
+    - ID: "28d2d748-5442-400e-ac6f-e56dc33fa253"
+      Hint: Title
+      Value: Article
+    - ID: "73193287-1bf5-4994-a293-f5387b8a648f"
+      Hint: Summary
+      Value: A story that sits beside the catalogue.

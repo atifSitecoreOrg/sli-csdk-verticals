@@ -1,0 +1,19 @@
+---
+ID: "b5e38d18-d7b8-4d6b-a946-2f9abcc6f31a"
+Parent: "18e7f24e-d69f-40c9-a6b0-fd501945afdc"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: "/sitecore/templates/Project/versatile/Pages/Listing/Content"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f10cee77-41d2-48fc-a7f8-3a262a6c2ff3"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

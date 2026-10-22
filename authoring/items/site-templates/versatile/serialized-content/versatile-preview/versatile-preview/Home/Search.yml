@@ -1,0 +1,32 @@
+---
+ID: "7cc13b62-64e7-48c0-a460-09700aa87613"
+Parent: "57c9f1bb-a716-41f4-8fc2-5e74c5162f50"
+Template: "96e1b3f7-819b-4a2c-a3c6-69c948ab3ff8"
+Path: "/sitecore/content/versatile/versatile-preview/Home/Search"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{FDDB3070-991B-482E-A4B6-43097599BCC6}" p:before="*" s:ds="5614609e-8a69-438e-a1b0-4699d134d1d4" s:id="{1DC56524-84C6-4984-A5D2-FFF8438FF501}" s:ph="headless-main" />
+            <r uid="{9ECF0230-71C4-4175-A4DD-A58EAA9C59C2}" p:after="r[@uid='{FDDB3070-991B-482E-A4B6-43097599BCC6}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "04a45a38-1283-4f6a-ab7a-b0c4f9a382df"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "033b0ebc-2b1e-4ce6-a5fa-142115117ca4"
+      Hint: Title
+      Value: Search

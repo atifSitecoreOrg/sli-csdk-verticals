@@ -1,0 +1,25 @@
+---
+ID: "6833f9f7-cf6c-46bc-a6be-a4d3a8e811f6"
+Parent: "3e1d4b62-7de7-49f9-acca-2ea61a2b1f2a"
+Template: "2773422e-cd2b-49e7-a440-a93658e76c8f"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Listing Folder/Home"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b07db056-5463-4889-aff8-479cbc25bc1d"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "9ecf4fee-093c-4166-a24e-ecf7e2a99f30"
+      Hint: Title
+      Value: Featured listings
+    - ID: "e46f8208-08ef-4a93-a0f5-4f365927c8e8"
+      Hint: Summary
+      Value: Properties, products, or offers use the same listing.

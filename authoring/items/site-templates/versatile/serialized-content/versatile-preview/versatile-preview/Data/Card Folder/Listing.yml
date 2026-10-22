@@ -1,0 +1,25 @@
+---
+ID: "4e53b211-f297-45ca-a0cc-fd73bc024675"
+Parent: "3248ff17-d0a6-4154-ab44-4b64086e316c"
+Template: "46ceca85-d0ef-4e64-a976-7f66a7f2beda"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Card Folder/Listing"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "eb1b5015-0b33-46b3-a795-d99eed1999b8"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "5f3b3978-145d-4950-a204-29d7b6e4cfb7"
+      Hint: Title
+      Value: One offer
+    - ID: "a6b583bc-d72c-496c-a1f0-a43994ff4b86"
+      Hint: Summary
+      Value: A card works for a property, a product, or a campaign.

@@ -1,0 +1,57 @@
+body {
+  background: var(--brand-background);
+  color: var(--brand-foreground);
+  font-family: var(--brand-font-body);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .prod-mode .v-rise {
+    animation: v-rise 420ms ease both;
+  }
+
+  .prod-mode .v-card {
+    transition: transform 180ms ease;
+  }
+
+  .prod-mode .v-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .prod-mode .v-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: background-size 180ms ease;
+  }
+
+  .prod-mode .v-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+.v-accordion summary {
+  cursor: pointer;
+  font-family: var(--brand-font-heading);
+  padding: 0.75rem 0;
+}
+
+.editing-mode .v-accordion {
+  display: block;
+}
+
+.editing-mode .v-accordion > :not(summary) {
+  display: block;
+}
+
+@keyframes v-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

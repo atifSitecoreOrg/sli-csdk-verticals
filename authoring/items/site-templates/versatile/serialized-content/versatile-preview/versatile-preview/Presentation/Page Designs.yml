@@ -1,0 +1,39 @@
+﻿---
+ID: "c1696f84-eac3-4f25-bd06-db314187e79d"
+Parent: "3c9d8201-c069-4ece-9244-f06e9214cfef"
+Template: "aa74ffef-6522-47f0-a90e-87bd9acc2079"
+Path: "/sitecore/content/versatile/versatile-preview/Presentation/Page Designs"
+BranchID: "45cf9f42-b3ac-4412-aab9-f8441c7e448e"
+SharedFields:
+- ID: "ba1f60d6-3deb-40cc-bb61-eec772279ee1"
+  Hint: TemplatesMapping
+  Value: "%7b57F7419D-D549-4229-ABF4-460CE7F10D62%7d%3d%257BC89CF267-407E-4FCC-A58D-72F8EA8B76AE%257D%26%7b95D5A2E5-1168-4B8B-A7BE-BB6551706171%7d%3d%257B1CB24C8B-A7E1-42D6-AC68-38FE388A1253%257D%26%7b18E7F24E-D69F-40C9-A6B0-FD501945AFDC%7d%3d%257B65A81CD9-7377-4398-A1D1-C64DF4778B4B%257D%26%7bF7C30E80-4498-4C8A-A49E-103A57FB07DA%7d%3d%257B0A4258DA-AE3C-4F74-ABB2-916B1D54B330%257D%26%7bBAECD880-BEDB-419F-ACAB-6E3D9EA3F376%7d%3d%257BD65F5906-C5E4-4F01-AE42-F0E280C35E56%257D%26%7bCC9F30EE-1015-4C84-A912-7362E1E83C72%7d%3d%257B72921084-A22F-4375-A3BA-7B63FFF7130B%257D%26%7b96E1B3F7-819B-4A2C-A3C6-69C948AB3FF8%7d%3d%257B95397813-E269-4B45-AEC2-76D7BABE3CCB%257D"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{2EA756FA-AED6-4599-83B7-36FEFE229B31}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260612T221314Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\johan.becue@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\johan.becue@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "921ef639-28ad-45a5-926b-c1c140bcc24c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\johan.becue@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260612T221315Z

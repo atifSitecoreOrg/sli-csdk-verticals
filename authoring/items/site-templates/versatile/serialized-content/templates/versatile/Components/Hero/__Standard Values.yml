@@ -1,0 +1,23 @@
+---
+ID: "09856d0e-dca6-4c6e-a8b6-8bdfd26f54e8"
+Parent: "87de27b7-92e0-4ce6-a444-82dbcd3714bf"
+Template: "87de27b7-92e0-4ce6-a444-82dbcd3714bf"
+Path: "/sitecore/templates/Project/versatile/Components/Hero/__Standard Values"
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "49f96437-df21-46b4-a1e1-e82e00066be0"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

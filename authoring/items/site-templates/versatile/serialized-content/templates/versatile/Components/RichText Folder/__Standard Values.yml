@@ -1,0 +1,23 @@
+---
+ID: "79e19094-2f1c-418e-a895-20d287aa56bc"
+Parent: "23da64b7-3081-41a8-a7c4-cf85f4b25bd8"
+Template: "23da64b7-3081-41a8-a7c4-cf85f4b25bd8"
+Path: "/sitecore/templates/Project/versatile/Components/RichText Folder/__Standard Values"
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5762b106-9fdf-4080-a32c-337cfa0da4a5"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

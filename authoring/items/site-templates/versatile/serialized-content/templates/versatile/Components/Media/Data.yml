@@ -1,0 +1,19 @@
+---
+ID: "1653841c-ccf5-460c-a857-017359eecefb"
+Parent: "a1cec517-e813-4d70-a6e6-d86f3b88ef16"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: "/sitecore/templates/Project/versatile/Components/Media/Data"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "224c434e-198b-4602-a321-d9e286ae1977"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

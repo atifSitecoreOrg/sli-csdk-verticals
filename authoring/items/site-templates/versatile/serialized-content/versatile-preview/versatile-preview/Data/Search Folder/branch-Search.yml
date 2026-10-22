@@ -1,0 +1,22 @@
+---
+ID: "1a3709a4-6a50-4a59-a9c4-781a9abb0ce3"
+Parent: "89fa6c38-f4ac-4ac7-a7d8-e6bd59a73a48"
+Template: "f51088ce-2234-4b0a-a7aa-79ca7e92dd43"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Search Folder/branch-Search"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "96a6b482-b25d-48ee-a800-7350e36fcb3b"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "381db458-a84a-477b-a06e-2a7f83c63c87"
+      Hint: Title
+      Value: Search

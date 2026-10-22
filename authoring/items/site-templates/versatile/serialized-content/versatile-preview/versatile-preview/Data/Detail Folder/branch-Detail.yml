@@ -1,0 +1,28 @@
+---
+ID: "901998f8-fbff-4545-a9bf-73f62e454f60"
+Parent: "2e8f2197-ba87-4657-af98-fa572ec5e4d0"
+Template: "78cc08a5-1a9b-448c-a359-eafd7b1688f2"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Detail Folder/branch-Detail"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "799d9123-5066-47f1-ac40-271783d77a4f"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "96de4db4-704d-4870-a556-a8974dc50c29"
+      Hint: Title
+      Value: The detail
+    - ID: "24e3772e-5d68-49dd-a8ba-12e236c475a4"
+      Hint: Summary
+      Value: Title, image, summary, tags, link, and body.
+    - ID: "ad3426f3-b369-4980-a14a-07625d0f40f3"
+      Hint: Tags
+      Value: featured

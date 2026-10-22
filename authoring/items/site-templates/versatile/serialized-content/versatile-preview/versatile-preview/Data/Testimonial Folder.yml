@@ -1,0 +1,19 @@
+---
+ID: "d79b0f59-44ed-44e2-a29b-3a55bdedc59f"
+Parent: "76b3c5ce-ef89-41b1-91d4-48799610d05b"
+Template: "e4da6eac-9b6c-4985-a010-99e2e0459ec6"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Testimonial Folder"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "76f2bfa9-16de-4447-a714-07a334aa1dbd"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

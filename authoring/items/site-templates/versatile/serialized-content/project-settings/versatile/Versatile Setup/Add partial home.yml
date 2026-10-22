@@ -1,0 +1,29 @@
+---
+ID: "2db139fa-0f7d-4ce8-a5c6-26272f95b153"
+Parent: "d57f660c-632d-43c7-adad-f7c5cc46c948"
+Template: "3aea335c-d06d-45b1-841a-cbc8d2d1ce40"
+Path: "/sitecore/system/Settings/Project/versatile/Versatile Setup/Add partial home"
+SharedFields:
+- ID: "e62c28f0-9d3b-46e2-8bec-a5e120542499"
+  Hint: Template
+  Value: "{B38BF1B7-4028-4BD0-A24B-F9039468961E}"
+- ID: "52c91c75-6698-4701-a8a2-242ace59a8d6"
+  Hint: Location
+  Value: "{98AB60C3-0FE5-467B-A6C7-ABD981E30E7A}"
+- ID: "7868e6bc-525c-4fce-ab8a-77da3e09b171"
+  Hint: Name
+  Value: home
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ab4cf6fe-b86e-4630-ab7b-57175604c5ce"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

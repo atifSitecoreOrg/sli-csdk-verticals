@@ -1,0 +1,19 @@
+---
+ID: "5af9bd0b-b159-4d3a-ad1b-971706156e51"
+Parent: "17666eb5-53c4-45a3-a2e3-d96a014e1543"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: "/sitecore/templates/Project/versatile/Components/Image/Data"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6f178aee-d057-49f5-a858-fb8e4e7db948"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

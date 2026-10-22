@@ -1,0 +1,19 @@
+---
+ID: "575996e1-a11f-4178-acca-7e89ad8c6c24"
+Parent: "81435a43-25b2-41a8-aefb-a19011bd75c2"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: "/sitecore/templates/Project/versatile/Components/RichText/Data"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4c437b33-5c61-4ee0-a674-0a6ca35c7c92"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

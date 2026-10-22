@@ -129,6 +129,8 @@ Shared rules and the map of industry type → host are in [industry-verticals](.
 | **[industry-healthcare](./skills/industry-healthcare/SKILL.md)** | Nova Medical. Person listing and detail, reviews. Also the pattern for consultants or lawyers. |
 | **[industry-travel](./skills/industry-travel/SKILL.md)** | Skywings. Destinations, articles, deals. |
 | **[industry-energy](./skills/industry-energy/SKILL.md)** | Gridwell. Articles plus grid status. |
+| **[industry-versatile](./skills/industry-versatile/SKILL.md)** | Versatile. One template for real estate, retail, and campaign sites. Brand item holds logo and colour. |
+| **[sitecore-site-template](./skills/sitecore-site-template/SKILL.md)** | How the Versatile Create site template, page designs, and editing-safe motion are built. |
 
 ### Cloud SDK
 

@@ -19,6 +19,7 @@ Start here. Then open the industry skill for the type you are building. Hosts th
 | Healthcare, clinics, people directories | `industry-verticals/healthcare` (Nova Medical) | [industry-healthcare](../industry-healthcare/SKILL.md) | Person listing + detail, reviews |
 | Travel, destinations, tourism | `industry-verticals/travel` (Skywings) | [industry-travel](../industry-travel/SKILL.md) | Destination and article listing + detail, deals |
 | Energy, utilities, operational status | `industry-verticals/energy` (Gridwell) | [industry-energy](../industry-energy/SKILL.md) | Articles plus a status widget |
+| Real estate, retail, or campaign from one template | `industry-verticals/versatile` | [industry-versatile](../industry-versatile/SKILL.md) | Home, landing, listing, detail, article, contact, search. Brand item holds logo and colour |
 | Professional services (legal, consulting) | healthcare (people) + retail articles | [industry-healthcare](../industry-healthcare/SKILL.md) | People are the catalog; articles are the insight |
 | Nonprofit (appeals, advice) | travel articles + retail promos | [industry-retail](../industry-retail/SKILL.md) | Advice articles, appeals as promos |
 | Recruitment (jobs, consultants) | healthcare people + retail listings | [industry-healthcare](../industry-healthcare/SKILL.md) | Jobs and consultants are listing + detail |

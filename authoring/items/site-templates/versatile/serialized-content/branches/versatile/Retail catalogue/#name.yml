@@ -1,0 +1,32 @@
+---
+ID: "d79f2fca-d394-476c-a5b1-727944c5f7e6"
+Parent: "ce012a85-b51a-47af-aedb-e3ef8651c524"
+Template: "18e7f24e-d69f-40c9-a6b0-fd501945afdc"
+Path: "/sitecore/templates/Branches/Project/versatile/Retail catalogue/$name"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{7971578B-7D80-4EBB-A591-D2918233737E}" p:before="*" s:ds="029d31f8-e054-43dd-a6aa-946c8846143e" s:id="{AFD7E6C6-885D-4695-A64D-76B5CA8DC1DB}" s:ph="headless-main" />
+            <r uid="{B4A44C75-B2B3-4FA5-A5E7-6A0A5ED990D7}" p:after="r[@uid='{7971578B-7D80-4EBB-A591-D2918233737E}']" s:ds="72a702ed-8328-4043-afd1-2739d1ac30b8" s:id="{1DB4015C-8FCB-4E89-A02D-6735579370B1}" s:ph="headless-main" />
+            <r uid="{D1C1CF1A-A0C9-41BA-AE0B-D9720A564DE6}" p:after="r[@uid='{B4A44C75-B2B3-4FA5-A5E7-6A0A5ED990D7}']" s:ds="1808e9bb-32c7-4000-a56d-34fe98a64bd5" s:id="{2A45F62E-F60F-4145-AB05-0AADE32564A4}" s:ph="headless-main" />
+            <r uid="{558299C9-E342-42BE-A9BB-B4F49F415993}" p:after="r[@uid='{D1C1CF1A-A0C9-41BA-AE0B-D9720A564DE6}']" s:ds="539813a6-13e8-4fbb-a78d-5414eb55e4c2" s:id="{D1378A7B-BB13-4B4E-A67B-F4BD98803D17}" s:ph="headless-main" />
+            <r uid="{833E41ED-3C0E-43D3-A156-FFB9A0A8EF1C}" p:after="r[@uid='{558299C9-E342-42BE-A9BB-B4F49F415993}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "dd7236eb-2d7e-405d-aafb-60ffc56c2759"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

@@ -1,0 +1,23 @@
+---
+ID: "3061b024-85d5-4962-a4ff-1d2bd6f98f58"
+Parent: "27147f37-5168-402e-a9b2-c924ace253c6"
+Template: "1105b8f8-1e00-426b-bf1f-c840742d827b"
+Path: "/sitecore/templates/Branches/Project/versatile/Design Home/$name"
+SharedFields:
+- ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
+  Hint: PartialDesigns
+  Value: "c9526720-517c-4a5e-aa35-aca4e8f766c5|b58cda52-7d08-4ad7-a7e5-d54ea073d1b3|3d22c8f4-21e9-4f72-a61c-6d415b835a5c"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "58d73398-c9ed-4b6d-a226-ad22197a4947"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

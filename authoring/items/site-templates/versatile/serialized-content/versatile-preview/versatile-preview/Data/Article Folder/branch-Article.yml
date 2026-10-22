@@ -1,0 +1,25 @@
+---
+ID: "228e727d-ecce-478c-a558-890aca161d7a"
+Parent: "68533009-9822-4ac4-ae7a-a999ce0ae9bc"
+Template: "22df248b-f3d6-400d-a1fd-926f815b365e"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Article Folder/branch-Article"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3af1c057-ae18-430d-a3df-379118a4a92c"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "27c831e3-9778-4a42-ad3c-b7782fb2ba32"
+      Hint: Title
+      Value: From the journal
+    - ID: "c43e5080-0259-48f5-a0f3-38216a3cce47"
+      Hint: Summary
+      Value: A story that sits beside the catalogue.

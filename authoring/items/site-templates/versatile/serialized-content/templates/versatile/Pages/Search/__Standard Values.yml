@@ -1,0 +1,23 @@
+---
+ID: "76459305-9708-49f7-a92e-a77b05dc736d"
+Parent: "96e1b3f7-819b-4a2c-a3c6-69c948ab3ff8"
+Template: "96e1b3f7-819b-4a2c-a3c6-69c948ab3ff8"
+Path: "/sitecore/templates/Project/versatile/Pages/Search/__Standard Values"
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{B4F49B23-4BBA-4C79-BA22-F89F5F0D4E4F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b70e24b6-49f6-4779-a6cd-d240a42d4702"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

@@ -2,7 +2,7 @@
 
 Source of truth for sites in **this** clone. When a site is created, cloned, or renamed, update this file in the same change as the host and authoring. Procedure: [skills/new-site-inventory/SKILL.md](./skills/new-site-inventory/SKILL.md).
 
-Last verified: 2026-10-05 against `industry-verticals/*/package.json` and `xmcloud.build.json`.
+Last verified: 2026-10-22 against `industry-verticals/*/package.json` and `xmcloud.build.json`.
 
 New hosts go under `industry-verticals/{folder}/`. Shared tenant content stays under `authoring/items/industry-verticals/` unless the site is an isolated collection.
 
@@ -16,8 +16,9 @@ New hosts go under `industry-verticals/{folder}/`. Shared tenant content stays u
 | `starter` | starter | *(not deployed)* | — | — |
 | `travel` | Skywings | `travel` | `skywings` | `Project.Travel-Content`, `Project.Travel-Media` |
 | `energy` | Gridwell | `energy` | `gridwell` | `Project.Energy-Content`, `Project.Energy-Media` |
+| `versatile` | Versatile | `versatile` | `versatile-preview` | `Project.Versatile` |
 
-`deployItems.modules`: `Project.IndustryVerticals`, `Foundation.BasePage`.
+`deployItems.modules`: `Project.IndustryVerticals`, `Foundation.BasePage`, `Project.Versatile`.
 
 ## Industry skills
 
@@ -29,6 +30,7 @@ Brand-specific skills (ASOS, Brother, Pinsent, Capco, Openhand, Aspire) are fold
 | Healthcare / people | [industry-healthcare](./skills/industry-healthcare/SKILL.md) | `healthcare` |
 | Travel | [industry-travel](./skills/industry-travel/SKILL.md) | `travel` |
 | Energy | [industry-energy](./skills/industry-energy/SKILL.md) | `energy` |
+| Versatile | [industry-versatile](./skills/industry-versatile/SKILL.md) | `versatile` |
 
 ## Same-change updates
 

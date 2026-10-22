@@ -25,6 +25,7 @@ Available Sites (keep in sync with `.cursor/SITE-REGISTRY.md`):
 - `starter` - **starter** - Simple Next.js starter with basic components (not in `xmcloud.build.json`)
 - `travel` - **Skywings** - Travel focused site template with articles and destinations
 - `energy` - **Gridwell** - Energy focused site template with grid condition/status and articles
+- `versatile` - **Versatile** - One site template for real estate, retail, and campaign sites. Logo, colour, and type live on the site Brand item (`renderingHosts` key `versatile`)
 
 New hosts go under `industry-verticals/{folder}/`. When a site is created, cloned, or renamed, update this list and the registry in the same change (`new-site-inventory`).
 

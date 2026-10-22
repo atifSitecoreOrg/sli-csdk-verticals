@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../.sitecore/schemas/ModuleFile.schema.json",
+  "namespace": "Project.Versatile",
+  "items": {
+    "path": "serialized-content",
+    "includes": [
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Project/versatile",
+        "allowedPushOperations": "CreateUpdateAndDelete",
+        "scope": "ItemAndDescendants"
+      },
+      {
+        "name": "branches",
+        "path": "/sitecore/templates/Branches/Project/versatile",
+        "allowedPushOperations": "CreateUpdateAndDelete",
+        "scope": "ItemAndDescendants"
+      },
+      {
+        "name": "media-library",
+        "path": "/sitecore/media library/Project/versatile",
+        "scope": "ItemAndDescendants"
+      },
+      {
+        "name": "renderings",
+        "path": "/sitecore/Layout/Renderings/Project/versatile",
+        "allowedPushOperations": "CreateUpdateAndDelete",
+        "scope": "ItemAndDescendants"
+      },
+      {
+        "name": "placeholder-settings",
+        "path": "/sitecore/Layout/Placeholder Settings/Project/versatile",
+        "allowedPushOperations": "CreateUpdateAndDelete",
+        "scope": "ItemAndDescendants"
+      },
+      {
+        "name": "project-settings",
+        "path": "/sitecore/system/Settings/Project/versatile",
+        "allowedPushOperations": "CreateUpdateAndDelete",
+        "scope": "ItemAndDescendants"
+      },
+      {
+        "name": "collection",
+        "path": "/sitecore/content/versatile/",
+        "allowedPushOperations": "CreateUpdateAndDelete",
+        "scope": "SingleItem"
+      },
+      {
+        "name": "versatile-preview",
+        "path": "/sitecore/content/versatile/versatile-preview",
+        "allowedPushOperations": "CreateAndUpdate",
+        "rules": [
+          {
+            "path": "/home",
+            "scope": "ItemAndDescendants",
+            "allowedPushOperations": "CreateAndUpdate"
+          },
+          {
+            "path": "/Media",
+            "scope": "ItemAndDescendants",
+            "allowedPushOperations": "CreateAndUpdate"
+          },
+          {
+            "path": "/Data",
+            "scope": "ItemAndDescendants",
+            "allowedPushOperations": "CreateAndUpdate"
+          },
+          {
+            "path": "/Dictionary",
+            "scope": "ItemAndDescendants",
+            "allowedPushOperations": "CreateAndUpdate"
+          },
+          {
+            "path": "/Presentation",
+            "scope": "ItemAndDescendants",
+            "allowedPushOperations": "CreateAndUpdate"
+          },
+          {
+            "path": "/Settings/Site Grouping",
+            "scope": "ItemAndDescendants",
+            "allowedPushOperations": "CreateAndUpdate"
+          },
+          {
+            "path": "/Settings",
+            "scope": "ItemAndDescendants",
+            "allowedPushOperations": "CreateAndUpdate"
+          },
+          {
+            "path": "*",
+            "scope": "Ignored"
+          }
+        ]
+      },
+      {
+        "name": "powershell",
+        "path": "/sitecore/system/Modules/PowerShell/Script Library/JSS SXA/Versatile",
+        "allowedPushOperations": "CreateUpdateAndDelete",
+        "scope": "ItemAndDescendants"
+      }
+    ]
+  }
+}

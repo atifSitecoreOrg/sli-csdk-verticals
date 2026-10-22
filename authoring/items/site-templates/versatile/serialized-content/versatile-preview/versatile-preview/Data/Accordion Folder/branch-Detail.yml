@@ -1,0 +1,25 @@
+---
+ID: "a6e69ebe-5e45-46f9-a326-15978dde4b7d"
+Parent: "c5bc3859-af64-4d21-a00a-43ef8bd0c0a2"
+Template: "70685a6a-707d-4879-ab1b-a9e5f8c5fd26"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Accordion Folder/branch-Detail"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "81c570a5-6705-4bea-a32f-ef974991d505"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "fc8853d3-17f1-4b01-ac6e-a64f421ce393"
+      Hint: Title
+      Value: More detail
+    - ID: "eb71a15a-f2b4-400c-a5ce-9e46d6922ee7"
+      Hint: Body
+      Value: Open this while editing. It stays open for authors.

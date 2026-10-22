@@ -1,0 +1,19 @@
+---
+ID: "a64bbb62-44ec-440f-ab47-1b024428e6f3"
+Parent: "dc0bc41d-7601-4afc-acdc-0e577d133ea8"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: "/sitecore/templates/Branches/Project/versatile/Data folders/$name"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "dccd6c79-c7ab-4c15-a10e-8528f71b806f"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

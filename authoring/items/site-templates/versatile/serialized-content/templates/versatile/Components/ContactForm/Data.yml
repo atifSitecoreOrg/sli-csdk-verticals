@@ -1,0 +1,19 @@
+---
+ID: "cd2e41a6-c958-4ce9-a849-be72d8929642"
+Parent: "9b5d45a4-2f78-4ce1-a555-d8140d03a9d9"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: "/sitecore/templates/Project/versatile/Components/ContactForm/Data"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e52d7003-b68a-493f-a010-51c6b5f1e6d8"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

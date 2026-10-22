@@ -1,0 +1,25 @@
+---
+ID: "e6bc7d73-1599-40ca-a072-f6e771a3ded7"
+Parent: "c2d26d5f-0d3d-4bfb-a358-6985bc1aeb61"
+Template: "9b5d45a4-2f78-4ce1-a555-d8140d03a9d9"
+Path: "/sitecore/content/versatile/versatile-preview/Data/ContactForm Folder/Home"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6deef938-fe1e-4002-ab35-464d4104561f"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "48875edd-fea4-4f5d-ad8a-61425bc03dec"
+      Hint: Title
+      Value: Contact
+    - ID: "87ac608f-89e4-4a6c-ae61-7f80ae72f795"
+      Hint: Summary
+      Value: Name, email, and a short message.

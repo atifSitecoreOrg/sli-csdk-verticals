@@ -1,0 +1,19 @@
+---
+ID: "457edd21-0144-40f8-a2be-d1821f4ce59d"
+Parent: "96cbba48-7ce4-461b-b6ef-4c8e438029ad"
+Template: "35e75c72-4985-4e09-88c3-0eac6cd1e64f"
+Path: "/sitecore/templates/Branches/Project/versatile/Partial listing"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c0833a65-6dd3-4f53-af29-8f2f3f527a75"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

@@ -1,0 +1,19 @@
+---
+ID: "3e1d4b62-7de7-49f9-acca-2ea61a2b1f2a"
+Parent: "76b3c5ce-ef89-41b1-91d4-48799610d05b"
+Template: "d8a048fd-2796-4c49-a170-64875ebbe91c"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Listing Folder"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8ea9eb6e-34d9-42b8-a383-941e704eeb91"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

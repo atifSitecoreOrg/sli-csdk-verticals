@@ -1,0 +1,41 @@
+---
+ID: "351313cd-9f3a-4a66-a61a-c83c2c2a3b4d"
+Parent: "57c9f1bb-a716-41f4-8fc2-5e74c5162f50"
+Template: "18e7f24e-d69f-40c9-a6b0-fd501945afdc"
+Path: "/sitecore/content/versatile/versatile-preview/Home/Listing"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{F3955F62-D6DA-4271-ACB7-30422B244512}" p:before="*" s:ds="69e2dec0-4bcf-4315-aa60-06eda2f3c6cd" s:id="{AFD7E6C6-885D-4695-A64D-76B5CA8DC1DB}" s:ph="headless-main" />
+            <r uid="{91025DBF-4CDA-4FC2-A323-40907D3700DA}" p:after="r[@uid='{F3955F62-D6DA-4271-ACB7-30422B244512}']" s:ds="9ebfcc52-613c-4def-a364-42fad6634822" s:id="{1DB4015C-8FCB-4E89-A02D-6735579370B1}" s:ph="headless-main" />
+            <r uid="{D6A97711-0ACD-4C0B-A8ED-6F6C9C5AA952}" p:after="r[@uid='{91025DBF-4CDA-4FC2-A323-40907D3700DA}']" s:ds="271e7d3e-9712-43f3-a40f-e56bbbb5293b" s:id="{2A45F62E-F60F-4145-AB05-0AADE32564A4}" s:ph="headless-main" />
+            <r uid="{004441B8-D2F1-4C0D-AFAD-33592F0C7717}" p:after="r[@uid='{D6A97711-0ACD-4C0B-A8ED-6F6C9C5AA952}']" s:ds="4e53b211-f297-45ca-a0cc-fd73bc024675" s:id="{D1378A7B-BB13-4B4E-A67B-F4BD98803D17}" s:ph="headless-main" />
+            <r uid="{4B420366-D423-4B63-A480-8D2353CAFE0D}" p:after="r[@uid='{004441B8-D2F1-4C0D-AFAD-33592F0C7717}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8c805cb0-bb9e-4d8d-aec4-faa80a94f2e6"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "033b0ebc-2b1e-4ce6-a5fa-142115117ca4"
+      Hint: Title
+      Value: Listing
+    - ID: "62eeca9e-3509-4419-a136-0a9c45d82b7d"
+      Hint: Title
+      Value: Listing
+    - ID: "9cebcad4-a3d0-406e-a7c6-b0dd45a029b3"
+      Hint: Summary
+      Value: Properties, products, or offers use the same listing.

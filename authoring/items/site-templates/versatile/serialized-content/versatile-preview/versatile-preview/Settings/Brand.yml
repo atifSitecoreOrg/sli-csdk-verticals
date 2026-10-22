@@ -1,0 +1,43 @@
+---
+ID: "c612a4ca-66a3-4a03-a508-f6eacbe80c5f"
+Parent: "41277a68-2a99-4880-ba5e-d86899a372f1"
+Template: "56506554-f0d4-49e2-abb7-cbf128864046"
+Path: "/sitecore/content/versatile/versatile-preview/Settings/Brand"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "457dddc6-c0e5-40af-a827-f15171d8352e"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "18be723d-fa6d-41d3-a385-7e89fba77db9"
+      Hint: Primary
+      Value: "#1f2937"
+    - ID: "673b7992-f124-4f96-a692-807c06622ea9"
+      Hint: Secondary
+      Value: "#4b5563"
+    - ID: "71be175a-a14e-44f5-ad67-80594a8e3d20"
+      Hint: Accent
+      Value: "#0f766e"
+    - ID: "0afe95fa-a8df-40f5-a6a9-c656865e8dfa"
+      Hint: Background
+      Value: "#fafafa"
+    - ID: "338d4517-6982-48d9-aaac-bd354de78e24"
+      Hint: Foreground
+      Value: "#111827"
+    - ID: "0014465e-b371-4692-a15c-197bdfc20ad8"
+      Hint: HeadingFont
+      Value: Source Serif 4
+    - ID: "7a7bbbbb-60a1-41d6-a420-1e9fd9ce3d58"
+      Hint: BodyFont
+      Value: Source Sans 3
+    - ID: "6ff2a582-8e7d-4940-a35a-c8484eadf371"
+      Hint: LogoAlt
+      Value: Versatile

@@ -1,0 +1,22 @@
+---
+ID: "19725f37-b84a-49a9-a11a-0c0b7fce1577"
+Parent: "bfef074e-bdaf-444e-a30e-d9b51b59c887"
+Template: "81435a43-25b2-41a8-aefb-a19011bd75c2"
+Path: "/sitecore/content/versatile/versatile-preview/Data/RichText Folder/Landing"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "725cba10-c5d5-4cc5-aedd-9a13810532f2"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "89e9f3ff-8a2b-4951-ad15-306bd7c7378f"
+      Hint: Body
+      Value: Write the story here. The same page types serve a catalogue and a launch.

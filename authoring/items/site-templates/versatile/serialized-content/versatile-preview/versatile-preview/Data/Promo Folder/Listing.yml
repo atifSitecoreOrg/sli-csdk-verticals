@@ -1,0 +1,25 @@
+---
+ID: "9ebfcc52-613c-4def-a364-42fad6634822"
+Parent: "de2671ce-be11-4226-a8d3-1cf52d8ff0f8"
+Template: "7928cc26-68e1-4c49-ae8d-49d9850aae50"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Promo Folder/Listing"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5c7294b1-183f-4e05-a2a7-e5abbd4ee1a4"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "8e0f4a27-0a37-4509-a5dc-9cf06cc99fa1"
+      Hint: Title
+      Value: Selected for this season
+    - ID: "22f0f00a-0469-4f40-ab8a-526559e2b404"
+      Hint: Summary
+      Value: A short offer, with a link through to the detail.

@@ -1,0 +1,32 @@
+---
+ID: "3d22c8f4-21e9-4f72-a61c-6d415b835a5c"
+Parent: "9869aab0-011a-42b9-a4e5-01a142e854a6"
+Template: "fd2059fd-6043-4dfe-8c04-e2437ce87634"
+Path: "/sitecore/content/versatile/versatile-preview/Presentation/Partial Designs/footer"
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: footer
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{8EA63586-DA30-414E-AAE8-138407836226}" p:before="*" s:ds="c612a4ca-66a3-4a03-a508-f6eacbe80c5f" s:id="{12333C72-52F7-4E39-A363-EA19B65BBD67}" s:ph="headless-footer" />
+            <r uid="{70134A82-75C4-4CEB-AD77-11B57F99F582}" p:after="r[@uid='{8EA63586-DA30-414E-AAE8-138407836226}']" s:id="{271B433C-D256-4C07-A460-3EC14A9B5F3C}" s:ph="headless-footer" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cfdc80f8-59ab-4e1f-aad4-312997b3c23a"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

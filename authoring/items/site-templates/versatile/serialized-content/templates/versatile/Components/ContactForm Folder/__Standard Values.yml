@@ -1,0 +1,23 @@
+---
+ID: "10e001fa-6e69-4141-ad69-cbb9c30946a6"
+Parent: "9b243a01-db39-4617-a086-555470717bdf"
+Template: "9b243a01-db39-4617-a086-555470717bdf"
+Path: "/sitecore/templates/Project/versatile/Components/ContactForm Folder/__Standard Values"
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7ba0657b-ffc5-46a6-a4a0-3d0953e1e2df"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

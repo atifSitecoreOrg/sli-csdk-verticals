@@ -1,0 +1,35 @@
+---
+ID: "22e420c9-1260-44f8-a601-1cc2ffed4488"
+Parent: "57c9f1bb-a716-41f4-8fc2-5e74c5162f50"
+Template: "95d5a2e5-1168-4b8b-a7be-bb6551706171"
+Path: "/sitecore/content/versatile/versatile-preview/Home/Landing"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s" p:p="1">
+          <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}">
+            <r uid="{C3C87B7D-08FD-4F09-A079-420DA23BDACB}" p:before="*" s:ds="031af9ca-34d5-43d1-a4dc-23b1fdbc8766" s:id="{AFD7E6C6-885D-4695-A64D-76B5CA8DC1DB}" s:ph="headless-main" />
+            <r uid="{12CE24E1-B8EC-4722-A4FD-F5FFCF417A5B}" p:after="r[@uid='{C3C87B7D-08FD-4F09-A079-420DA23BDACB}']" s:ds="19725f37-b84a-49a9-a11a-0c0b7fce1577" s:id="{347AAA02-9FA5-48C4-A467-5E3025BF95A1}" s:ph="headless-main" />
+            <r uid="{AA974FFE-C860-4DFC-AD96-A220A0CB2694}" p:after="r[@uid='{12CE24E1-B8EC-4722-A4FD-F5FFCF417A5B}']" s:ds="c96e76af-acc9-4ba1-a2f8-67fdd2a6afc7" s:id="{ACE26629-A454-4344-AB3C-7EDF33FBAAEB}" s:ph="headless-main" />
+            <r uid="{6C60E9C6-6503-47FA-A60F-61666F9BDC7F}" p:after="r[@uid='{AA974FFE-C860-4DFC-AD96-A220A0CB2694}']" s:ds="cb4a6ef6-63ff-4abf-a1df-32c27f53c782" s:id="{8C977EDF-2A7A-42E6-A078-0090332EA8F1}" s:ph="headless-main" />
+            <r uid="{EA4D6F60-C117-46A1-AA8D-14C845839E29}" p:after="r[@uid='{6C60E9C6-6503-47FA-A60F-61666F9BDC7F}']" s:id="{8181A410-EB8F-4BDC-A2B0-A93428F985DE}" s:par="DynamicPlaceholderId=1" s:ph="headless-main" />
+          </d>
+        </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "417f8a2e-c745-41a2-a83f-6abb103e1b00"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "033b0ebc-2b1e-4ce6-a5fa-142115117ca4"
+      Hint: Title
+      Value: Landing

@@ -1,0 +1,25 @@
+---
+ID: "cabc1348-ef6c-4d9f-ab7d-f0a68f2a47f8"
+Parent: "f56077b7-d1eb-44dd-ad92-e2f979ab5153"
+Template: "2c4b116b-a062-4f42-aae6-367b2f037ba9"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Cta Folder/Home"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1ac2979c-0ce6-4b03-a54a-b07cc2e486c5"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "20b6e237-7818-46a9-a3ea-2425e00cd384"
+      Hint: Title
+      Value: Talk to the team
+    - ID: "feaea876-1f58-4bad-a64e-a997e7dfa82a"
+      Hint: Summary
+      Value: Send a question. A person replies.

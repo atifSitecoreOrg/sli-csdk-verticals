@@ -1,0 +1,23 @@
+---
+ID: "63ec688e-8a64-4b78-aba3-0d4ce69b3c73"
+Parent: "befbca93-5a85-420f-a910-379057caaa71"
+Template: "befbca93-5a85-420f-a910-379057caaa71"
+Path: "/sitecore/templates/Project/versatile/Components/Promo Folder/__Standard Values"
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e6b90533-698b-4089-a8b9-b5b6c80e6df3"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

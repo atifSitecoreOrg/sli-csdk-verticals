@@ -1,0 +1,19 @@
+---
+ID: "3248ff17-d0a6-4154-ab44-4b64086e316c"
+Parent: "76b3c5ce-ef89-41b1-91d4-48799610d05b"
+Template: "ccf5b430-bd79-47bc-ae3d-bb8971526c96"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Card Folder"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4163633a-0ee3-4db5-ac8c-f6bf6dfc7bdc"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

@@ -1,0 +1,13 @@
+---
+description: Keep SitecoreAI site templates in the Project layer, brand values on the site Brand item, and motion off while Page builder is editing.
+alwaysApply: true
+---
+
+# Site template
+
+When the task is a site template, the Create site dialog, or a reusable real-estate, retail, or campaign site, follow [.cursor/skills/sitecore-site-template/SKILL.md](../skills/sitecore-site-template/SKILL.md).
+
+- Serialize the Solution template, site setup, branches, and renderings under `/sitecore/.../Project/`. Never under SXA Foundation or Feature.
+- One template covers real estate, retail, and campaign sites. Logo, colours, and type live on that site's Brand item. Shared components read CSS variables from it.
+- While `page.mode.isEditing` is set, do not apply entrance motion, sticky or fixed headers, collapsed accordions, or hidden carousel slides.
+- Do not put content renderings on a page design. Map page types with `TemplatesMapping`. Set `__Default workflow` only on `__Standard Values`.

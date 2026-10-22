@@ -1,0 +1,19 @@
+---
+ID: "5ee3e844-d7d0-4660-afe4-1575bbb4afa2"
+Parent: "24c0822d-b736-42a5-a6fc-a3c4bfdebc29"
+Template: "6d82fcd8-c379-443c-97a9-c6423c71e7d5"
+Path: "/sitecore/system/Modules/PowerShell/Script Library/JSS SXA/Versatile"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "38f0fefd-b250-4ad5-afd5-e2deb39b5af9"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z

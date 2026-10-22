@@ -1,0 +1,28 @@
+---
+ID: "69e2dec0-4bcf-4315-aa60-06eda2f3c6cd"
+Parent: "811e155e-f040-4497-af54-57569b0f01d6"
+Template: "87de27b7-92e0-4ce6-a444-82dbcd3714bf"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Hero Folder/Listing"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8eae1983-c3a8-4e1a-adae-f0547eda61db"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "07e43a05-bc00-42d1-a2c7-bddb1d2f8fcf"
+      Hint: Title
+      Value: A place to begin
+    - ID: "0a93886d-2780-41a5-a31e-b244eb4ad33f"
+      Hint: Subtitle
+      Value: Real estate, retail, or a campaign
+    - ID: "6c864d18-9d6b-489f-ac20-1bdcf409055c"
+      Hint: Summary
+      Value: ""

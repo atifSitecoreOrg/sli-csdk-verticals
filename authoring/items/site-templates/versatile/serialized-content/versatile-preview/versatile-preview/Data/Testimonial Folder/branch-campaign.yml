@@ -1,0 +1,25 @@
+---
+ID: "5d7977c0-9420-4516-a432-623ba9546212"
+Parent: "d79b0f59-44ed-44e2-a29b-3a55bdedc59f"
+Template: "e180f8d5-ddda-430f-aff0-18804eb46131"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Testimonial Folder/branch-campaign"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d17b5ee3-9e0b-4ebd-a462-4a2454efcc91"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
+    - ID: "e5e1f977-ab73-4088-afda-ea3cd74a06fb"
+      Hint: Title
+      Value: In their words
+    - ID: "eef08c51-952d-40e6-ab07-1b7861916ecc"
+      Hint: Summary
+      Value: A short quote from a customer.

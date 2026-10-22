@@ -1,0 +1,19 @@
+---
+ID: "81bf9809-c3cb-4d4d-a0f8-03fcd12ef4f5"
+Parent: "76b3c5ce-ef89-41b1-91d4-48799610d05b"
+Template: "1bf30ef3-4964-4e68-ab44-62abdf5fa36f"
+Path: "/sitecore/content/versatile/versatile-preview/Data/Media Folder"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20261022T000000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5d0ea47b-51d4-4d2b-ae58-ad3dc1d84bb9"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20261022T000000Z
